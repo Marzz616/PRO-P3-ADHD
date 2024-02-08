@@ -1,0 +1,34 @@
+#img-1,
+#img-3,
+#img-4,
+#img-5 {
+    width: 40%;
+    height: 40%;
+}
+
+#img-2 {
+    width: 120%;
+    height: 120%;
+    margin-bottom: 1rem;
+}
+
+#img-1,
+#img-2,
+#filmpje-1 {
+    border-radius: 0 50px;
+    border: solid;
+    border-color: black;
+    padding: 0;
+}
+
+#more {
+    display: none;
+}
+
+#myBtn {
+    width: 6rem;
+    height: auto;
+    border-radius: 0 50px;
+    border: solid;
+    padding: 0;
+}
