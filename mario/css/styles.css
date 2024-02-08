@@ -1,77 +1,97 @@
-
+body {
+  background-color:#eea410;
+  color: #000000;
+  font-family: "Montserrat",sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  font-style: normal;
+  padding: 0;
+  word-wrap: break-word;
+}
 
 nav ul {
-    display: flex;
-    padding: 20;
-    margin: 0.5rem;
-  }
-  nav ul li {
-    display: flex;
-    position: relative;
-  }
-  nav ul li a {
-    display: inline-block;
-    padding: 0.5rem;
-    color: #000000;
-  }
-  nav .main-menu ul > li > a {
-    text-decoration: none;
-  }
-  nav .main-menu ul > li > a:hover {
-    background-color: #000000;
-  }
-  nav .user-menu ul > li:first-of-type::after {
-    content: "|";
-    margin-top: 1rem;
-    color: #fff;
-    opacity: 0.5;}
+  display: flex;
+  padding: 20;
+  margin: 0.5rem;
+}
+nav ul li {
+  display: flex;
+  position: relative;
+}
+nav ul li a {
+  display: inline-block;
+  padding: 0.5rem;
+  color: #000000;
+}
+nav .main-menu ul > li > a {
+  text-decoration: none;
+}
+nav .main-menu ul > li > a:hover {
+  background-color: #000000;
+}
+nav .user-menu ul > li:first-of-type::after {
+  content: "|";
+  margin-top: 1rem;
+  color: #fff;
+  opacity: 0.5;}
 
 nav {
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #9800DB;
-    z-index: 3;
-  }
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #e95c04;
+  z-index: 3;
+}
 nav .logo {
-    position: absolute;
-    left: 0;
-    width: 10rem;
+  position: absolute;
+  left: 0;
+  width: 10rem;
 }
 
 nav .menu-container {
-    display: flex;
-    font-weight: bold;
-    font-size: 1.5rem;
-    justify-content: space-between;
-    padding-left: 20rem;
+  display: flex;
+  font-weight: bold;
+  font-size: 1.5rem;
+  justify-content: space-between;
+  padding-left: 20rem;
 
 }
 
-  nav.fixed {
-    position: fixed;
-  }
-  nav.sticky {
-    position: sticky;
-  }
-  nav.absolute {
-    position: absolute;
-  }
-
-  h2 {
-    margin-left: 10rem;
+nav.fixed {
+  position: fixed;
+}
+nav.sticky {
+  position: sticky;
+}
+nav.absolute {
+  position: absolute;
 }
 
-h1 {
-    border-radius: 0 25px;
-    background-color: #d6d6d6;
-    margin: 0.5rem;
-    padding: 0.5rem 1rem;
+h3 {
+  margin-left: 10rem;
 }
-  div .JJT{
 
-  }
+h2 {
+  border-radius: 0 25px;
+  background-color: #d6d6d6;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+}
 
-  p {
+.fotos {
   text-align: center;
+}
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  margin: 30px;
+  padding: 10px;
+  font-size: 18px;
+}
+.fotos2 {
+  size-adjust: 480px;
 }
