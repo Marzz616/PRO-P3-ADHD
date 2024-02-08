@@ -1,6 +1,6 @@
 nav ul {
     display: flex;
-    padding: 10;
+    padding: 20;
     margin: 0.5rem;
 }
 
@@ -11,7 +11,7 @@ nav ul li {
 
 nav ul li a {
     display: inline-block;
-    padding: 1rem;
+    padding: 0.5rem;
     color: #000000;
 }
 
@@ -47,9 +47,9 @@ nav .logo {
 nav .menu-container {
     display: flex;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     justify-content: space-between;
-    padding-left: 10rem;
+    padding-left: 20rem;
 
 }
 
