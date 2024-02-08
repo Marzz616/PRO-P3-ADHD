@@ -57,3 +57,21 @@ nav .menu-container {
   nav.absolute {
     position: absolute;
   }
+
+  h2 {
+    margin-left: 10rem;
+}
+
+h1 {
+    border-radius: 0 25px;
+    background-color: #d6d6d6;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+  div .JJT{
+
+  }
+
+  p {
+  text-align: center;
+}
