@@ -475,22 +475,17 @@
   align-items: stretch !important;
 }
 
-.h2 {
-  font-size: 50px;
-  margin-left: 40rem;
-  margin-right: 38rem;
-  margin-top: 5rem;
-  font-family: "Arial", sans-serif;
-  background: #f8f8f8;
-  padding: 10px;
-}
-
 .faq-container {
-  max-width: 600px;
-  margin: 1 auto;
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 10rem;
   padding: 10px;
   background-color: #f8f8f8;
-  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .faq-question {
