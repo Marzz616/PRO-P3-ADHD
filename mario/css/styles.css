@@ -1,7 +1,7 @@
 body {
-  background-color:#eea410;
+  background-color:#000000;
   color: #000000;
-  font-family: "Montserrat",sans-serif;
+  font-family: "BLOKK";
   font-size: 16px;
   font-weight: 400;
   line-height: 1.45;
@@ -68,6 +68,11 @@ nav.absolute {
   position: absolute;
 }
 
+main {
+  position: relative;
+  margin-top: 6rem;
+}
+
 h3 {
   margin-left: 10rem;
 }
@@ -87,10 +92,15 @@ h2 {
 }
 
 .flex-container > div {
-  background-color: #f1f1f1;
+  background-color: #e95c04;
   margin: 30px;
   padding: 10px;
   font-size: 18px;
+border-radius: 0 50px;
+}
+
+img {
+  border-radius: 0 50px;
 }
 .fotos2 {
   size-adjust: 480px;
