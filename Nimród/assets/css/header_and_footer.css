@@ -12,15 +12,16 @@ nav ul li {
 nav ul li a {
     display: inline-block;
     padding: 0.5rem;
-    color: #000000;
+    color: #fff;
 }
 
 nav .main-menu ul>li>a {
     text-decoration: none;
 }
 
-nav .main-menu ul>li>a:hover {
-    background-color: #000000;
+nav ul li a:hover {
+    transition: 0.5s;
+    color: #ff8c00;
 }
 
 nav .user-menu ul>li:first-of-type::after {
@@ -34,7 +35,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #9800DB;
+    background-color: black;
     z-index: 3;
 }
 
