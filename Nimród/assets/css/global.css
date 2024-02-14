@@ -1,9 +1,8 @@
 body {
-    /*background-color: red;
-    /* For browsers that do not support gradients */
-    /*background-image: linear-gradient(rgb(126, 126, 255),
+    /* background-color: red;
+    background-image: linear-gradient(rgb(126, 126, 255),
             indigo,
-            violet);*/
+            violet); */
     display: flex;
     flex-direction: column;
     margin-top: 3rem;

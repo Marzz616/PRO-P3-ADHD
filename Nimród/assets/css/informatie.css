@@ -28,8 +28,9 @@
 
 #myBtn,
 #myBtn2 {
-    width: 6rem;
-    height: auto;
+    background-color: #f79616;
+    width: 7.5rem;
+    height: 1.5rem;
     border-radius: 0 50px;
     border: solid;
     padding: 0;
