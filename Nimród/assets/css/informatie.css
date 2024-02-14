@@ -21,11 +21,13 @@
     padding: 0;
 }
 
-#more {
+#more,
+#more2 {
     display: none;
 }
 
-#myBtn {
+#myBtn,
+#myBtn2 {
     width: 6rem;
     height: auto;
     border-radius: 0 50px;
