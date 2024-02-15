@@ -1,44 +1,34 @@
 nav {
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #9800DB;
-  z-index: 2;
+  inset: 0 0 auto 0;
+  background-color: black;
+  /* z-index: 3; */
 }
 nav ul {
   display: flex;
-  padding: 10;
+  padding: 20;
   margin: 0.5rem;
 }
 nav ul li {
   display: flex;
-  position: f;
+  position: relative;
 }
 nav ul li a {
   display: inline-block;
-  padding: 1rem;
-  color: #000000;
+  padding: 0.5rem;
+  color: #fff;
+}
+nav ul li a:hover {
+  transition: 0.5s;
+  color: #ff8c00;
 }
 nav .main-menu ul > li > a {
   text-decoration: none;
 }
-nav .main-menu ul > li > a:hover {
-  background-color: #bb00ff;
-}
 nav .user-menu ul > li:first-of-type::after {
   content: "|";
-  margin-top: 1rem;
+  margin-top: 0.4rem;
   color: #fff;
   opacity: 0.5;
-}
-nav.fixed {
-  position: fixed;
-}
-nav.sticky {
-  position: sticky;
-}
-nav.absolute {
-  position: absolute;
 }
 nav .logo {
   position: absolute;
@@ -48,15 +38,18 @@ nav .logo {
 nav .menu-container {
   display: flex;
   font-weight: bold;
-  font-size: 1.5em;
-  justify-content: space-between;
-  padding-left: 10rem;
+  font-size: 1.5rem;
+  /* justify-content: space-between; */
+  /* padding-left: 20rem; */
 }
-
-@media only screen and (max-width: 768px) {
-  .faq-container {
-    max-width: 90%;
-  }
+nav.fixed {
+  position: fixed;
+}
+nav.sticky {
+  position: sticky;
+}
+nav.absolute {
+  position: absolute;
 }
 
 /*# sourceMappingURL=header_and_footer.css.map */
