@@ -1,3 +1,7 @@
+nav{
+    display: flex;
+}
+
 nav ul {
     display: flex;
     padding: 20;
@@ -54,8 +58,8 @@ nav .menu-container {
     display: flex;
     font-weight: bold;
     font-size: 1.5rem;
-    justify-content: space-between;
-    padding-left: 20rem;
+    /* justify-content: space-between; */
+    /* padding-left: 20rem; */
 
 }
 
