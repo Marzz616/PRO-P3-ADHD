@@ -475,6 +475,41 @@
   align-items: stretch !important;
 }
 
+.ask-your-own-questions {
+  margin-top: 40px;
+}
+.ask-your-own-questions .question-label {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+.ask-your-own-questions .question-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.ask-your-own-questions .question-input:focus {
+  outline: none;
+  border-color: dodgerblue;
+}
+.ask-your-own-questions .question-input::placeholder {
+  color: #999;
+}
+.ask-your-own-questions .submit-button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.ask-your-own-questions .submit-button:hover {
+  background-color: rgba(0, 123, 255, 0.5058823529);
+}
+
 .faq-container {
   max-width: 80%;
   margin: 0 auto;
@@ -513,6 +548,10 @@
   padding: 10px;
   border: 2px dotted;
   background-color: white;
+}
+
+.echo-text {
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=faq.css.map */
