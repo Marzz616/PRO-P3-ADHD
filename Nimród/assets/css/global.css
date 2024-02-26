@@ -9,6 +9,28 @@ body {
     box-sizing: border-box;
 }
 
+/* 
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.static {
+    position: static;
+}
+
+.sticky {
+    position: sticky;
+}
+ */
+
 .bubble {
     border-radius: 0 50px;
     background-color: #a4a4a4;
