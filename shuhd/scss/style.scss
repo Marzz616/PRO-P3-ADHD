@@ -1,8 +1,11 @@
+@use "navbar";
+
 html, body {
   width: 100%;
   height: 100%;
   margin: 0;
-  font-size: 1rem;
+  font-size: 20px;
+  font-family: sans-serif;
 }
 
 body * {
@@ -10,20 +13,52 @@ body * {
 }
 
 
+  .logo {
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #00aaff;
 
-.ai-flex-end {
-  align-items: flex-end !important;
+    
+    font-family: "Protest Riot", sans-serif;
+    font-style: normal;
+    span {
+        color: rgb(255, 255, 255);
+
+    }
+  
+  
+  ul {
+    display: flex;
+    height: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      height: 100%;
+      
+      a {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        color: white;
+        padding: .8rem 1rem;
+        text-decoration: none;
+        font-size: 1.1em;
+      }
+    }
+  }
+
 }
-
 
 .slideshow-container {
     position: relative;
     width: 100%;
-    height: 60vh;
-    height: auto;
+    height: 80vh;
     display: grid;
     overflow: hidden;
-   
+    
     img.mySlides {
       height: 100vh;
       overflow: hidden;
@@ -32,22 +67,19 @@ body * {
       inset: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
-        
+      object-fit: cover;
+      z-index: -1;        
   }
 
   
-.absolute {
+.banner-text {
         position: absolute;
         align-self: center;
-        width: 200px;
-        height: 100px;
-        color: black;
+        color: rgb(255, 255, 255);
         justify-self: center;
-        &.text {
-            font-weight: bold;
-            font-size: 2rem;
-        }
+        font-weight: bold;
+        font-size: 3.5rem;
+        z-index: 4;
     }
 }
 
@@ -59,40 +91,44 @@ body * {
   img {
     width: 40%;
     height: 50%;
-  }
-}
 
-p {
-   font-size: 1rem;
-   font-weight: bold;
-   font-family: sans-serif;
+  }
 
 }
 
-a.Header-branding:after {
-    content: "AD(H)D";
-    color: #ffffff;
-    margin-left: 10px;
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-
-    a.Header-branding {
-      display: flex;
-      align-items: center;
-  }
+a {
+  content: "AD(H)D";
+  color: #ffffff;
+  margin-left: 10px;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  
 }
 
 .text {
     margin: 0;
     font-size: 16px;
     font-weight: bold;
-    color: #ffffff;
-    font-family: sans-serif;
-
+    color: #00aaff;
 }
 
 main {
   margin: 0 auto;
   padding: 20px;
 }
+
+.bubble {
+  border-radius: 0 50px;
+  background-color: #d6d6d6;
+  margin: 0.5rem;
+  padding: 1rem;
+  
+  .schommel {
+    float: right;
+    width: 20%;
+    height: auto;
+ }
+}
+
+
