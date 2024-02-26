@@ -11,18 +11,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
     <script src="../Nimród/JavaScript/read_more.js"></script>
+    <script src="../Nimród/JavaScript/aside.js"></script>
     <title>Informatie</title>
 </head>
 
 <body>
     <header>
         <nav class="fixed">
-            <div class="menu-container jc-flex-end ">
-                <div class="logo">
+
+            <div class="menu-container">
+                <div class="main-menu jc-space-between"><span class="side_menu_open" style="cursor:pointer"
+                        onclick="openNav()">&#9776;
+                        open</span></div>
+                <!-- <div class="logo">
                     <span>Focus</span>Fuse
                     <p class="text">AD(H)D</p>
-                </div>
+                </div> -->
                 <div class="main-menu row jc-space-between">
+
                     <ul>
                         <li><a href="../shuhd/index.html">Home</a></li>
                         <li><a href="../Nimród/informatie.html">Informatie</a></li>
@@ -38,6 +44,16 @@
             </div>
         </nav>
     </header>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#img-1">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+    <span class="side_menu_open" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
     <main class="container col ai-center">
 
         <h1>Wat is AD(H)D </h1>
@@ -464,10 +480,10 @@
 
         </section>
     </main>
-    <footer>
+    <!-- <footer>
         <div class="footer-text">Deze tekst is tijdelijk</div>
         <a href="https://adhdcentraal.nl/zelftest/" class="footer-button">Doe de ADHD test</a>
-    </footer>
+    </footer> -->
 </body>
 
 </html>
