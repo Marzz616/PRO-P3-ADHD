@@ -4,18 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
-    <link rel="stylesheet" href="../Nimród/assets/css/informatie.css">
-    <link rel="stylesheet" href="../Nimród/assets/css/header_and_footer.css">
-    <link rel="stylesheet" href="../Nimród/assets/css/global.css">
-    <script src="../Nimród/JavaScript/read_more.js"></script>
+    <link rel="stylesheet" href="../Nimród/Sprint 1/assets/css/informatie.css">
+    <link rel="stylesheet" href="../Nimród/Sprint 1/assets/css/header_and_footer.css">
+    <link rel="stylesheet" href="../Nimród/Sprint 1/assets/css/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    <script src="../Nimród/Sprint 1/JavaScript/read_more.js"></script>
+    <script src="../Nimród/Sprint 1/JavaScript/aside.js"></script>
     <title>Informatie</title>
 </head>
 
 <body>
     <header>
         <nav class="fixed">
-            <div class="menu-container jc-flex-end ">
+
+            <div class="menu-container">
+                <div class="main-menu jc-space-between"><span class="side_menu_open" style="cursor:pointer"
+                        onclick="openNav()">&#9776;
+                        open</span></div>
                 <div class="main-menu row jc-space-between">
+
                     <ul>
                         <li><a href="../shuhd/index.html">Home</a></li>
                         <li><a href="../Nimród/informatie.html">Informatie</a></li>
@@ -30,10 +39,21 @@
                 </div>
             </div>
         </nav>
-        <main class="container col ai-center">
+    </header>
 
-            <h1>Wat is AD(H)D </h1>
-            <h2>Wat is ADHD?</h2>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#aanvullende_vereisten">Aanvullende vereisten</a>
+        <a href="#Afbakening_en_criteria">Afbakening en criteria</a>
+        <a href="#Medicamenteuze_behandeling_van_ADHD">Medicamenteuze behandeling van ADHD</a>
+    </div>
+    <span class="side_menu_open" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+    <main class="container col ai-center">
+        <h1>Wat is AD(H)D </h1>
+        <h2>Wat is ADHD?</h2>
+
+        <section class="col-8">
             <section class="bubble row jc-space-evenly">
                 <iframe id="filmpje-1" class="col col-4 col-xl-4 col-l-4 col-m-6 col-s-8 col-xs-10" width="600"
                     height="200" src="https://www.youtube.com/embed/SsZSB0qhctI" frameborder="0"></iframe>
@@ -84,9 +104,9 @@
                     </ul>
                 </div>
             </section>
-            <section class="bubble row jc-space-evenly">
+            <section id="aanvullende_vereisten" class="bubble row jc-space-evenly">
                 <img id="img-1" class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12"
-                    src="../Nimród/assets/img/add.jpg" alt="">
+                    src="../Nimród/Sprint 1/assets/img/add.jpg" alt="">
                 <div class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12">
                     <p>
                         Als aanvullende vereisten gelden dat deze symptomen:
@@ -107,7 +127,7 @@
                 </div>
             </section>
 
-            <section class="bubble row jc-space-evenly">
+            <section id="Afbakening_en_criteria" class="bubble row jc-space-evenly">
 
                 <div class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12">
                     <h4>Afbakening en criteria:</h4>
@@ -136,9 +156,11 @@
                         op meerdere
                         levensgebieden. Bijvoorbeeld zowel in de thuissituatie als op school, op het werk en/of in het
                         sociale leven.<br><br>
+                    </p>
 
+                    <p>
                         Er worden drie beelden van ADHD onderscheiden:
-
+                    </p>
                     <ul>
                         <li>gecombineerd beeld: zowel druk en impulsief gedrag als moeite met het vasthouden van de
                             aandacht</li>
@@ -146,70 +168,86 @@
                             het vasthouden van de aandacht</li>
                         <li>overwegend hyperactief/ impulsief beeld: voornamelijk druk en impulsief gedrag</li>
                     </ul>
-
-                    Daarnaast kennen we nog de ongespecificeerde aandachtstekortstoornis. De precieze criteria van
-                    ADHD
-                    zoals omschreven in
-                    de DSM-5 vindt je in de tabel hieronder.<br>
+                    <p>
+                        Daarnaast kennen we nog de ongespecificeerde aandachtstekortstoornis. De precieze criteria van
+                        ADHD
+                        zoals omschreven in
+                        de DSM-5 vindt je in de tabel hieronder.<br>
+                    </p>
                     <span id="dots">...</span><span id="more">
-                        ADHD wordt meestal voor het eerst vastgesteld in de
-                        kindertijd of adolescentie, maar het komt ook regelmatig voor dat de
-                        aandoening pas tijdens de volwassenheid wordt opgemerkt. Bijvoorbeeld op het moment dat er
-                        problemen ontstaan tijdens de
-                        studie en/of op het werk, of als iemand hulp zoekt voor chronische vermoeidheid, depressie, eet-
-                        of slaapproblemen,
-                        waarbij ADHD dan mede een rol blijkt te spelen. Ook komt het nogal eens voor dat wanneer een
-                        kind de diagnose ADHD
-                        krijgt, vervolgens één van de ouders zijn of haar eigen problemen ook kan duiden en zelf
-                        ADHD(-symptomen) blijkt te hebben.<br><br>
+                        <p>
+                            ADHD wordt meestal voor het eerst vastgesteld in de
+                            kindertijd of adolescentie, maar het komt ook regelmatig voor dat de
+                            aandoening pas tijdens de volwassenheid wordt opgemerkt. Bijvoorbeeld op het moment dat er
+                            problemen ontstaan tijdens de
+                            studie en/of op het werk, of als iemand hulp zoekt voor chronische vermoeidheid, depressie,
+                            eet-
+                            of slaapproblemen,
+                            waarbij ADHD dan mede een rol blijkt te spelen. Ook komt het nogal eens voor dat wanneer een
+                            kind de diagnose ADHD
+                            krijgt, vervolgens één van de ouders zijn of haar eigen problemen ook kan duiden en zelf
+                            ADHD(-symptomen) blijkt te hebben.<br><br>
 
-                        Op internet floreren allerhande checklists waarmee het mogelijk zou zijn om bij een kind of
-                        volwassenen na te gaan of er
-                        sprake is van ADHD. Deze checklists zijn doorgaans gebaseerd op bovenstaande 18 gedragingen,
-                        waardoor een diagnose
-                        stellen weinig meer lijkt dan het simpelweg ‘afvinken’ van deze criteria. Dit staat echter ver
-                        af van de klinische
-                        praktijk, waarbij met name het laatste criterium de meeste klinische ervaring en kundigheid
-                        vraagt: ‘de symptomen kunnen
-                        niet beter worden verklaard door een andere psychische stoornis’ en ‘symptomen interfereren met
-                        het sociale, schoolse of
-                        beroepsmatige functioneren’. Een psychiater, psycholoog, orthopedagoog, jeugdarts, kinderarts of
-                        verpleegkundig
-                        specialist zal in de klinische praktijk zich vooral richten op de vraag of de gedragingen die
-                        het kind laat zien -die op
-                        het eerste oog passend kunnen lijken bij ADHD- daadwerkelijk het best beschreven worden door de
-                        diagnose ADHD te
-                        stellen, en of de symptomen zichtbaar interfereren met het functioneren van het kind gezien, met
-                        inachtneming van de
-                        leeftijd, situationele aspecten en cognitieve capaciteiten van het kind. Een diagnose ADHD wordt
-                        daarom pas gesteld
-                        wanneer aspecten in de tabellen hieronder goed zijn uitgezocht (zie voor volledige beschrijving
-                        het
-                        hoofdstuk Diagnose
-                        ADHD).<br><br>
+                            Op internet floreren allerhande checklists waarmee het mogelijk zou zijn om bij een kind of
+                            volwassenen na te gaan of er
+                            sprake is van ADHD. Deze checklists zijn doorgaans gebaseerd op bovenstaande 18 gedragingen,
+                            waardoor een diagnose
+                            stellen weinig meer lijkt dan het simpelweg ‘afvinken’ van deze criteria. Dit staat echter
+                            ver
+                            af van de klinische
+                            praktijk, waarbij met name het laatste criterium de meeste klinische ervaring en kundigheid
+                            vraagt: ‘de symptomen kunnen
+                            niet beter worden verklaard door een andere psychische stoornis’ en ‘symptomen interfereren
+                            met
+                            het sociale, schoolse of
+                            beroepsmatige functioneren’. Een psychiater, psycholoog, orthopedagoog, jeugdarts,
+                            kinderarts of
+                            verpleegkundig
+                            specialist zal in de klinische praktijk zich vooral richten op de vraag of de gedragingen
+                            die
+                            het kind laat zien -die op
+                            het eerste oog passend kunnen lijken bij ADHD- daadwerkelijk het best beschreven worden door
+                            de
+                            diagnose ADHD te
+                            stellen, en of de symptomen zichtbaar interfereren met het functioneren van het kind gezien,
+                            met
+                            inachtneming van de
+                            leeftijd, situationele aspecten en cognitieve capaciteiten van het kind. Een diagnose ADHD
+                            wordt
+                            daarom pas gesteld
+                            wanneer aspecten in de tabellen hieronder goed zijn uitgezocht (zie voor volledige
+                            beschrijving
+                            het
+                            hoofdstuk Diagnose
+                            ADHD).<br><br>
 
-                        Pas wanneer alternatieve verklaringen voor het impulsieve, hyperactieve en/of ongeconcentreerde
-                        gedrag zijn uitgesloten,
-                        de gedragingen al langere tijd aanwezig zijn in meerdere contexten en tot ernstige belemmeringen
-                        leiden voor de
-                        ontwikkeling van het kind, zal de diagnose ADHD worden gesteld. Het is dus niet mogelijk enkel
-                        en alleen op basis van
-                        checklists en/of vragenlijsten een diagnose ADHD te stellen.<br><br>
+                            Pas wanneer alternatieve verklaringen voor het impulsieve, hyperactieve en/of
+                            ongeconcentreerde
+                            gedrag zijn uitgesloten,
+                            de gedragingen al langere tijd aanwezig zijn in meerdere contexten en tot ernstige
+                            belemmeringen
+                            leiden voor de
+                            ontwikkeling van het kind, zal de diagnose ADHD worden gesteld. Het is dus niet mogelijk
+                            enkel
+                            en alleen op basis van
+                            checklists en/of vragenlijsten een diagnose ADHD te stellen.<br><br>
 
-                        Wanneer er gedegen onderzoek heeft plaatsgevonden en er sprake blijkt van ADHD, wordt er een
-                        ernstclassificatie gemaakt
-                        (zie hieronder). In de klinische praktijk wordt zelden de classificatie ‘licht’ gegeven, omdat
-                        er pas ADHD wordt
-                        vastgesteld wanneer de symptomen zeer duidelijk aanwezig zijn en tot belemmeringen
-                        leiden.
+                            Wanneer er gedegen onderzoek heeft plaatsgevonden en er sprake blijkt van ADHD, wordt er een
+                            ernstclassificatie gemaakt
+                            (zie hieronder). In de klinische praktijk wordt zelden de classificatie ‘licht’ gegeven,
+                            omdat
+                            er pas ADHD wordt
+                            vastgesteld wanneer de symptomen zeer duidelijk aanwezig zijn en tot belemmeringen
+                            leiden.
+                        </p>
                     </span>
                     </p>
                     <button onclick="myFunction()" id="myBtn">Read more</button>
                 </div>
                 <img id="img-1" class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12"
-                    src="../Nimród/assets/img/add.jpg" alt="">
+                    src="../Nimród/Sprint 1/assets/img/add.jpg" alt="">
             </section>
-            <section class="bubble row jc-space-evenly">
+            <section id="Medicamenteuze_behandeling_van_ADHD" class="bubble row jc-space-evenly">
                 <div class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12">
                     <h4>Medicamenteuze behandeling van ADHD</h4>
                     <p>Medicatie kan worden ingezet in overleg met ouders en kind/jongere, afhankelijk van de leeftijd,
@@ -347,116 +385,15 @@
                     <button onclick="myFunction2()" id="myBtn2">Read more</button>
                 </div>
                 <img id="img-1" class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12"
-                    src="../Nimród/assets/img/The-ADHD-Iceberg-What-It-Looks-Like.png" alt="">
+                    src="../Nimród/Sprint 1/assets/img/The-ADHD-Iceberg-What-It-Looks-Like.png" alt="">
             </section>
 
-            <h2>Wat is ADD?</h2>
-            <section class="bubble row jc-space-evenly">
-                <img id="img-1" class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12"
-                    src="../Nimród/assets/img/add.webp" alt="">
-                <div class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12">
-                    <h4>Wat is aandachtstekortstoornis?</h4>
-                    <p>"Aandachtstekortstoornis (ADD) is een term die
-                        wordt gebruikt voor
-                        mensen
-                        die buitensporige moeilijkheden hebben met concentratie zonder de aanwezigheid van andere
-                        ADHD-symptomen,
-                        zoals overmatige impulsiviteit of hyperactiviteit."<br><br>
-
-                        Aandachtstekortstoornis (ADD) is een neurobiologische aandoening die wordt gekenmerkt door
-                        chronische moeilijkheden met aandacht en concentratie.
-                        Het is een subtype van Attention Deficit Hyperactivity Disorder (ADHD), maar bij ADD ligt de
-                        nadruk
-                        meer op aandachtsproblemen dan op hyperactiviteit.
-                    </p>
-                </div>
-            </section>
-
-            <section class="bubble row jc-space-evenly">
-                <div class="col col-6 col-l-6 col-m-8 col-s-10 col-xs-12">
-                    <h3>Aandachtstekortstoornis (ADD)</h3>
-                    <br>
-                    <p>
-                        Aandachtstekortstoornis (ADD) is een neurobiologische aandoening die wordt gekenmerkt door
-                        chronische moeilijkheden
-                        met aandacht en concentratie.
-                        Het is een subtype van Attention Deficit Hyperactivity Disorder (ADHD),
-                        maar bij ADD ligt de nadruk meer op aandachtsproblemen dan op hyperactiviteit.
-                    </p>
-                    <ul>
-                        <li> Kenmerken van ADD:
-                            Mensen met ADD ervaren aanzienlijke uitdagingen bij het behouden van focus en aandacht voor
-                            langere periodes.
-                            In tegenstelling tot ADHD, vertonen individuen met ADD doorgaans minder impulsiviteit en
-                            hyperactiviteit.
-                            De belangrijkste kenmerken van ADD zijn:
-                        </li>
-                        <li>
-                            Concentratieproblemen: Individuen met ADD hebben vaak moeite om hun aandacht bij één taak te
-                            houden en kunnen gemakkelijk worden
-                            afgeleid door externe prikkels.
-                        </li>
-                        <li>
-                            Dromerigheid: Een neiging tot dagdromen en het verliezen van gedachten, waardoor het
-                            moeilijk kan zijn om op taken te blijven focussen.
-                        </li>
-                        <li>
-                            Organisatorische moeilijkheden: Mensen met ADD kunnen problemen hebben met het organiseren
-                            van taken,
-                            het handhaven van een gestructureerde planning en het voltooien van projecten.
-                        </li>
-                        <li>
-                            Tijdsbeheer: Het inschatten van tijd en het plannen van activiteiten kunnen uitdagend zijn,
-                            wat kan leiden tot problemen met punctualiteit.
-                        </li>
-                        <li>
-                            Hyperfocus: Ondanks de algemene moeite met concentratie,
-                            kunnen mensen met ADD soms volledig opgaan in een activiteit waarin ze zeer geïnteresseerd
-                            zijn, wat resulteert in intense concentratie.
-                        </li>
-                        <li>
-                            Diagnose en Behandeling:
-                            Een professionele diagnose van ADD omvat meestal een grondige beoordeling van symptomen,
-                            medische geschiedenis en observaties.
-                            Behandelingsopties omvatten vaak psycho-educatie, gedragstherapie en in sommige gevallen
-                            medicatie,
-                            zoals stimulerende middelen of niet-stimulerende medicijnen.
-                        </li>
-                        <li>
-                            Levensbeheer met ADD:
-                            Mensen met ADD kunnen succesvol functioneren door strategieën te ontwikkelen om met hun
-                            uitdagingen om te gaan.
-                            Het implementeren van effectieve organisatorische technieken,
-                            het stellen van realistische doelen en het creëren van een gestructureerde omgeving kunnen
-                            allemaal bijdragen aan het beheer van ADD in het dagelijks leven.
-                        </li>
-                    </ul>
-                    <p>
-                        Hoewel ADD zijn eigen unieke kenmerken heeft,
-                        is het belangrijk op te merken dat de ervaring van ADD sterk kan variëren tussen individuen.
-                        Een holistische benadering van diagnose en behandeling is essentieel om de specifieke behoeften
-                        van
-                        elk individu te begrijpen en aan te pakken.
-                    </p>
-                </div>
-                <div class="col col-5 ">
-                    <img src="../Nimród/assets/img/download.png" alt="" id="img-2">
-                    <img src="../Nimród/assets/img/PRO p3.jpeg" alt="" id="img-2">
-                </div>
-            </section>
-            <section class="bubble row jc-space-evenly">
-                <iframe id="filmpje-1" class="col col-4 col-xl-4 col-xxl-4 col-l-4 col-m-6 col-s-10 col-xs-12"
-                    width="600" height="200" src="https://www.youtube.com/embed/Em9JCcknZuc" frameborder="0"></iframe>
-                <div class="col col-4 col-xl-4 col-xxl-4 col-l-4 col-m-6 col-s-10 col-xs-12">
-                    <br><br><br>
-                    <p>
-                        Geef uw kinderen geen drugs, tenzij op advisering van de arts en met het kind over gesprek
-                    </p>
-                </div>
-
-
-            </section>
-        </main>
+        </section>
+    </main>
+    <!-- <footer>
+        <div class="footer-text">Deze tekst is tijdelijk</div>
+        <a href="https://adhdcentraal.nl/zelftest/" class="footer-button">Doe de ADHD test</a>
+    </footer> -->
 </body>
 
 </html>
