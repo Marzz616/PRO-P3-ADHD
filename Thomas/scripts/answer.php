@@ -30,6 +30,8 @@
     <div class="faq-container answers jc-center col-6">
         <?php
 
+        include '../config/config.php';
+
         // De Vragenlijst
         $existing_questions = [
             "Wat is het verschil tussen ADHD en ADD?",
@@ -76,10 +78,10 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 // Controleer of het formulier is verzonden en of het vraagveld niet leeg is
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
     // Database referenties
-    $servername = 'localhost';
-    $username = 'thomasmeijer';
-    $password = 'ep0Nr1XMCkA(64ER';
-    $dbname = 'faq';
+    $servername = DB_HOST;
+    $username = DB_USER;
+    $password = DB_PASS;
+    $dbname = DB_NAME;
 
     // Maak een connectie aan
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -136,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
 }
 
 // Omleiden naar index.php na 3 seconden
-header('Refresh:3; url=../index.php');
+ header('Refresh:3; url=../index.php');
 ?>
     </div>
 </body>
