@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../Nimród/Sprint 2/assets/javascript/maps.js"></script>
+  <link rel="stylesheet" href="../Nimród/Sprint 2/assets/css/maps.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <main></main>
+  <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
+  <div id="map"></div>
+
+  <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises.
+      See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly"
+    defer></script>
+  </main>
+</body>
+
+</html>
