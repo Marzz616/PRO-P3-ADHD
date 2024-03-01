@@ -6,46 +6,42 @@ nav {
   z-index: 10;
   display: flex;
 }
-nav div.menu-container {
+nav .menu-container {
   display: flex;
   justify-content: flex-end;
   font-size: 1rem;
+  justify-content: space-between;
 }
-nav div.menu-container .fixed {
+nav .fixed {
   position: fixed;
+  justify-content: flex-end;
 }
-nav div.menu-container ul {
+nav .user-menu {
+  margin-top: 0.4rem;
+  color: #fff;
+  opacity: 0.5;
+  padding-right: 0rem;
+  padding-left: auto;
+  justify-self: left;
+}
+nav ul {
   flex-direction: row;
   display: flex;
   padding: 20;
   margin: 0.5rem;
 }
-nav div.menu-container ul li {
+nav ul li {
   display: flex;
   position: relative;
 }
-nav div.menu-container ul li a {
+nav ul li a {
   display: inline-block;
   padding: 0.5rem;
   color: #fff;
 }
-nav div.menu-container ul li a:hover {
+nav ul li a:hover {
   transition: 0.5s;
-  color: #ff8c00;
-}
-nav nav .user-menu ul > li:first-of-type::after {
-  content: "|";
-  margin-top: 0.4rem;
-  color: #fff;
-  opacity: 0.5;
-}
-nav nav .menu-container {
-  /* justify-content: space-between; */
-  /* padding-left: 20rem; */
-}
-
-.jc-flex-end {
-  justify-content: flex-end;
+  color: #ffffff;
 }
 
 html, body {
@@ -67,6 +63,12 @@ body * {
   color: #00aaff;
   font-family: "Protest Riot", sans-serif;
   font-style: normal;
+}
+.logo .text {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #00aaff;
 }
 .logo span {
   color: rgb(255, 255, 255);
@@ -119,15 +121,38 @@ body * {
   z-index: 4;
 }
 
-.container iframe {
-  border-radius: 15px;
+.bubble {
+  border-radius: 0 50px;
+  background-color: #d6d6d6;
+  margin: 0.5rem;
+  padding: 1rem;
 }
-.container img {
+.bubble .container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.bubble .container .tekst {
+  width: 30%;
+  padding-left: 20px;
+  color: #007bff;
+}
+.bubble .container iframe {
+  border-radius: 15px;
+  width: 50%;
+}
+.bubble .schommel {
+  float: right;
+  width: 20%;
+  height: auto;
+}
+.bubble img {
   width: 40%;
   height: 50%;
 }
-
-a {
+.bubble iframe {
+  border-radius: 15px;
+}
+.bubble a {
   content: "AD(H)D";
   color: #ffffff;
   margin-left: 10px;
@@ -135,29 +160,41 @@ a {
   font-size: 16px;
   font-weight: bold;
 }
-
-.text {
-  margin: 0;
-  font-size: 16px;
-  font-weight: bold;
-  color: #00aaff;
-}
-
-main {
+.bubble main {
   margin: 0 auto;
   padding: 20px;
 }
 
-.bubble {
-  border-radius: 0 50px;
-  background-color: #d6d6d6;
-  margin: 0.5rem;
-  padding: 1rem;
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  box-sizing: border-box;
 }
-.bubble .schommel {
-  float: right;
-  width: 20%;
-  height: auto;
+footer text {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  flex-grow: 1;
+  margin: 0 auto;
+}
+footer button {
+  padding: 15px 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */
