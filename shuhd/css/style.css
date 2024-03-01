@@ -1,23 +1,100 @@
+nav {
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+  background-color: black;
+  z-index: 10;
+  display: flex;
+}
+nav div.menu-container {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1rem;
+}
+nav div.menu-container .fixed {
+  position: fixed;
+}
+nav div.menu-container ul {
+  flex-direction: row;
+  display: flex;
+  padding: 20;
+  margin: 0.5rem;
+}
+nav div.menu-container ul li {
+  display: flex;
+  position: relative;
+}
+nav div.menu-container ul li a {
+  display: inline-block;
+  padding: 0.5rem;
+  color: #fff;
+}
+nav div.menu-container ul li a:hover {
+  transition: 0.5s;
+  color: #ff8c00;
+}
+nav nav .user-menu ul > li:first-of-type::after {
+  content: "|";
+  margin-top: 0.4rem;
+  color: #fff;
+  opacity: 0.5;
+}
+nav nav .menu-container {
+  /* justify-content: space-between; */
+  /* padding-left: 20rem; */
+}
+
+.jc-flex-end {
+  justify-content: flex-end;
+}
+
 html, body {
   width: 100%;
   height: 100%;
   margin: 0;
-  font-size: 1rem;
+  font-size: 20px;
+  font-family: sans-serif;
 }
 
 body * {
   box-sizing: border-box;
 }
 
-.ai-flex-end {
-  align-items: flex-end !important;
+.logo {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00aaff;
+  font-family: "Protest Riot", sans-serif;
+  font-style: normal;
+}
+.logo span {
+  color: rgb(255, 255, 255);
+}
+.logo ul {
+  display: flex;
+  height: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.logo ul li {
+  height: 100%;
+}
+.logo ul li a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  font-size: 1.1em;
 }
 
 .slideshow-container {
   position: relative;
   width: 100%;
-  height: 60vh;
-  height: auto;
+  height: 80vh;
   display: grid;
   overflow: hidden;
 }
@@ -29,19 +106,17 @@ body * {
   inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   z-index: -1;
 }
-.slideshow-container .absolute {
+.slideshow-container .banner-text {
   position: absolute;
   align-self: center;
-  width: 200px;
-  height: 100px;
-  color: black;
+  color: rgb(255, 255, 255);
   justify-self: center;
-}
-.slideshow-container .absolute.text {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 3.5rem;
+  z-index: 4;
 }
 
 .container iframe {
@@ -52,13 +127,7 @@ body * {
   height: 50%;
 }
 
-p {
-  font-size: 1rem;
-  font-weight: bold;
-  font-family: sans-serif;
-}
-
-a.Header-branding:after {
+a {
   content: "AD(H)D";
   color: #ffffff;
   margin-left: 10px;
@@ -66,22 +135,29 @@ a.Header-branding:after {
   font-size: 16px;
   font-weight: bold;
 }
-a.Header-branding:after a.Header-branding {
-  display: flex;
-  align-items: center;
-}
 
 .text {
   margin: 0;
   font-size: 16px;
   font-weight: bold;
-  color: #ffffff;
-  font-family: sans-serif;
+  color: #00aaff;
 }
 
 main {
   margin: 0 auto;
   padding: 20px;
+}
+
+.bubble {
+  border-radius: 0 50px;
+  background-color: #d6d6d6;
+  margin: 0.5rem;
+  padding: 1rem;
+}
+.bubble .schommel {
+  float: right;
+  width: 20%;
+  height: auto;
 }
 
 /*# sourceMappingURL=style.css.map */

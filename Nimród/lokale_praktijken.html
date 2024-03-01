@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../Nimród/Sprint 2/assets/javascript/maps.js"></script>
+  <!-- <script src="../Nimród/Sprint 1/JavaScript/aside.js"></script>-->
+  <script src="https://unpkg.com/@googlemaps/js-api-loader@1.x/dist/index.min.js"></script>
+  <!--<link rel="stylesheet" href="../Nimród/Sprint 2/assets/css/global.css"> -->
+  <link rel="stylesheet" href="../Nimród/Sprint 2/assets/css/maps.css">
+  <!-- <link rel="stylesheet" href="../Nimród/Sprint 1/assets/css/header_and_footer.css"> -->
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <header>
+    <nav class="fixed">
+
+      <div class="menu-container">
+        <div class="main-menu jc-space-between"><span class="side_menu_open" style="cursor:pointer"
+            onclick="openNav()">&#9776;
+            open</span></div>
+        <div class="main-menu row jc-space-between">
+
+          <ul>
+            <li><a href="../shuhd/index.html">Home</a></li>
+            <li><a href="../Nimród/informatie.html">Informatie</a></li>
+            <li><a href="../Thomas/faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="user-menu">
+          <ul>
+            <li><a class="active" href="../Youri/index.php">Login</a></li>
+            <li><a class="active" href="../Youri/index.php">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#aanvullende_vereisten">Aanvullende vereisten</a>
+    <a href="#Afbakening_en_criteria">Afbakening en criteria</a>
+    <a href="#Medicamenteuze_behandeling_van_ADHD">Medicamenteuze behandeling van ADHD</a>
+  </div>
+  <span class="side_menu_open" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span> -->
+
+  <main>
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
+    <div id="map"></div>
+
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises.
+      See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly"
+      defer></script>
+  </main>
+</body>
+
+</html>
