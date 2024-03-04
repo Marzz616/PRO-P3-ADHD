@@ -4,11 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../Nimród/Sprint 2/assets/javascript/Search.js"></script>
   <link rel="stylesheet" href="../Nimród/Sprint 2/assets/css/maps.css">
+  <link rel="stylesheet" href="../Nimród/Sprint 2/assets/css/header_and_footer.css">
   <title>Apotheek zoeker</title>
 </head>
 
 <body>
+  <header>
+    <nav class="fixed">
+      <div class="menu-container jc-flex-end ">
+        <div class="logo">
+          <span>Focus</span>Fuse AD(H)D
+          <!--   <p class="text"></p>-->
+        </div>
+        <div class="main-menu row jc-space-between">
+          <ul>
+            <li><a href="../shuhd/index.html">Home</a></li>
+            <li><a href="../Nimród/informatie.html">Informatie</a></li>
+            <li><a href="../Thomas/faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="user-menu">
+          <ul>
+            <li><a class="active" href="../Youri/index.php">Login</a></li>
+            <li><a class="active" href="../Youri/index.php">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
   <div class="container">
     <h1>Apotheek zoeker</h1>
     <div id="zoekbalk">
@@ -19,43 +44,6 @@
 
   </div>
 
-  <script>
-    async function searchPharmacies() {
-      const locationInput = document.getElementById('locationInput');
-      const query = locationInput.value.trim();
-      if (!query) {
-        alert('Woonplaats of postcode.');
-        return;
-      }
-
-      const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${query}&format=json&limit=1`);
-      const data = await response.json();
-
-      if (data && data.length > 0) {
-        const { lat, lon } = data[0];
-        const pharmacyResponse = await fetch(`https://overpass-api.de/api/interpreter?data=[out:json];node[amenity=pharmacy](around:5000,${lat},${lon});out;`);
-        const pharmacies = await pharmacyResponse.json();
-        const sortedPharmacies = pharmacies.elements.sort((a, b) => a.tags.name.localeCompare(b.tags.name));
-        const pharmacyList = document.getElementById('pharmacyList');
-        pharmacyList.innerHTML = ''; // Clear previous results
-        if (sortedPharmacies.length > 0) {
-          const ul = document.createElement('ul');
-          sortedPharmacies.forEach(pharmacy => {
-            if (pharmacy.tags && pharmacy.tags.name && pharmacy.tags['addr:street'] && pharmacy.tags['addr:housenumber']) {
-              const li = document.createElement('li');
-              li.textContent = `${pharmacy.tags.name} - ${pharmacy.tags['addr:street']} ${pharmacy.tags['addr:housenumber']}`;
-              ul.appendChild(li);
-            }
-          });
-          pharmacyList.appendChild(ul);
-        } else {
-          pharmacyList.textContent = 'Sorry er is niks gevonden.';
-        }
-      } else {
-        alert('Plaats niet vindbaar. Probeer op nieuw.');
-      }
-    }
-  </script>
 </body>
 
 </html>
