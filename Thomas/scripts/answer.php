@@ -30,7 +30,9 @@
     <div class="faq-container answers jc-center col-6">
         <?php
 
-        // Vragenlijst
+        include '../config/config.php';
+
+        // De Vragenlijst
         $existing_questions = [
             "Wat is het verschil tussen ADHD en ADD?",
             "Wat zijn de belangrijkste symptomen van ADHD en ADD?",
@@ -63,72 +65,81 @@
             "Welke rol spelen neurotransmitters bij ADHD/ADD?",
             "Kan het gebruik van beeldschermen de symptomen van ADHD/ADD beïnvloeden?"
         ];
-        // Check if the form is submitted
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Retrieve the question from the form
-            $question = $_POST["question"];
 
-            // Preprocess the question and existing questions to remove non-alphanumeric characters and spaces
-            $clean_question = preg_replace('/[^a-zA-Z0-9]/', '', $question);
-            $clean_existing_questions = array_map(function($q) {
-                return preg_replace('/[^a-zA-Z0-9]/', '', $q);
-            }, $existing_questions);
+// Antwoorden array defineren
+$answers = ["Hoe moet ik dat weten?", "Misschien.", "Vraag het aan je moeder.", "Geen idee!"];
+
+// Redirect logic
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    header("Location: index.php");
+    exit;
+}
+
+// Controleer of het formulier is verzonden en of het vraagveld niet leeg is
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
+    // Database referenties
+    $servername = DB_HOST;
+    $username = DB_USER;
+    $password = DB_PASS;
+    $dbname = DB_NAME;
+
+    // Maak een connectie aan
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Controleer de connectie
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Haal de vraag op uit het formulier
+    $question = $_POST["question"];
+
+    /**
+     * Verwerk de vraag en bestaande vragen vooraf om niet-alfanumerieke tekens 
+     * en spaties te verwijderen
+     */
+    $clean_question = preg_replace('/[^a-zA-Z0-9]/', '', $question);
+    $clean_existing_questions = array_map(function ($q) {
+        return preg_replace('/[^a-zA-Z0-9]/', '', $q);
+    }, $existing_questions);
+
+    // Valideer de vraag
+    if (in_array(strtolower($clean_question), array_map('strtolower', $clean_existing_questions))) {
+        echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
+    } else {
+        // SQL-instructie voorbereiden om de vraag en het antwoord in de database in te voegen
+        $sql = "INSERT INTO qa_table (question, answer) VALUES (?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ss", $question, $answer);
     
-
-            // Validate the question (you might want to add more validation)
-            if (empty($question)) {
-                echo "<div class='echo-text'>Als je grappig probeert ze zijn stel dan tenminste een vraag!</div>";
-            } elseif (in_array(strtolower($clean_question), array_map('strtolower', $clean_existing_questions))) {
-                echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
-            } else {
-                // Connect to the database (replace with your database credentials)
-                $servername = 'localhost';
-                $username = 'thomasmeijer';
-                $password = 'ep0Nr1XMCkA(64ER';
-                $dbname = 'faq';
-
-                // Create a connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-
-                // Generate an answer - for demonstration purposes, let's just generate a random answer
-                $answer = generateRandomAnswer();
-
-                // Prepare SQL statement to insert the question and answer into the database
-                $sql = "INSERT INTO qa_table (question, answer) VALUES (?, ?)";
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("ss", $question, $answer);
-
-                // Execute the SQL statement
-                if ($stmt->execute() === TRUE) {
-                    echo "<div class='echo-text'>Je vraag is opgeslagen in het database!</div>";
-                } else {
-                    echo "<div class='echo-text'>Error: " . $sql . "<br>" . $conn->error;
-                }
-
-                // Close the connection
-                $stmt->close();
-                $conn->close();
-            }
+        /**
+         * Genereer een antwoord - laten we voor demonstratiedoeleinden 
+         * gewoon een willekeurig antwoord genereren
+         */
+        $answer = $answers[array_rand($answers)];
+    
+        // Voer de SQL-instructie uit
+        if ($stmt->execute() === TRUE) {
+            // Geef het willekeurige antwoord weer
+            echo "<div class='echo-text'>" . $answer . "</div>";
         } else {
-            // If the form is not submitted, redirect to the form page
-            header("Location: index.php");
-            exit;
+            echo "<div class='echo-text'>Error: " . $sql . "<br>" . $conn->error;
         }
+    
+        // Sluit het statement
+        $stmt->close();
+    }
+    
+    // Sluit de connectie
+    $conn->close();
+} else {
+    // Als het vraagveld leeg is, geef dan een foutmelding weer
+    echo "<div class='echo-text'>Als je grappig probeert ze zijn stel dan tenminste een vraag!</div>";
+}
 
-        // Function to generate a random answer
-        function generateRandomAnswer() {
-            $answers = ["Dit is een antwoord.", "Misschien.", "Dat hangt ervan af.", "Geen idee!"];
-            $randomIndex = array_rand($answers);
-            return $answers[$randomIndex];
-        }
-
-        header('Refresh:3.0; url=../index.php');
-        ?>
+// Omleiden naar index.php na 3 seconden
+ header('Refresh:3; url=../index.php');
+?>
     </div>
 </body>
 </html>
