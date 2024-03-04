@@ -3,52 +3,70 @@ nav ul {
     padding: 20;
     margin: 0.5rem;
 }
+
 nav ul li {
     display: flex;
     position: relative;
 }
+
 nav ul li a {
     display: inline-block;
     padding: 0.5rem;
     color: #fff;
 }
+
 nav .main-menu ul>li>a {
     text-decoration: none;
 }
+
 nav ul li a:hover {
     transition: 0.5s;
     color: #ff8c00;
 }
+
 nav .user-menu ul>li:first-of-type::after {
     content: "|";
     margin-top: 0.4rem;
     color: #fff;
     opacity: 0.5;
 }
+
 nav {
     inset: 0 0 auto 0;
-    background-color: black;
+    background-color: #000;
     /* z-index: 3; */
 }
+
 nav .logo {
-    position: absolute;
-    left: 0;
-    width: 10rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #00aaff;
+    font-family: "Protest Riot", sans-serif;
+    font-style: normal;
 }
+
+nav .logo span {
+    color: rgb(255, 255, 255);
+}
+
 nav .menu-container {
     display: flex;
     font-weight: bold;
-    font-size: 1.0rem;
-    justify-content: space-between; 
-    padding-left: 20rem; 
+    font-size: 1.5rem;
+    justify-content: space-between;
+   /* padding-left: 20rem; */
 
 }
+
 .fixed {
     position: fixed;
 }
+
 .sticky {
     position: sticky;
 }
+
 .absolute {
     position: absolute;
 }
