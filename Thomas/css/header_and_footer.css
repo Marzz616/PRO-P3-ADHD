@@ -52,4 +52,37 @@ nav.absolute {
   position: absolute;
 }
 
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  height: 60px;
+  position: relative;
+  bottom: 0;
+  box-sizing: border-box;
+  margin-top: auto;
+}
+footer .footer-text {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  flex-grow: 1;
+  margin: 0 auto;
+}
+footer .footer-button {
+  padding: 15px 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+}
+
 /*# sourceMappingURL=header_and_footer.css.map */

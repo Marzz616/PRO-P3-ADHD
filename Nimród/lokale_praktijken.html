@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../Nimród/Sprint 2/assets/javascript/Search.js"></script>
+  <link rel="stylesheet" href="../Nimród/Sprint 2/assets/css/maps.css">
+  <link rel="stylesheet" href="../Nimród/Sprint 2/assets/css/header_and_footer.css">
+  <title>Apotheek zoeker</title>
+</head>
+
+<body>
+  <header>
+    <nav class="fixed">
+      <div class="menu-container jc-flex-end ">
+        <div class="logo">
+          <span>Focus</span>Fuse AD(H)D
+          <!--   <p class="text"></p>-->
+        </div>
+        <div class="main-menu row jc-space-between">
+          <ul>
+            <li><a href="../shuhd/index.html">Home</a></li>
+            <li><a href="../Nimród/informatie.html">Informatie</a></li>
+            <li><a href="../Thomas/faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="user-menu">
+          <ul>
+            <li><a class="active" href="../Youri/index.php">Login</a></li>
+            <li><a class="active" href="../Youri/index.php">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <h1><img src="../Nimród/Sprint 2/assets/img/location.png" alt=""> Apotheek zoeker <img
+        src="../Nimród/Sprint 2/assets/img/location.png" alt=""></h1>
+    <div id="zoekbalk">
+      <input type="text" id="locationInput" placeholder="Woonplaats of postcode...">
+      <button id="zoeken" onclick="searchPharmacies()">zoeken</button>
+    </div>
+    <div id="pharmacyList"></div>
+
+  </div>
+
+</body>
+
+</html>

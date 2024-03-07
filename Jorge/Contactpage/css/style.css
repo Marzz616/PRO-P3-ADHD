@@ -1,0 +1,64 @@
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #34568B;
+  padding: 20px;
+  text-align: center;
+}
+header h1 {
+  color: #fff;
+  font-size: 36px;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+section {
+  flex-basis: calc(50% - 20px);
+  margin: 0 10px 20px 0;
+}
+section h2 {
+  color: #34568B;
+  font-size: 24px;
+  margin: 0 0 10px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+form label {
+  margin-bottom: 5px;
+}
+form input, form textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+form input[type=submit] {
+  background-color: #34568B;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#contact-info ul {
+  list-style: none;
+  padding: 0%;
+}
+
+/*# sourceMappingURL=style.css.map */

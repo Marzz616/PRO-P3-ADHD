@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+
+    <main>
+        <section id="contact-form">
+            <h2>Send us a message</h2>
+            <form action="/submit_message" method="post">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+
+                <input type="submit" value="Send">
+            </form>
+        </section>
+
+        <section id="contact-info">
+            <h2>Get in touch</h2>
+            <ul>
+                <li>
+                    <p><strong>Address:</strong></p>
+                    <p>123 Example St.</p>
+                    <p>City, State 12345</p>
+                </li>
+                <li>
+                    <p><strong>Phone:</strong></p>
+                    <p>+00 (123) 456-7890</p>
+                </li>
+                <li>
+                    <p><strong>Email:</strong></p>
+                    <p><a href="mailto:info@example.com">info@example.com</a></p>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
