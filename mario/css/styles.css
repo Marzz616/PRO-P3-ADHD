@@ -68,33 +68,33 @@ nav.absolute {
   position: absolute;
 }
 
- header #banner{  
-  margin-top: 4.2rem;
-  position:relative;
-  display:flex;
-  width: 100%;
-  height: 100vh;
-  align-items:flex-end
+ 
+
+.bg-image {
+  background-color: #f6f6f6;
+  background-image: url(../fotos/ahdh.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  color: white;
+
+
+  padding-top: 200px;
+  padding-bottom: 200px;
+ 
+}
+.container{
+  max-width: 960px;
+  margin-top: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 0;
+
 }
 
-header #banner img {
-
-  position:absolute;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:-1
-}
-header #banner div.content {
-  width:100%;
-  padding:2rem;
-  z-index:1; 
-  text-align:center;
-  background-color:rgba(255,255,255,.5333333333)
-}
 main {
   position: relative;
-  margin-top: 6rem;
+ 
 }
 
 h3 {
