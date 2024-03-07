@@ -19,12 +19,15 @@ body {
   border-radius: 0 50px;
 }
 
+img {
+  width: 5%;
+}
+
 #zoekbalk,
 #pharmacyList {
   display: flex;
   justify-content: center;
   border-radius: 0 50px;
-  justify-content: space-around;
 
   &#pharmacyList {
     line-height: 3;
