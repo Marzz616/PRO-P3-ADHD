@@ -65,6 +65,7 @@ footer {
   position: relative;
   bottom: 0;
   box-sizing: border-box;
+  margin-top: auto;
 }
 footer .footer-text {
   text-align: center;
