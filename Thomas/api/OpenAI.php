@@ -1,5 +1,8 @@
 <?php
+
 namespace OpenAI;
+
+require_once '../config/config.php';
 
 class Completion extends APIResource
 {
@@ -40,4 +43,3 @@ class API
 {
     public static $apiKey;
 }
-?>

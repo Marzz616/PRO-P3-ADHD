@@ -9,25 +9,31 @@
 </head>
 <body>
     <!--De header-->
-   <header>
-    <nav class="fixed">
-        <div class="menu-container row jc-space-between">
-            <div class="main-menu">
-                <ul>
-                    <li><a href="../shuhd/index.html">Home</a></li>
-                    <li><a href="../Nimród/informatie.html">Informatie</a></li>
-                    <li><a href="../Thomas/faq.html">FAQ</a></li>
-                </ul>
+    <header>
+        <nav class="fixed">
+          <div class="menu-container jc-flex-end ">
+            <div class="logo">
+              <span>Focus</span>Fuse AD(H)D
+              <!--<p class="text"></p>-->
+            </div>
+            <div class="main-menu row jc-space-between">
+              <ul>
+                <li><a href="../shuhd/index.html">Home</a></li>
+                <li><a href="../Nimród/informatie.html">Informatie</a></li>
+                <li><a href="../mario/trainning.html">Trainingen</a></li>
+                <li><a href="../Jorge/contact.html">Contact</a></li>
+                <li><a href="../Thomas/archives/faq.html">FAQ</a></li>
+              </ul>
             </div>
             <div class="user-menu">
-                <ul>
-                    <li><a class="active">Login</a></li>
-                    <li><a class="active">Register</a></li>
-                </ul>
+              <ul>
+                <li><a class="active" href="../Youri/index.php">Login</a></li>
+                <li><a class="active" href="../Youri/index.php">Register</a></li>
+              </ul>
             </div>
-        </div>
-    </nav>
-    </header>
+          </div>
+        </nav>
+      </header>
     <!--FAQ Container-->
         <div class="faq-container jc-center col-6">
             <h1>FAQ</h1>
@@ -157,10 +163,63 @@
                                     Het is belangrijk om schermtijd te beperken en regelmatige pauzes in te lassen.</div>
         </div>
     <!--De Footer-->
-    <footer>
-        <div class="footer-text">Deze tekst is tijdelijk</div>
-        <a href="https://adhdcentraal.nl/zelftest/" class="footer-button">Doe de ADHD test</a>
-    </footer>
+    <footer class="footer">
+        <div class="footer-top">
+          <div class="footer-container">
+            <div class="row">
+              <div class="col-sm-4 col-6">
+                <h5>The Team</h5>
+                <ul>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Course</a></li>
+                  <li><a href="#">School</a></li>
+                  <li><a href="#">Members</a></li>
+                  <li><a href="#">Project Corporation</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-4 col-6">
+                <h5>Our Website</h5>
+                <ul>
+                  <li><a href="#">Why we made it</a></li>
+                  <li><a href="#">Info Page</a></li>
+                  <li><a href="#">Faq Page</a></li>
+                  <li><a href="#">Page</a></li>
+                  <li><a href="#">Page</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-4 col-12">
+                <h5>Get In Touch</h5>
+                <ul>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Website problems</a></li>
+                  <li><a href="#">Email us</a></li>
+                  <li><a href="#">Call us</a></li>
+                  <li><a href="#">Sms us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-container">
+            <div class="row align-items-center">
+              <div class="col-sm-6 col-12">
+                <ul class="footer-social">
+                  <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/facebook2.png" alt=""><i
+                        class="fab fa-facebook-f"></i></a></li>
+                  <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/instagram2.png" alt=""><i
+                        class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/youtube2.png" alt=""><i
+                        class="fab fa-youtube"></i></a></li>
+                </ul>
+              </div>
+              <div class="col-sm-6 col-12">
+                <p class="copyright-text">Copyright © 2024 Team Youri<br>All rights are ours.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
 </body>
     <!--Javascript script-->
 <script src="scripts/faq.js"></script>

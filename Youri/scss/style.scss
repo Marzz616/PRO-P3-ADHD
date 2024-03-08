@@ -1,45 +1,56 @@
 
 body{
-    form{
-        display: flex;
+    display: flex;
+    justify-content: center;
+        
+    //styling voor het het grote blaadje waar alles op staat
+    form.lijst{
         justify-content: center;
-        div{
-            width: 80%;
-            justify-self: center;
+        flex-direction: column;
+        width: 80%;
+        
+        //styling voor de vragenhokjes
+        .vraag{
             flex-direction: column;
-        label{
-            flex-direction: column;
-            display: grid;
+            height: 10vh;
+            display: flex;
+            border: 0.1rem solid black;
+            width: 100%;
+            font-size: 1.2rem;
+            
+            //styling voor de foutmeldingen als iets niet is ingevult in de vragenlijst
             .error-message{
                 width: 100%;
                 display: flex;
                 height: 5vh;
                 align-items:center ;
-                justify-content: flex-end;
+                justify-content: center;
                 color: red;
                 font-weight: bold;
             }
-        &.vraag{
-            height: 10vh;
-            display: flex;
-            border: 0.1rem solid black;
-            width: 100%;
         }
-
-        }
-        &.antwoord{
+        .antwoord{
             height: 5vh;
             flex-direction: unset;
             border: 0.1rem solid black;
             display: flex;
             width: 100%;
+            label{
+                font-size: 1.3rem
+            }
             input{
-                width: 20%;
+                width: 15%;
                 margin: 0;
             }
         }
+        input.inleveren{
+            width: 15%;
+            height: 5%;
+            font-size: 2rem;
+            margin-top: 2rem;
+        }
     }
-    }
+    
 }
 
 .ai-center{
@@ -50,4 +61,11 @@ body{
 }
 .jc-center{
     justify-content: center;
+}
+
+.vragenlijst{
+    display: flex;
+}
+.persoonsgegevens{
+    display:none;
 }
