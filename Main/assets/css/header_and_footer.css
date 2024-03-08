@@ -1,0 +1,165 @@
+nav ul {
+  display: flex;
+  padding: 20;
+  margin: 0.5rem;
+}
+
+nav ul li {
+  display: flex;
+  position: relative;
+}
+
+nav ul li a {
+  display: inline-block;
+  padding: 0.5rem;
+  color: #fff;
+}
+
+nav .main-menu ul > li > a {
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  transition: 0.5s;
+  color: #ff8c00;
+}
+
+nav .user-menu ul > li:first-of-type::after {
+  content: "|";
+  margin-top: 0.4rem;
+  color: #fff;
+  opacity: 0.5;
+}
+
+nav {
+  inset: 0 0 auto 0;
+  background-color: #000;
+  /* z-index: 3; */
+}
+
+nav .logo {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00aaff;
+  font-family: "Protest Riot", sans-serif;
+  font-style: normal;
+}
+
+nav .logo span {
+  color: rgb(255, 255, 255);
+}
+
+nav .menu-container {
+  display: flex;
+  font-weight: bold;
+  font-size: 1.5rem;
+  justify-content: space-between;
+  /* padding-left: 20rem; */
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.footer {
+  background-color: #d2d2d2;
+}
+.footer .footer-top {
+  padding: 2rem 0;
+}
+.footer .footer-top .footer-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.footer .footer-top .footer-container .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer .footer-top .footer-container .row .col-sm-8 {
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
+.footer .footer-top .footer-container .row .col-sm-8 .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer .footer-top .footer-container .row .col-sm-8 .row .col-sm-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+.footer .footer-top .footer-container .row .col-sm-8 .row .col-sm-4 h5 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.footer .footer-top .footer-container .row .col-sm-8 .row .col-sm-4 ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.footer .footer-top .footer-container .row .col-sm-8 .row .col-sm-4 ul li {
+  margin-bottom: 0.5rem;
+}
+.footer .footer-top .footer-container .row .col-sm-8 .row .col-sm-4 ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.footer .footer-top .footer-container .row .col-sm-4 {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+.footer .footer-top .footer-container .row .col-sm-4 ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.footer .footer-top .footer-container .row .col-sm-4 ul li {
+  margin-bottom: 0.5rem;
+}
+.footer .footer-top .footer-container .row .col-sm-4 ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.footer .footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.footer .footer-social li {
+  margin-right: 1rem;
+}
+.footer .footer-social li a {
+  display: flex;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #727070;
+  color: #fff;
+  text-decoration: none;
+}
+.footer .footer-social li a i {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+.footer .copyright-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+/*# sourceMappingURL=header_and_footer.css.map */
