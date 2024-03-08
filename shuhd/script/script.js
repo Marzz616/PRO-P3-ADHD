@@ -37,3 +37,4 @@ img.onload = () => {
 };
 
 img.src = 'your-image-url.jpg';
+
