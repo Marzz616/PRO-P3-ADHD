@@ -1,0 +1,109 @@
+@use "conf";
+@use "flex-grid";
+@use "flex-options";
+
+// Variables for styling
+$primary-color: #000000;
+$background-color: #f8f8f8;
+$border-color: #ddd;
+$padding: 10px;
+$margin-bottom: 10px;
+$border-width: 2px;
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('../img/img1') center center/cover no-repeat fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+img.background-image {
+  display: none;
+}
+
+.ask-your-own-questions {
+  margin-top: 40px;
+  .question-label {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  .question-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    &:focus {
+      outline: none;
+      border-color: dodgerblue;
+    }
+    &::placeholder {
+      color: #999;
+    }
+  }
+  .submit-button {
+    padding: 10px 20px;
+    background-color: dodgerblue;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: #007bff81;
+    }
+  }
+}
+
+// Styling for the FAQ container
+.faq-container {
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 10rem;
+  padding: $padding;
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+}
+
+// Styling for the FAQ questions
+.faq-question {
+  margin-bottom: $margin-bottom;
+  padding: $padding;
+  border: 1px solid $border-color;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary-color;
+    color: white;
+  }
+
+  &.active {
+    background-color: $primary-color;
+    color: white;
+  
+    + .faq-answer {
+      display: block;
+    }
+  }
+}
+
+// Styling for the FAQ answers
+.faq-answer {
+  display: none;
+  margin-bottom: $margin-bottom;
+  padding: $padding;
+  border: $border-width dotted;
+  background-color: white;
+}
+
+.echo-text {
+  font-size: 2.5rem;
+}

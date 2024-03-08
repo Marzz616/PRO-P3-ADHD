@@ -479,7 +479,6 @@ body {
   margin: 0;
   padding: 0;
   background: url("../img/img1") center center/cover no-repeat fixed;
-  height: 100vh;
   display: flex;
   flex-direction: column;
 }
