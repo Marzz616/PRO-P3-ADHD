@@ -1,0 +1,29 @@
+$config: (
+  "columncount": 12,
+  "screensizes": (
+    "xs": 322px,
+    "s": 576px,
+    "m": 768px,
+    "l": 992px,
+    "xl": 1200px,
+    "xxl": 1400px,
+  ),
+  "menu-level": 3,
+  "content-level": 2,
+  "background-level": 1,
+  "blue": #00aeef,
+  "orange": #f7a611,
+  "red": #cf0c0c,
+  "title-font": (
+    "Barlow Condensed",
+    sans-serif,
+  ),
+  "normal-font": (
+    "Montserrat",
+    sans-serif,
+  ),
+);
+
+@function get($key) {
+  @return map-get($config, $key);
+}

@@ -1,0 +1,100 @@
+// Flex-wrap classes
+.fw-wrap {
+    flex-wrap: wrap !important;
+  }
+  .fw-nowrap {
+    flex-wrap: nowrap !important;
+  }
+  
+  // Flex-direction classes
+  .fd-row {
+    flex-direction: row !important;
+  }
+  .fd-row-r {
+    flex-direction: row-reverse !important;
+  }
+  .fd-column {
+    flex-direction: column !important;
+  }
+  .fd-column-r {
+    flex-direction: column-reverse !important;
+  }
+  
+  // Justify-content classes
+  .jc-initial {
+    justify-content: initial !important;
+  }
+  .jc-inherit {
+    justify-content: inherit !important;
+  }
+  .jc-flex-start {
+    justify-content: flex-start !important;
+  }
+  .jc-flex-end {
+    justify-content: flex-end !important;
+  }
+  .jc-center {
+    justify-content: center !important;
+  }
+  .jc-space-between {
+    justify-content: space-between !important;
+  }
+  .jc-space-around {
+    justify-content: space-around !important;
+  }
+  .jc-space-evenly {
+    justify-content: space-evenly !important;
+  }
+  
+  // Align-content classes
+  .ac-initial {
+    align-content: initial !important;
+  }
+  .ac-inherit {
+    align-content: inherit !important;
+  }
+  .ac-flex-start {
+    align-content: flex-start !important;
+  }
+  .ac-flex-end {
+    align-content: flex-end !important;
+  }
+  .ac-center {
+    align-content: center !important;
+  }
+  .ac-space-between {
+    align-content: space-between !important;
+  }
+  .ac-space-around {
+    align-content: space-around !important;
+  }
+  .ac-space-evenly {
+    align-content: space-evenly !important;
+  }
+  .ac-stretch {
+    align-content: stretch !important;
+  }
+  
+  // Align-items clasess
+  .ai-baseline {
+    align-items: baseline !important;
+  }
+  .ai-initial {
+    align-items: initial !important;
+  }
+  .ai-inherit {
+    align-items: inherit !important;
+  }
+  .ai-flex-start {
+    align-items: flex-start !important;
+  }
+  .ai-flex-end {
+    align-items: flex-end !important;
+  }
+  .ai-center {
+    align-items: center !important;
+  }
+  .ai-stretch {
+    align-items: stretch !important;
+  }
+  

@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <Authorization: Bearer OPENAI_API_KEY></Authorization:>
     <title>Antwoord!</title>
     <link rel="stylesheet" href="../css/header_and_footer.css">
     <link rel="stylesheet" href="../css/faq.css">
@@ -12,23 +11,29 @@
     <!-- Header -->
     <header>
         <nav class="fixed">
-            <div class="menu-container row jc-space-between">
-                <div class="main-menu">
-                    <ul>
-                        <li><a href="../shuhd/index.html">Home</a></li>
-                        <li><a href="../Nimród/informatie.html">Informatie</a></li>
-                        <li><a href="../Thomas/faq.html">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="user-menu">
-                    <ul>
-                        <li><a class="active">Login</a></li>
-                        <li><a class="active">Register</a></li>
-                    </ul>
-                </div>
+          <div class="menu-container jc-flex-end ">
+            <div class="logo">
+              <span>Focus</span>Fuse AD(H)D
+              <!--   <p class="text"></p>-->
             </div>
+            <div class="main-menu row jc-space-between">
+              <ul>
+                <li><a href="../shuhd/index.html">Home</a></li>
+                <li><a href="../Nimród/informatie.html">Informatie</a></li>
+                <li><a href="../mario/trainning.html">Trainingen</a></li>
+                <li><a href="../Jorge/contact.html">Contact</a></li>
+                <li><a href="../Thomas/archives/faq.html">FAQ</a></li>
+              </ul>
+            </div>
+            <div class="user-menu">
+              <ul>
+                <li><a class="active" href="../Youri/index.php">Login</a></li>
+                <li><a class="active" href="../Youri/index.php">Register</a></li>
+              </ul>
+            </div>
+          </div>
         </nav>
-    </header>
+      </header>
     <div class="faq-container answers jc-center col-6">
         <?php
         // Include config and OpenAI API files
@@ -126,24 +131,106 @@
         }
 
         // Functie om het antwoord op de vraag te genereren met behulp van de OpenAI API
-        function generate_answer($question)
-        {
-            $prompt = "Question: $question\nAnswer:";
-            $response = \OpenAI\Completion::create([
-                'model' => 'davinci',
-                'prompt' => $prompt,
-                'max_tokens' => 50,
-                'temperature' => 0.5,
-                'n' => 1,
-            ]);
-            $answer = $response->choices[0]->text;
-            return $answer;
+// Set the OpenAI API key
+\OpenAI\API::$apiKey = OPENAI_API_KEY;
+
+// Function to generate an answer to a question
+function generate_answer($question) {
+    try {
+        // Construct the prompt
+        $prompt = "Question: $question\nAnswer:";
+
+        // Call the OpenAI Completion API
+        $response = \OpenAI\Completion::create([
+            'model' => 'davinci',
+            'prompt' => $prompt,
+            'max_tokens' => 100,
+            'temperature' => 0.7,
+            'n' => 1,
+        ]);
+
+        // Check if response is valid and contains choices
+        if (isset($response->choices) && !empty($response->choices[0]->text)) {
+            // Extract and return the generated answer
+            return $response->choices[0]->text;
+        } else {
+            // Handle case where response is not in the expected format
+            throw new \Exception("Unexpected response format from OpenAI API");
         }
+    } catch (\Exception $e) {
+        // Handle any exceptions
+        throw new \Exception("Error generating answer: " . $e->getMessage());
+    }
+}
+
+// Example usage:
+try {
+    $question = "What is the capital of France?";
+    $answer = generate_answer($question);
+    echo "Q: $question\n";
+    echo "A: $answer\n";
+} catch (\Exception $ex) {
+    // Handle any exceptions that occur during answer generation
+    echo "An error occurred: " . $ex->getMessage();
+}
         ?>
     </div>
-    <footer>
-        <div class="footer-text">Deze tekst is tijdelijk</div>
-        <a href="https://adhdcentraal.nl/zelftest/" class="footer-button">Doe de ADHD test</a>
-    </footer>
+    <footer class="footer">
+        <div class="footer-top">
+          <div class="footer-container">
+            <div class="row">
+              <div class="col-sm-4 col-6">
+                <h5>The Team</h5>
+                <ul>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Course</a></li>
+                  <li><a href="#">School</a></li>
+                  <li><a href="#">Members</a></li>
+                  <li><a href="#">Project Corporation</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-4 col-6">
+                <h5>Our Website</h5>
+                <ul>
+                  <li><a href="#">Why we made it</a></li>
+                  <li><a href="#">Info Page</a></li>
+                  <li><a href="#">Faq Page</a></li>
+                  <li><a href="#">Page</a></li>
+                  <li><a href="#">Page</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-4 col-12">
+                <h5>Get In Touch</h5>
+                <ul>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Website problems</a></li>
+                  <li><a href="#">Email us</a></li>
+                  <li><a href="#">Call us</a></li>
+                  <li><a href="#">Sms us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-container">
+            <div class="row align-items-center">
+              <div class="col-sm-6 col-12">
+                <ul class="footer-social">
+                  <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/facebook2.png" alt=""><i
+                        class="fab fa-facebook-f"></i></a></li>
+                  <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/instagram2.png" alt=""><i
+                        class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/youtube2.png" alt=""><i
+                        class="fab fa-youtube"></i></a></li>
+                </ul>
+              </div>
+              <div class="col-sm-6 col-12">
+                <p class="copyright-text">Copyright © 2024 Team Youri<br>All rights are ours.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
 </body>
 </html>

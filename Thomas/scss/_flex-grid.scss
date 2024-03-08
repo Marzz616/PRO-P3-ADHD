@@ -1,0 +1,75 @@
+@use "sass:math";
+
+@use "conf";
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+
+  @each $prefix, $size in conf.get("screensizes") {
+    @media screen and (min-width: $size) {
+      width: $size - 100px;
+    }
+  }
+}
+
+.row,
+.col,
+[class^="col-"],
+[class*=" col-"],
+.inner {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.col,
+[class^="col-"],
+[class*=" col-"] {
+  flex-direction: column;
+  max-width: 100%;
+  padding: 0.5rem;
+
+  .inner {
+    flex-direction: column;
+    height: 100%;
+    padding: 0.5rem;
+  }
+}
+
+.col {
+  flex-grow: 1;
+
+  // Standard columns will be full-width on screens smaller than 576px
+  @media screen and (max-width: map-get(conf.get("screensizes"), "s")) {
+    width: 100%;
+  }
+}
+
+[class^="col-"],
+[class*=" col-"] {
+  flex: 0 0 auto;
+}
+
+@for $i from 1 through conf.get("columncount") {
+  .col-#{$i} {
+    width: math.div(100%, math.div(conf.get("columncount"), $i));
+  }
+}
+
+@each $prefix, $size in conf.get("screensizes") {
+  @media screen and (min-width: $size) {
+    @for $i from 1 through conf.get("columncount") {
+      .col-#{$prefix}-#{$i} {
+        width: math.div(100%, math.div(conf.get("columncount"), $i));
+      }
+    }
+  }
+}
+/*
+ *  @TODO: Add responsive column classes
+ */
