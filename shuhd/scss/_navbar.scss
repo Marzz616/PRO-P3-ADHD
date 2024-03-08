@@ -7,14 +7,26 @@ nav
   background-color: black;
   z-index: 10;
   display: flex;
-  div.menu-container{
+ .menu-container{
     display: flex;
     justify-content: flex-end;
     font-size: 1.0rem;
+    justify-content: space-between;
+  }
   .fixed {
       position: fixed;
+      justify-content: flex-end;
+
   }
-  
+  .user-menu {
+    margin-top: 0.4rem;
+    color: #fff;
+    opacity: 0.5;
+    padding-right: 0rem;
+    padding-left: auto;
+    justify-self: left;
+
+  }
   
   ul {
     flex-direction: row;
@@ -31,37 +43,9 @@ nav
   
         &:hover {
           transition: 0.5s;
-          color: #ff8c00;
+          color: #ffffff;
         }
       }
     }
   }
-}
-  
-  
-
-nav{
-    .user-menu{
-      ul>li:first-of-type::after {
-        content: "|";
-        margin-top: 0.4rem;
-        color: #fff;
-        opacity: 0.5;
-    }
-  }
-}
-                    
-  
-  
-  nav .menu-container {
-    
-    /* justify-content: space-between; */
-    /* padding-left: 20rem; */
-  
-  }
-}
-
-.jc-flex-end
-{
-  justify-content: flex-end;
 }

@@ -12,11 +12,15 @@ body {
 
 .container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
   padding: 40px 80px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 0 50px;
+}
+
+.container > h1 > img {
+  width: 5%;
 }
 
 #zoekbalk,
@@ -24,7 +28,6 @@ body {
   display: flex;
   justify-content: center;
   border-radius: 0 50px;
-  justify-content: space-around;
 
   &#pharmacyList {
     line-height: 3;

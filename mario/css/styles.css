@@ -1,5 +1,5 @@
 body {
-  background-color:#000000;
+  background-color:#ffffff;
   color: #000000;
   font-family: "BLOKK";
   font-size: 16px;
@@ -28,7 +28,7 @@ nav .main-menu ul > li > a {
   text-decoration: none;
 }
 nav .main-menu ul > li > a:hover {
-  background-color: #000000;
+  background-color: #ffffff;
 }
 nav .user-menu ul > li:first-of-type::after {
   content: "|";
@@ -40,7 +40,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #e95c04;
+  background-color: #684aec;
   z-index: 3;
 }
 nav .logo {
@@ -68,9 +68,33 @@ nav.absolute {
   position: absolute;
 }
 
+ 
+
+.bg-image {
+  background-color: #f6f6f6;
+  background-image: url(../fotos/ahdh.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  color: white;
+
+
+  padding-top: 200px;
+  padding-bottom: 200px;
+ 
+}
+.container{
+  max-width: 960px;
+  margin-top: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 0;
+
+}
+
 main {
   position: relative;
-  margin-top: 6rem;
+ 
 }
 
 h3 {
@@ -79,7 +103,6 @@ h3 {
 
 h2 {
   border-radius: 0 25px;
-  background-color: #d6d6d6;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
 }
@@ -91,8 +114,8 @@ h2 {
   display: flex;
 }
 
-.flex-container > div {
-  background-color: #e95c04;
+.flex-container {
+  background-color: #684aec;
   margin: 30px;
   padding: 10px;
   font-size: 18px;
@@ -104,4 +127,10 @@ img {
 }
 .fotos2 {
   size-adjust: 480px;
+}
+
+.fixerformario{
+
+  margin-left: 0.5rem;
+
 }

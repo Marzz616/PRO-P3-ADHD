@@ -1,0 +1,86 @@
+#img-1,
+#img-3,
+#img-4,
+#img-5 {
+    width: 40%;
+    height: 40%;
+}
+
+#img-2 {
+    width: 95%;
+    height: 95%;
+    margin-bottom: 1rem;
+}
+
+#img-1,
+#img-2,
+#filmpje-1 {
+    border-radius: 0 50px;
+    border: solid;
+    border-color: black;
+    padding: 0;
+}
+
+#more,
+#more2 {
+    display: none;
+}
+
+#myBtn,
+#myBtn2 {
+    background-color: #f79616;
+    width: 7.5rem;
+    height: 1.5rem;
+    border-radius: 0 50px;
+    border: solid;
+    padding: 0;
+}
+
+/* body {
+    font-family: "Lato", sans-serif;
+  } */
+
+  .side_menu_open{
+    margin-top: 1rem;
+  }
+  
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    margin-top: 3.7rem;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    transition: 0.5s;
+    color: #ff8c00;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }

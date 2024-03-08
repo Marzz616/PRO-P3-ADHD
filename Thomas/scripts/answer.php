@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Authorization: Bearer OPENAI_API_KEY></Authorization:>
     <title>Antwoord!</title>
     <link rel="stylesheet" href="../css/header_and_footer.css">
     <link rel="stylesheet" href="../css/faq.css">
 </head>
 <body>
+    <!-- Header -->
     <header>
         <nav class="fixed">
             <div class="menu-container row jc-space-between">
@@ -29,10 +31,18 @@
     </header>
     <div class="faq-container answers jc-center col-6">
         <?php
+        // Include config and OpenAI API files
+        require_once('../config/config.php');
+        require_once('../database/database.php');
+        require_once('../api/OpenAI.php');
 
-        include '../config/config.php';
+        // Controleer of het een POST-verzoek is
+        if ($_SERVER["REQUEST_METHOD"] != "POST") {
+            header("Location: index.php");
+            exit;
+        }
 
-        // De Vragenlijst
+        // De bestaande vragen in de lijst
         $existing_questions = [
             "Wat is het verschil tussen ADHD en ADD?",
             "Wat zijn de belangrijkste symptomen van ADHD en ADD?",
@@ -66,80 +76,74 @@
             "Kan het gebruik van beeldschermen de symptomen van ADHD/ADD beïnvloeden?"
         ];
 
-// Antwoorden array defineren
-$answers = ["Hoe moet ik dat weten?", "Misschien.", "Vraag het aan je moeder.", "Geen idee!"];
+        // Verbinding maken met de database
+        $conn = getDBConnection();
 
-// Redirect logic
-if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    header("Location: index.php");
-    exit;
-}
+        // Controleer of het een POST-verzoek is en of er een vraag is ingediend
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
+            $question = $_POST["question"];
 
-// Controleer of het formulier is verzonden en of het vraagveld niet leeg is
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
-    // Database referenties
-    $servername = DB_HOST;
-    $username = DB_USER;
-    $password = DB_PASS;
-    $dbname = DB_NAME;
+            // Controleren of de vraag al bestaat in de database
+            $stmt = $conn->prepare("SELECT * FROM qa_table WHERE question = ?");
+            $stmt->bind_param("s", $question);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-    // Maak een connectie aan
-    $conn = new mysqli($servername, $username, $password, $dbname);
+            // Schoonmaken van de vraag voor vergelijking
+            $clean_question = preg_replace('/[^a-zA-Z0-9]/', '', $question);
+            $clean_existing_questions = array_map(function ($q) {
+                return preg_replace('/[^a-zA-Z0-9]/', '', $q);
+            }, $existing_questions);
 
-    // Controleer de connectie
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+            $clean_question = strtolower($clean_question);
+            $clean_existing_questions = array_map('strtolower', $clean_existing_questions);
 
-    // Haal de vraag op uit het formulier
-    $question = $_POST["question"];
+            // Als de vraag al bestaat, geef dan een foutmelding weer
+            if (in_array($clean_question, $clean_existing_questions)) {
+                echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
+            } else {
+                try {
+                    // Genereer antwoord met behulp van de OpenAI API
+                    $answer = generate_answer($question);
 
-    /**
-     * Verwerk de vraag en bestaande vragen vooraf om niet-alfanumerieke tekens 
-     * en spaties te verwijderen
-     */
-    $clean_question = preg_replace('/[^a-zA-Z0-9]/', '', $question);
-    $clean_existing_questions = array_map(function ($q) {
-        return preg_replace('/[^a-zA-Z0-9]/', '', $q);
-    }, $existing_questions);
-
-    // Valideer de vraag
-    if (in_array(strtolower($clean_question), array_map('strtolower', $clean_existing_questions))) {
-        echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
-    } else {
-        // SQL-instructie voorbereiden om de vraag en het antwoord in de database in te voegen
-        $sql = "INSERT INTO qa_table (question, answer) VALUES (?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $question, $answer);
-    
-        /**
-         * Genereer een antwoord - laten we voor demonstratiedoeleinden 
-         * gewoon een willekeurig antwoord genereren
-         */
-        $answer = $answers[array_rand($answers)];
-    
-        // Voer de SQL-instructie uit
-        if ($stmt->execute() === TRUE) {
-            // Geef het willekeurige antwoord weer
-            echo "<div class='echo-text'>" . $answer . "</div>";
+                    // Voeg de vraag en het antwoord toe aan de database
+                    $stmt = $conn->prepare("INSERT INTO qa_table (question, answer) VALUES (?, ?)");
+                    $stmt->bind_param("ss", $question, $answer);
+                    if ($stmt->execute() === TRUE) {
+                        echo "<div class='echo-text'>" . $answer . "</div>";
+                    } else {
+                        echo "<div class='echo-text'>Error: " . $conn->error;
+                    }
+                    $stmt->close();
+                } catch (\Exception $e) {
+                    echo "<div class='echo-text'>Error: " . $e->getMessage() . "</div>";
+                }
+            }
+            $conn->close();
         } else {
-            echo "<div class='echo-text'>Error: " . $sql . "<br>" . $conn->error;
+            // Geef een foutmelding weer als er geen vraag is ingediend
+            echo "<div class='echo-text'>Je hebt niks ingevoerd!</div>";
         }
-    
-        // Sluit het statement
-        $stmt->close();
-    }
-    
-    // Sluit de connectie
-    $conn->close();
-} else {
-    // Als het vraagveld leeg is, geef dan een foutmelding weer
-    echo "<div class='echo-text'>Als je grappig probeert ze zijn stel dan tenminste een vraag!</div>";
-}
 
-// Omleiden naar index.php na 3 seconden
- header('Refresh:3; url=../index.php');
-?>
+        // Functie om het antwoord op de vraag te genereren met behulp van de OpenAI API
+        function generate_answer($question)
+        {
+            $prompt = "Question: $question\nAnswer:";
+            $response = \OpenAI\Completion::create([
+                'model' => 'davinci',
+                'prompt' => $prompt,
+                'max_tokens' => 50,
+                'temperature' => 0.5,
+                'n' => 1,
+            ]);
+            $answer = $response->choices[0]->text;
+            return $answer;
+        }
+        ?>
     </div>
+    <footer>
+        <div class="footer-text">Deze tekst is tijdelijk</div>
+        <a href="https://adhdcentraal.nl/zelftest/" class="footer-button">Doe de ADHD test</a>
+    </footer>
 </body>
 </html>
