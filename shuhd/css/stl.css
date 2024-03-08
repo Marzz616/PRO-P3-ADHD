@@ -1,0 +1,20 @@
+label>img{
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 0 50px;
+}
+
+input[type=checkbox]{
+    display: none;
+}
+
+.zoom img{
+    transition: all 0.5s ease-in;
+    cursor: zoom-in;
+}
+input[type=checkbox]:checked~img{
+    transform: scale(2);
+    margin: 0 auto;
+    cursor: zoom-out;
+}
