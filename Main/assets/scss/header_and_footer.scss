@@ -1,3 +1,7 @@
+nav{
+  z-index: 3;
+}
+
 nav ul {
   display: flex;
   padding: 20;
@@ -36,7 +40,7 @@ nav ul li a::before{
 nav ul li a::after{
   content: '';
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 2px;
