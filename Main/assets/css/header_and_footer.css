@@ -55,15 +55,9 @@ nav ul li a:hover {
   color: #ff8c00;
 }
 
-nav ul li a:hover::before, ul li a:hover::after {
+nav ul li a:hover::before,
+ul li a:hover::after {
   transform: scaleX(1);
-}
-
-nav .user-menu ul > li:first-of-type::after {
-  content: "|";
-  margin-top: 0.4rem;
-  color: #fff;
-  opacity: 0.5;
 }
 
 nav {

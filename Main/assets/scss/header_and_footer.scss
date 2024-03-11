@@ -1,4 +1,4 @@
-nav{
+nav {
   z-index: 3;
 }
 
@@ -24,8 +24,8 @@ nav .main-menu ul > li > a {
   text-decoration: none;
 }
 
-nav ul li a::before{
-  content: '';
+nav ul li a::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -37,8 +37,8 @@ nav ul li a::before{
   transition: all 0.5s;
 }
 
-nav ul li a::after{
-  content: '';
+nav ul li a::after {
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -55,16 +55,17 @@ nav ul li a:hover {
   color: #ff8c00;
 }
 
-nav ul li a:hover::before, ul li a:hover::after{
+nav ul li a:hover::before,
+ul li a:hover::after {
   transform: scaleX(1);
 }
 
-nav .user-menu ul > li:first-of-type::after {
-  content: "|";
-  margin-top: 0.4rem;
-  color: #fff;
-  opacity: 0.5;
-}
+// nav .user-menu ul > li:first-of-type::after {
+//   content: "|";
+//   margin-top: 0.4rem;
+//   color: #fff;
+//   opacity: 0.5;
+// }
 
 nav {
   inset: 0 0 auto 0;
