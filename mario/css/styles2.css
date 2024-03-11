@@ -83,6 +83,16 @@ body {
     padding-top: 200px;
     padding-bottom: 200px;
   }
+  .bgs-image {
+    position: relative;
+    background-color: #f6f6f6;
+    background-image: url(../fotos/webshop.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: white;
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
   
   .containerM {
     max-width: 1400px;
@@ -93,6 +103,15 @@ body {
   
   .box-2 {
     width: 85%;
+    height: auto; /* Change height to auto to accommodate content */
+    margin-top: 30px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .box-3 {
+    width: 1400px;
     height: auto; /* Change height to auto to accommodate content */
     margin-top: 30px;
     margin: auto;
@@ -111,6 +130,15 @@ body {
     border-radius: 10px;
     margin-top: 50px; /* Adjust margin-top to create space between the boxes */
   }
+
+  .item-4{
+    width: 85%; /* Adjust width to fit content better */
+    padding: 20px; /* Increase padding for better readability */
+    text-align: center;
+    color: #000000;
+    border-radius: 10px;
+    margin-top: 50px; /* Adjust margin-top to create space between the boxes */
+  }
   
   .item-1 {
     margin-right: 20px; /* Add margin between items for better spacing */
@@ -120,3 +148,10 @@ body {
     margin-left: 20px; /* Add margin between items for better spacing */
   }
   
+  .item-3 {
+    margin-left: 20px; /* Add margin between items for better spacing */
+  }
+
+  .item-4 {
+    margin-left: 20px; /* Add margin between items for better spacing */
+  }
