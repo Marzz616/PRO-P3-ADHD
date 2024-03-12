@@ -1,0 +1,93 @@
+
+
+.bg-image {
+    
+    position:relative;
+    background-color: #f6f6f6;
+    background-image: url(../fotos/ahdh.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    color: white;
+  
+  
+    padding-top: 200px;
+    padding-bottom: 200px;
+   
+  }
+  .containerM{
+   
+    max-width: 1400px;
+    margin-top: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 0;
+  
+  }
+
+  .fixerformario{
+
+    margin-left: 0.5rem;
+  
+  }
+  .nothing{
+    font-size: 2rem;
+   background-color: darkgray;
+   width: 300px;
+   height: 100px;
+   padding: 32;
+  }
+  .box-2{
+    width: 85%;
+    height: 600px;
+    
+    margin-top: 30px;
+    margin: auto;
+    border: 10px;
+
+
+   background-color: darkgray;
+  
+}
+
+  .item-1, .item-2, .item-3{
+    width: 520px;
+    height: 600x;
+    background-color:#436ea3;
+    padding: 10;
+    text-align:center;
+    color: rgb(255, 255, 255);
+    border: 10px;
+    border-radius: 10px;
+    margin-top: 10rem;
+    margin: auto;
+
+  }
+
+
+  .mainbox{
+
+  }
+
+  .box-2{
+    display:flex;
+    
+    justify-content: space-around;
+    flex-wrap: wrap; 
+
+  }
+
+  .box-3{
+
+  }
+
+  .item-1{
+
+  }
+
+  .item-2{
+
+  }
+  .item-3{
+
+  }

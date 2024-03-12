@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>adhd and friends</title>
+</head>
+
+<body>
+    <header>
+        <nav class="fixed">
+            <div class="logo">
+                
+                <h1>waiting for</h1>
+            </div>
+            <div class="menu-container row jc-space-between">
+                <div class="main-menu">
+                    <ul>
+                        <li><a href="../shuhd/index.html">Home</a></li>
+                        <li><a href="../mario/ADD.html">ADD informatie</a></li>
+                        <li><a href="../Nimród/informatie.html">ADHDinformatie</a></li>
+                        <li><a href="../Thomas/faq.html">fag</a></li>
+                    </ul>
+                </div>
+                <div class="user-menu">
+                    <ul>
+                        <li><a class="active">Login</a></li>
+                        <li><a class="active">Register</a></li>
+                    </ul>
+                </div>
+        </nav>
+    </header>
+<main>
+    <div class="fotos fotos2 ">
+
+    <!--hier staat wat add is-->
+       <img src="fotos/images (1).jpeg" alt="">
+    </div>
+
+
+    <section>
+        <div class="box1">
+            <div>
+                <p>DONT GIVE YOUR CHILDEREN DRUGS UNLESS ADVISED BY DOCTOR AND TALKED ABOUT WITH CHILD 
+                    "Montserrat",sans-serif;
+                     </p>
+        </div>
+        
+            <iframe width="620" height="445" src="https://www.youtube.com/embed/Em9JCcknZuc">
+        </iframe>
+        
+</div>
+    </section>
+
+       <div class="box1">
+    
+     <div>
+    <p>"Wat is aandachtstekortstoornis? Aandachtstekortstoornis (ADD) is een term die wordt gebruikt voor mensen 
+        die buitensporige moeilijkheden hebben met concentratie zonder de aanwezigheid van andere ADHD-symptomen, 
+        zoals overmatige impulsiviteit of hyperactiviteit." 
+    </p>
+    <p></p>
+        Aandachtstekortstoornis (ADD) is een neurobiologische aandoening die wordt gekenmerkt door chronische moeilijkheden met aandacht en concentratie. 
+        Het is een subtype van Attention Deficit Hyperactivity Disorder (ADHD), maar bij ADD ligt de nadruk meer op aandachtsproblemen dan op hyperactiviteit.
+    </p>
+</div>
+
+ <!--hier staat photos die met de code van boven heb te maken--> 
+
+        <div class="fotos2 ">
+            <label>
+                <img src="fotos/add.webp" alt="">
+            </label>
+        </div>
+    </div>
+
+  <!--hier staat photos die met de code van boven heb te maken--> 
+
+<section class="">
+    <div class= "box1">
+        <div>
+            <label>
+                <img src="fotos/download.png" alt="" width="565" height="345">
+                <br>
+            </label>
+            <label>
+               <br>
+               <img src="fotos/PRO p3.jpeg" alt="" width="585" height="465">
+            </label>
+        </div>
+
+        
+    <!--hier staat photos die met de code van boven heb te maken--> 
+
+    <div>
+       <h2>Aandachtstekortstoornis (ADD)</h2>
+       <br>
+        <p>
+            Aandachtstekortstoornis (ADD) is een neurobiologische aandoening die wordt gekenmerkt door chronische moeilijkheden 
+            met aandacht en concentratie.
+             Het is een subtype van Attention Deficit Hyperactivity Disorder (ADHD), 
+             maar bij ADD ligt de nadruk meer op aandachtsproblemen dan op hyperactiviteit.
+            <ul>
+        <li> Kenmerken van ADD:
+            Mensen met ADD ervaren aanzienlijke uitdagingen bij het behouden van focus en aandacht voor langere periodes.
+             In tegenstelling tot ADHD, vertonen individuen met ADD doorgaans minder impulsiviteit en hyperactiviteit.
+              De belangrijkste kenmerken van ADD zijn:
+        </li><li>
+            Concentratieproblemen: Individuen met ADD hebben vaak moeite om hun aandacht bij één taak te houden en kunnen gemakkelijk worden 
+            afgeleid door externe prikkels.
+            </li>  <li>
+            Dromerigheid: Een neiging tot dagdromen en het verliezen van gedachten, waardoor het moeilijk kan zijn om op taken te blijven focussen.
+            </li>  <li>
+            Organisatorische moeilijkheden: Mensen met ADD kunnen problemen hebben met het organiseren van taken, 
+            het handhaven van een gestructureerde planning en het voltooien van projecten.
+            </li> <li>
+            Tijdsbeheer: Het inschatten van tijd en het plannen van activiteiten kunnen uitdagend zijn,
+             wat kan leiden tot problemen met punctualiteit.
+            </li> <li>
+            Hyperfocus: Ondanks de algemene moeite met concentratie, 
+            kunnen mensen met ADD soms volledig opgaan in een activiteit waarin ze zeer geïnteresseerd zijn, wat resulteert in intense concentratie.
+            </li> <li>
+            Diagnose en Behandeling:
+            Een professionele diagnose van ADD omvat meestal een grondige beoordeling van symptomen, medische geschiedenis en observaties. 
+            Behandelingsopties omvatten vaak psycho-educatie, gedragstherapie en in sommige gevallen medicatie,
+             zoals stimulerende middelen of niet-stimulerende medicijnen.
+            </li>
+            <li>
+            Levensbeheer met ADD:
+            Mensen met ADD kunnen succesvol functioneren door strategieën te ontwikkelen om met hun uitdagingen om te gaan. 
+            Het implementeren van effectieve organisatorische technieken, 
+            het stellen van realistische doelen en het creëren van een gestructureerde omgeving kunnen allemaal bijdragen aan het beheer van ADD in het dagelijks leven.
+            </li></ul>
+            Hoewel ADD zijn eigen unieke kenmerken heeft,
+             is het belangrijk op te merken dat de ervaring van ADD sterk kan variëren tussen individuen. 
+             Een holistische benadering van diagnose en behandeling is essentieel om de specifieke behoeften van elk individu te begrijpen en aan te pakken.
+            </p>
+        </section>
+    </div>
+    <section>
+        <div class="box1">
+            <div>
+                <p>DONT GIVE YOUR CHILDEREN DRUGS UNLESS ADVISED BY DOCTOR AND TALKED ABOUT WITH CHILD 
+                     </p>
+        </div>
+        
+            <iframe width="620" height="445" src="https://www.youtube.com/embed/Em9JCcknZuc">
+        </iframe>
+        
+</div>
+    </section>
+   </main>
+
+<footer>
+    <div class="footer-text">Deze tekst is tijdelijk</div>
+    <a href="https://adhdcentraal.nl/zelftest/" class="footer-button">Doe de ADHD test</a>
+</footer>
+</body>
+</html>
+
+
+</body>
+
+</html>
