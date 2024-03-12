@@ -1,5 +1,8 @@
-nav {
-  z-index: 3;
+#progress-bar {
+  background-color: #ff8c00; /* Change color as needed */
+  height: 5px;
+  width: 0;
+  transition: width 0.001s ease-in-out; /* Smoother transition */
 }
 
 nav ul {
@@ -63,7 +66,7 @@ ul li a:hover::after {
 nav {
   inset: 0 0 auto 0;
   background-color: #000;
-  /* z-index: 3; */
+  z-index: 3;
 }
 
 nav .logo {
