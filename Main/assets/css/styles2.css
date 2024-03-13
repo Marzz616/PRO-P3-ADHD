@@ -10,6 +10,7 @@ body {
 }
 
 main {
+  margin-bottom: 2rem;
   position: relative;
   padding-top: 50px;
   /* Add some padding to separate content from the header */
