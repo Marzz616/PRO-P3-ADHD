@@ -1,0 +1,159 @@
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: "BLOKK";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.3;
+    font-style: normal;
+    padding: 0;
+    word-wrap: break-word;
+  }
+  
+  nav ul {
+    display: flex;
+    padding: 20;
+    margin: 0.5rem;
+  }
+  nav ul li {
+    display: flex;
+    position: relative;
+  }
+  nav ul li a {
+    display: inline-block;
+    padding: 0.5rem;
+    color: #000000;
+  }
+  nav .main-menu ul > li > a {
+    text-decoration: none;
+  }
+  nav .main-menu ul > li > a:hover {
+    background-color: #ffffff;
+  }
+  nav .user-menu ul > li:first-of-type::after {
+    content: "|";
+    margin-top: 1rem;
+    color: #fff;
+    opacity: 0.5;
+  }
+  
+  nav {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #87ceeb; /* Changed to sky blue */
+    z-index: 3;
+  }
+  nav .logo {
+    position: absolute;
+    left: 0;
+    width: 10rem;
+  }
+  
+  nav .menu-container {
+    display: flex;
+    font-weight: bold;
+    font-size: 1.5rem;
+    justify-content: space-between;
+    padding-left: 20rem;
+  }
+  
+  nav.fixed {
+    position: fixed;
+  }
+  nav.sticky {
+    position: sticky;
+  }
+  nav.absolute {
+    position: absolute;
+  }
+  
+  main {
+    position: relative;
+    padding-top: 50px; /* Add some padding to separate content from the header */
+  }
+  
+  .bg-image {
+    position: relative;
+    background-color: #f6f6f6;
+    background-image: url(../fotos/ahdh.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
+  .bgs-image {
+    position: relative;
+    background-color: #f6f6f6;
+    background-image: url(../fotos/webshop.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: white;
+    padding-top: 200px;
+    padding-bottom: 200px;
+  }
+  
+  .containerM {
+    max-width: 1400px;
+    margin: auto;
+    padding-left: 1rem;
+    padding-right: 0;
+  }
+  
+  .box-2 {
+    width: 85%;
+    height: auto; /* Change height to auto to accommodate content */
+    margin-top: 30px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .box-2 {
+    width: 90%;
+    height: auto; /* Change height to auto to accommodate content */
+    margin-top: 30px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .item-1,
+  .item-2,
+  .item-3 {
+    width: 60%; /* Adjust width to fit content better */
+    background-color: #000000; /* Changed to a darker shade of blue */
+    padding: 20px; /* Increase padding for better readability */
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10px;
+    margin-top: 50px; /* Adjust margin-top to create space between the boxes */
+  }
+
+  
+  .item-4 {
+    width: 70%; /* Adjust width to fit content better */
+    background-color: #000000; /* Changed to a darker shade of blue */
+    padding: 20px; /* Increase padding for better readability */
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10px;
+    margin-top: 50px; /* Adjust margin-top to create space between the boxes */
+  }
+  
+  .item-1 {
+    margin-right: 20px; /* Add margin between items for better spacing */
+  }
+  
+  .item-2 {
+    margin-left: 20px; /* Add margin between items for better spacing */
+  }
+  
+  .item-3 {
+    margin-left: 20px; /* Add margin between items for better spacing */
+  }
+
+  .item-4 {
+    margin-left: 20px; /* Add margin between items for better spacing */
+  }

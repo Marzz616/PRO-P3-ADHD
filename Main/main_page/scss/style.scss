@@ -1,0 +1,52 @@
+body{
+    //hier
+    background-color: rgb(170, 170, 170);
+    //font-family moet ook nog worden aangepast
+
+    display: flex;
+    flex-direction: column;
+    .gegevens{
+        padding: 0.5rem;
+        border-radius: 10px;
+        border: 0.1rem solid black;
+        width: 50%;
+        margin-top: 10%;
+        margin-left: 25%;
+        form.persoonsgegevens{
+        .persoon{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            margin: 0.5rem;
+            label{
+                font-size: 1.5rem;
+            }
+            input{
+                font-size: 1rem;
+                margin-right: 0.5rem;
+            }
+        }
+        input.inleveren2{
+            width: 20%;
+            height: 2.5rem;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+        }
+        }
+        .resultaten{
+            margin-top: 2rem;
+            font-size: 1.5rem;
+        }
+
+    }
+    .nieuw-formulier{
+        padding: 0.5rem;
+        border-radius: 10px;
+        border: 0.1rem solid black;
+        width: 50%;
+        margin-top: 1%;
+        margin-left: 25%;
+    }
+
+}

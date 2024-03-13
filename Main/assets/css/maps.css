@@ -19,7 +19,7 @@ body {
   border-radius: 0 50px;
 }
 
-.container>h1>img {
+.container > h1 > img {
   width: 5%;
 }
 
@@ -29,7 +29,6 @@ body {
   justify-content: center;
   border-radius: 0 50px;
 }
-
 #zoekbalk#pharmacyList,
 #pharmacyList#pharmacyList {
   line-height: 3;

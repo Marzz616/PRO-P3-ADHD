@@ -1,0 +1,32 @@
+label>img{
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #000;
+    border-radius: 0 50px;
+}
+
+input[type=checkbox]{
+    display: none;
+}
+
+.zoom img{
+    transition: all 0.5s ease-in;
+    cursor: zoom-in;
+}
+input[type=checkbox]:checked~img{
+    transform: scale(2);
+    max-width: 500px;
+    margin: 0 auto;
+    cursor: zoom-out;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+iframe{
+    border-radius: 0 50px;
+    border-color: #000;
+}

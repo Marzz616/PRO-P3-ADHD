@@ -39,11 +39,10 @@
         // Include config and OpenAI API files
         require_once('../config/config.php');
         require_once('../database/database.php');
-        require_once('../api/OpenAI.php');
 
         // Controleer of het een POST-verzoek is
         if ($_SERVER["REQUEST_METHOD"] != "POST") {
-            header("Location: index.php");
+            header("Location: ../faq.html");
             exit;
         }
 
@@ -84,96 +83,70 @@
         // Verbinding maken met de database
         $conn = getDBConnection();
 
-        // Controleer of het een POST-verzoek is en of er een vraag is ingediend
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
-            $question = $_POST["question"];
+// Controleer of het een POST-verzoek is en of er een vraag is ingediend
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
+  // Verbinding maken met de database
+  $conn = getDBConnection();
 
-            // Controleren of de vraag al bestaat in de database
-            $stmt = $conn->prepare("SELECT * FROM qa_table WHERE question = ?");
-            $stmt->bind_param("s", $question);
-            $stmt->execute();
-            $result = $stmt->get_result();
+  $question = addslashes($_POST["question"]);
 
-            // Schoonmaken van de vraag voor vergelijking
-            $clean_question = preg_replace('/[^a-zA-Z0-9]/', '', $question);
-            $clean_existing_questions = array_map(function ($q) {
-                return preg_replace('/[^a-zA-Z0-9]/', '', $q);
-            }, $existing_questions);
+  // Controleren of de vraag al bestaat in de database
+  $stmt = $conn->prepare("SELECT * FROM qa_table WHERE question = ?");
+  $stmt->bind_param("s", $question);
+  $stmt->execute();
+  $result = $stmt->get_result();
 
-            $clean_question = strtolower($clean_question);
-            $clean_existing_questions = array_map('strtolower', $clean_existing_questions);
+  // Schoonmaken van de vraag voor vergelijking
+  $clean_question = preg_replace('/[^a-zA-Z0-9]/', '', $question);
+  $clean_existing_questions = array_map(function ($q) {
+      return preg_replace('/[^a-zA-Z0-9]/', '', $q);
+  }, $existing_questions);
 
-            // Als de vraag al bestaat, geef dan een foutmelding weer
-            if (in_array($clean_question, $clean_existing_questions)) {
-                echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
-            } else {
-                try {
-                    // Genereer antwoord met behulp van de OpenAI API
-                    $answer = generate_answer($question);
+  $clean_question = strtolower($clean_question);
+  $clean_existing_questions = array_map('strtolower', $clean_existing_questions);
 
-                    // Voeg de vraag en het antwoord toe aan de database
-                    $stmt = $conn->prepare("INSERT INTO qa_table (question, answer) VALUES (?, ?)");
-                    $stmt->bind_param("ss", $question, $answer);
-                    if ($stmt->execute() === TRUE) {
-                        echo "<div class='echo-text'>" . $answer . "</div>";
-                    } else {
-                        echo "<div class='echo-text'>Error: " . $conn->error;
-                    }
-                    $stmt->close();
-                } catch (\Exception $e) {
-                    echo "<div class='echo-text'>Error: " . $e->getMessage() . "</div>";
-                }
-            }
-            $conn->close();
-        } else {
-            // Geef een foutmelding weer als er geen vraag is ingediend
-            echo "<div class='echo-text'>Je hebt niks ingevoerd!</div>";
-        }
+  $python_script = "../scripts/generate_answer.py";
 
-        // Functie om het antwoord op de vraag te genereren met behulp van de OpenAI API
-// Set the OpenAI API key
-\OpenAI\API::$apiKey = OPENAI_API_KEY;
+  $python_command = "python3 $python_script \"$question\" 2>&1";
 
-// Function to generate an answer to a question
-function generate_answer($question) {
+  // Als de vraag al bestaat, geef dan een foutmelding weer
+  if (in_array($clean_question, $clean_existing_questions)) {
+      echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
+  } else {
     try {
-        // Construct the prompt
-        $prompt = "Question: $question\nAnswer:";
-
-        // Call the OpenAI Completion API
-        $response = \OpenAI\Completion::create([
-            'model' => 'davinci',
-            'prompt' => $prompt,
-            'max_tokens' => 100,
-            'temperature' => 0.7,
-            'n' => 1,
-        ]);
-
-        // Check if response is valid and contains choices
-        if (isset($response->choices) && !empty($response->choices[0]->text)) {
-            // Extract and return the generated answer
-            return $response->choices[0]->text;
-        } else {
-            // Handle case where response is not in the expected format
-            throw new \Exception("Unexpected response format from OpenAI API");
-        }
-    } catch (\Exception $e) {
-        // Handle any exceptions
-        throw new \Exception("Error generating answer: " . $e->getMessage());
-    }
+      // Genereer antwoord met behulp van het Python-script
+      $output = [];
+      $return_var = 0;
+      exec($python_command, $output, $return_var);
+  
+      if ($return_var !== 0) {
+          throw new Exception("Error executing Python script. Return code: $return_var");
+      }
+  
+      $answer = implode("\n", $output);
+      echo "<div class='echo-text'>Python Script Output: $answer</div>";
+      // Voeg de vraag en het antwoord toe aan de database
+      $stmt = $conn->prepare("INSERT INTO qa_table (question, answer) VALUES (?, ?)");
+      $stmt->bind_param("ss", $question, $answer);
+      if ($stmt->execute() === TRUE) {
+          echo "<div class='echo-text'>Antwoord toegevoegd aan de database!</div>";
+      } else {
+          echo "<div class='echo-text'>Error: " . $conn->error;
+      }
+      $stmt->close();
+  } catch (\Exception $e) {
+      echo "<div class='echo-text'>Error: " . $e->getMessage() . "</div>";
+  }
+  }
+  $conn->close();
+} else {
+  // Geef een foutmelding weer als er geen vraag is ingediend
+  echo "<div class='echo-text'>Je hebt niks ingevoerd!</div>";
 }
-
-// Example usage:
-try {
-    $question = "What is the capital of France?";
-    $answer = generate_answer($question);
-    echo "Q: $question\n";
-    echo "A: $answer\n";
-} catch (\Exception $ex) {
-    // Handle any exceptions that occur during answer generation
-    echo "An error occurred: " . $ex->getMessage();
-}
-        ?>
+?>
+  <form action="../faq.html" method="post">
+    <input type="submit" value="Terug naar FAQ Pagina!" class="submit-button">
+  </form>  
     </div>
     <footer class="footer">
         <div class="footer-top">

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD(H)D vragenlijst</title>
+    <link rel="stylesheet" href="../afblijven/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/header_and_footer.css">
+    <link rel="stylesheet" href="../../assets/css/global.css">
+
+
+</head>
+
+<body>
+    <home>
+
+        <header>
+            <nav class="fixed">
+                <div class="menu-container">
+                    <div class="logo">
+                        <span>Focus</span>Fuse
+                        <p>AD(H)D</p>
+                    </div>
+                    <div class="main-menu row jc-space-between">
+                        <ul>
+                            <li><a href="../Main/index.html">Home</a></li>
+                            <li><a href="../Main/informatie.html">ADHD</a></li>
+                            <li><a href="../Main/ADD.html">ADD</a></li>
+                            <li><a href="../Main/trainning.html">Trainingen</a></li>
+                            <li><a href="../Jorge/contact.html">Contact</a></li>
+                            <li><a href="../Main/faq.html">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="user-menu">
+                        <ul>
+                            <li><a class="active" href="../Main/main_page/afblijven/form.html">AD(H)D Test</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="progress-bar"></div>
+            </nav>
+        </header>
+
+        <form class="vragenlijst lijst" action="js/form.js">
+            <div>
+                <div>
+                    <div class="vraag ai-center">Vraag 1: U heeft moeite om zich te concentreren op taken of
+                        activiteiten,
+                        zoals werk of huiswerk, gedurende langere tijd?
+                        <div id="vraag1-error" class="error-message js-center"></div>
+                    </div>
+                    <div class="antwoord jc-center">
+                        <label for="sterk1">Sterk mee eens:</label><input type="radio" class="sterk" name="vraag1"
+                            value="sterk" id="sterk1">
+                        <label for="neutraal1">Neutraal:</label><input type="radio" class="neutraal" name="vraag1"
+                            value="neutraal" id="neutraal1">
+                        <label for="zwak1">Niet mee eens:</label><input type="radio" class="zwak" name="vraag1"
+                            value="zwak" id="zwak1"><br>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="vraag ai-center">Vraag 2: U merkt dat u vaak dingen vergeet die u moet doen of die u
+                        hebt
+                        gezegd?
+                        <div id="vraag2-error" class="error-message js-center"></div>
+                    </div>
+                    <div class="antwoord jc-center">
+                        <label for="sterk2">Sterk mee eens:</label><input type="radio" class="sterk" name="vraag2"
+                            value="sterk" id="sterk2">
+                        <label for="neutraal2">Neutraal:</label><input type="radio" class="neutraal" name="vraag2"
+                            value="neutraal" id="neutraal2">
+                        <label for="zwak2">Niet mee eens:</label><input type="radio" class="zwak" name="vraag2"
+                            value="zwak" id="zwak2"><br>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="vraag ai-center">Vraag 3: U voelt zich vaak rusteloos of ongeduldig, zelfs wanneer u
+                        zit?
+                        <div id="vraag3-error" class="error-message js-center"></div>
+                    </div>
+                    <div class="antwoord jc-center">
+                        <label for="sterk3">Sterk mee eens:</label><input type="radio" class="sterk" name="vraag3"
+                            value="sterk" id="sterk3">
+                        <label for="neutraal3">Neutraal:</label><input type="radio" class="neutraal" name="vraag3"
+                            value="neutraal" id="neutraal3">
+                        <label for="zwak3">Niet mee eens:</label><input type="radio" class="zwak" name="vraag3"
+                            value="zwak" id="zwak3"><br>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="vraag ai-center">Vraag 4: U heeft de neiging om taken uit te stellen of moeite te hebben
+                        met
+                        het voltooien van taken?
+                        <div id="vraag4-error" class="error-message js-center"></div>
+                    </div>
+                    <div class="antwoord jc-center">
+                        <label for="sterk4">Sterk mee eens:</label><input type="radio" class="sterk" name="vraag4"
+                            value="sterk" id="sterk4">
+                        <label for="neutraal4">Neutraal:</label><input type="radio" class="neutraal" name="vraag4"
+                            value="neutraal" id="neutraal4">
+                        <label for="zwak4">Niet mee eens:</label><input type="radio" class="zwak" name="vraag4"
+                            value="zwak" id="zwak4"><br>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="vraag ai-center">Vraag 5: U wordt vaak afgeleid door externe prikkels, zoals geluiden of
+                        bewegingen?
+                        <div id="vraag5-error" class="error-message js-center"></div>
+                    </div>
+                    <div class="antwoord jc-center">
+                        <label for="sterk5">Sterk mee eens:</label><input type="radio" class="sterk" name="vraag5"
+                            value="sterk" id="sterk5">
+                        <label for="neutraal5">Neutraal:</label><input type="radio" class="neutraal" name="vraag5"
+                            value="neutraal" id="neutraal5">
+                        <label for="zwak5">Niet mee eens:</label><input type="radio" class="zwak" name="vraag5"
+                            value="zwak" id="zwak5"><br>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="vraag ai-center">Vraag 6: U heeft de neiging om impulsieve beslissingen te nemen zonder
+                        er
+                        eerst goed over na te denken?
+                        <div id="vraag6-error" class="error-message js-center"></div>
+                    </div>
+                    <div class="antwoord jc-center">
+                        <label for="sterk6">Sterk mee eens:</label><input type="radio" class="sterk" name="vraag6"
+                            value="sterk" id="sterk6">
+                        <label for="neutraal6">Neutraal:</label><input type="radio" class="neutraal" name="vraag6"
+                            value="neutraal" id="neutraal6">
+                        <label for="zwak6">Niet mee eens:</label><input type="radio" class="zwak" name="vraag6"
+                            value="zwak" id="zwak6"><br>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="vraag ai-center">Vraag 7: U merkt dat u vaak van de ene activiteit naar de andere
+                        springt
+                        zonder er een af te maken?
+                        <div id="vraag7-error" class="error-message js-center"></div>
+                    </div>
+                    <div class="antwoord jc-center">
+                        <label for="sterk7">Sterk mee eens:</label><input type="radio" class="sterk" name="vraag7"
+                            value="sterk" id="sterk7">
+                        <label for="neutraal7">Neutraal:</label><input type="radio" class="neutraal" name="vraag7"
+                            value="neutraal" id="neutraal7">
+                        <label for="zwak7">Niet mee eens:</label><input type="radio" class="zwak" name="vraag7"
+                            value="zwak" id="zwak7"><br>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="vraag ai-center">Vraag 8: U heeft moeite om georganiseerd te blijven, zoals het
+                        bijhouden
+                        van uw spullen of het plannen van uw dagelijkse taken?
+                        <div id="vraag8-error" class="error-message js-center"></div>
+                    </div>
+                    <div class="antwoord jc-center">
+                        <label for="sterk8">Sterk mee eens:</label><input type="radio" class="sterk" name="vraag8"
+                            value="sterk" id="sterk8">
+                        <label for="neutraal8">Neutraal:</label><input type="radio" class="neutraal" name="vraag8"
+                            value="neutraal" id="neutraal8">
+                        <label for="zwak8">Niet mee eens:</label><input type="radio" class="zwak" name="vraag8"
+                            value="zwak" id="zwak8"><br>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="vraag ai-center">Vraag 9: U voelt zich vaak onrustig van binnen, alsof u constant onder
+                        spanning staat?
+                        <div id="vraag9-error" class="error-message js-center"></div>
+                    </div>
+                    <div class="antwoord jc-center">
+                        <label for="sterk9">Sterk mee eens:</label><input type="radio" class="sterk" name="vraag9"
+                            value="sterk" id="sterk9">
+                        <label for="neutraal9">Neutraal:</label><input type="radio" class="neutraal" name="vraag9"
+                            value="neutraal" id="neutraal9">
+                        <label for="zwak9">Niet mee eens:</label><input type="radio" class="zwak" name="vraag9"
+                            value="zwak" id="zwak9"><br>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="vraag ai-center">Vraag 10: U heeft moeite om langdurige mentale inspanning te leveren,
+                        zoals
+                        het lezen van lange stukken tekst of het volgen van langdurige gesprekken?
+                        <div id="vraag10-error" class="error-message js-center"></div>
+                    </div>
+                    <div class="antwoord jc-center">
+                        <label for="sterk10">Sterk mee eens:</label><input type="radio" class="sterk" name="vraag10"
+                            value="sterk" id="sterk10">
+                        <label for="neutraal10">Neutraal:</label><input type="radio" class="neutraal" name="vraag10"
+                            value="neutraal" id="neutraal10">
+                        <label for="zwak10">Niet mee eens:</label><input type="radio" class="zwak" name="vraag10"
+                            value="zwak" id="zwak10"><br>
+                    </div>
+                </div>
+
+                <input class="inleveren" type="submit" value="submit">
+            </div>
+
+        </form>
+
+
+        <form class="persoonsgegevens" method="post" action="onzichtbaar.php">
+            <div class="persoon">
+                <label for="Naam">Naam: </label>
+                <input type="text" id="Naam" name="Naam">
+                <label for="Email">E-mailadres: </label>
+                <input type="text" id="Email" name="Email">
+            </div>
+            <input type="hidden" name="s" id="s" value="">
+            <input type="hidden" name="n" id="n" value="">
+            <input type="hidden" name="z" id="z" value="">
+
+            <input class="inleveren2" type="submit" value="submit">
+
+        </form>
+        <script src="js/form.js"></script>
+
+</body>
+
+</html>
