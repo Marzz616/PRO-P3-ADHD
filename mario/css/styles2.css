@@ -110,8 +110,8 @@ body {
     justify-content: space-around;
   }
 
-  .box-3 {
-    width: 1400px;
+  .box-2 {
+    width: 90%;
     height: auto; /* Change height to auto to accommodate content */
     margin-top: 30px;
     margin: auto;
@@ -131,11 +131,13 @@ body {
     margin-top: 50px; /* Adjust margin-top to create space between the boxes */
   }
 
-  .item-4{
-    width: 85%; /* Adjust width to fit content better */
+  
+  .item-4 {
+    width: 70%; /* Adjust width to fit content better */
+    background-color: #000000; /* Changed to a darker shade of blue */
     padding: 20px; /* Increase padding for better readability */
     text-align: center;
-    color: #000000;
+    color: #ffffff;
     border-radius: 10px;
     margin-top: 50px; /* Adjust margin-top to create space between the boxes */
   }
