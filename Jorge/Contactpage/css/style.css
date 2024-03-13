@@ -1,64 +1,63 @@
-/* General styles */
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
   color: #333;
-  margin: 0;
-  padding: 0;
+  background-color: #ce2929;
+  padding: 2rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #000000;
+}
+header img {
+  width: 100%;
+  max-width: 20rem;
+  display: block;
+  margin: 0 auto;
+}
+
+main section h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+main section p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+footer p {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+body {
+  background-image: radial-gradient(circle at 50% 50%, #ce2929, #66a92f);
 }
 
 header {
-  background-color: #34568B;
-  padding: 20px;
-  text-align: center;
-}
-header h1 {
-  color: #fff;
-  font-size: 36px;
-  margin: 0;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 1rem;
 }
 
-main {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 20px;
+main section {
+  margin-bottom: 3rem;
+}
+main h2 {
+  color: #000000;
+}
+main p {
+  color: #000000;
 }
 
-section {
-  flex-basis: calc(50% - 20px);
-  margin: 0 10px 20px 0;
-}
-section h2 {
-  color: #34568B;
-  font-size: 24px;
-  margin: 0 0 10px 0;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-form label {
-  margin-bottom: 5px;
-}
-form input, form textarea {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-form input[type=submit] {
-  background-color: #34568B;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-#contact-info ul {
-  list-style: none;
-  padding: 0%;
+footer {
+  border-top: 1px solid #000000;
+  padding-top: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */
