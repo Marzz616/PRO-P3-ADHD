@@ -75,7 +75,7 @@ main {
   /* Increase padding for better readability */
   text-align: center;
   color: #ffffff;
-  border-radius: 10px;
+  border-radius: 0 50px;
   margin-top: 50px;
   /* Adjust margin-top to create space between the boxes */
 }
@@ -87,7 +87,7 @@ main {
   /* Increase padding for better readability */
   text-align: center;
   color: #000000;
-  border-radius: 10px;
+  border-radius: 0 50px;
   margin-top: 50px;
   /* Adjust margin-top to create space between the boxes */
 }
