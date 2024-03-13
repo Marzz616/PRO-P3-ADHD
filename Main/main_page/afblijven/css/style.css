@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(170, 170, 170);
+  background-color: #f5f5f5;
   display: flex;
   justify-content: center;
 }
@@ -8,7 +8,7 @@ body form.lijst {
   border-radius: 10px;
   border: 0.2rem solid black;
   height: 100%;
-  background-color: white;
+  background-color: #f5f5f5;
   justify-content: center;
   flex-direction: column;
   width: 80%;
@@ -71,18 +71,23 @@ input.inleveren {
 .persoonsgegevens {
   display: flex;
   border: 0.2rem solid black;
-  margin-top: 10%;
-  padding: 2rem;
+  margin: 15% 30%;
+  padding: 2rem 5rem;
   flex-direction: column;
+  border-radius: 0 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .persoonsgegevens .persoon {
   font-size: 1.5rem;
+  display: flex;
+  margin: 1rem;
+  flex-direction: column;
 }
 .persoonsgegevens input.inleveren2 {
   width: 20%;
   height: 2rem;
   font-size: 1.5rem;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
+  margin: 2rem 40%;
 }
-
 /*# sourceMappingURL=style.css.map */
