@@ -37,6 +37,8 @@
     <div class="faq-container answers jc-center col-6">
         <?php
         // Include config and OpenAI API files
+        require_once __DIR__ . '/../vendor/autoload.php';
+
         require_once('../config/config.php');
         require_once('../database/database.php');
 
@@ -45,6 +47,32 @@
             header("Location: ../faq.html");
             exit;
         }
+
+        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+        $dotenv->load();
+
+        $openaiApiKey = $_ENV['OPENAI_API_KEY'];
+
+        function generate_answer($question) {
+          // Replace this with the correct path to your Python script
+          $python_script = "C:\\Users\\meije\\PRO-P3-ADHD\\PRO-P3-ADHD\\Thomas\\scripts\\generate_answer.py";
+      
+          // Construct the command to execute the Python script
+          $python_command = "\"C:/Users/meije/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Python 3.12/Python 3.12 (64-bit).lnk\" $python_script \"$question\" 2>&1";
+      
+          // Execute the Python script and capture output
+          $output = [];
+          $return_var = 0;
+          exec($python_command, $output, $return_var);
+      
+          // Check if Python script execution was successful
+          if ($return_var !== 0) {
+              throw new Exception("Dit is tijdelijke placeholder voor je antwoord op je vraag");
+          }
+      
+          // Return the answer from the Python script
+          return implode("\n", $output);
+      }
 
         // De bestaande vragen in de lijst
         $existing_questions = [
@@ -85,18 +113,19 @@
 
 // Controleer of het een POST-verzoek is en of er een vraag is ingediend
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
-  // Verbinding maken met de database
+  // Connect to the database
   $conn = getDBConnection();
 
+  // Sanitize the question input
   $question = addslashes($_POST["question"]);
 
-  // Controleren of de vraag al bestaat in de database
+  // Check if the question already exists in the database
   $stmt = $conn->prepare("SELECT * FROM qa_table WHERE question = ?");
   $stmt->bind_param("s", $question);
   $stmt->execute();
   $result = $stmt->get_result();
 
-  // Schoonmaken van de vraag voor vergelijking
+  // Clean the question for comparison
   $clean_question = preg_replace('/[^a-zA-Z0-9]/', '', $question);
   $clean_existing_questions = array_map(function ($q) {
       return preg_replace('/[^a-zA-Z0-9]/', '', $q);
@@ -105,42 +134,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
   $clean_question = strtolower($clean_question);
   $clean_existing_questions = array_map('strtolower', $clean_existing_questions);
 
-  $python_script = "../scripts/generate_answer.py";
-
-  $python_command = "python3 $python_script \"$question\" 2>&1";
-
-  // Als de vraag al bestaat, geef dan een foutmelding weer
+  // If the question already exists, display an error message
   if (in_array($clean_question, $clean_existing_questions)) {
       echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
   } else {
-    try {
-      // Genereer antwoord met behulp van het Python-script
-      $output = [];
-      $return_var = 0;
-      exec($python_command, $output, $return_var);
-  
-      if ($return_var !== 0) {
-          throw new Exception("Error executing Python script. Return code: $return_var");
+      try {
+          // Generate answer using the Python script
+          $answer = generate_answer($question);
+          echo "<div class='echo-text'>Python Script Output: $answer</div>";
+
+          // Insert the question and answer into the database
+          $stmt = $conn->prepare("INSERT INTO qa_table (question, answer) VALUES (?, ?)");
+          $stmt->bind_param("ss", $question, $answer);
+          if ($stmt->execute() === TRUE) {
+              echo "<div class='echo-text'>Answer added to the database!</div>";
+          } else {
+              echo "<div class='echo-text'>Error: " . $conn->error;
+          }
+          $stmt->close();
+      } catch (\Exception $e) {
+          echo "<div class='echo-text'>Error: " . $e->getMessage() . "</div>";
       }
-  
-      $answer = implode("\n", $output);
-      echo "<div class='echo-text'>Python Script Output: $answer</div>";
-      // Voeg de vraag en het antwoord toe aan de database
-      $stmt = $conn->prepare("INSERT INTO qa_table (question, answer) VALUES (?, ?)");
-      $stmt->bind_param("ss", $question, $answer);
-      if ($stmt->execute() === TRUE) {
-          echo "<div class='echo-text'>Antwoord toegevoegd aan de database!</div>";
-      } else {
-          echo "<div class='echo-text'>Error: " . $conn->error;
-      }
-      $stmt->close();
-  } catch (\Exception $e) {
-      echo "<div class='echo-text'>Error: " . $e->getMessage() . "</div>";
-  }
   }
   $conn->close();
 } else {
-  // Geef een foutmelding weer als er geen vraag is ingediend
+  // Display an error message if no question is submitted
   echo "<div class='echo-text'>Je hebt niks ingevoerd!</div>";
 }
 ?>

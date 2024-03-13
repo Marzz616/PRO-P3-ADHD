@@ -1,0 +1,22 @@
+{
+  "name": "thomas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts/answer.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass -w scss:css",
+    "minify": "sass -w scss:css --style=compressed"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.71.1"
+  },
+  "dependencies": {
+    "@openai/openai-api": "^0.8.0"
+  },
+  "require": {
+    "openai/sdk": "^0.4.0"
+  }
+}
