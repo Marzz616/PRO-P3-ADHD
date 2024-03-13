@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
     <script src="../Main/assets/javascript/progressBar.js"></script>
+    <script src="../Main/assets/javascript/aside.js"></script>
     <title>FocusFuse Trainingen</title>
 </head>
 
@@ -51,9 +52,17 @@
         </div>
     </header>
     <main>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#leerkracht">Als leerkracht en/of partner</a>
+            <a href="#BenJeEenOuder">Ben je een ouder,is jouw kind gediagnosticeerd met ADHD?</a>
+            <a href="#webshop">ADHD-Friendly Tools Webshop</a>
+        </div>
+        <span class="side_menu_open" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
 
 
         <!-- Training information for teachers -->
+        <div id="leerkracht"></div>
         <div class="box-2">
             <div class="item-1">
                 <h2>Als leerkracht:</h2>
@@ -120,11 +129,11 @@
                     </a></p>
             </div>
         </div>
-
+        <div id="BenJeEenOuder"></div>
         <div class="box-2">
             <div class="item-1">
                 <!-- Information for parents -->
-                <h2>Ben je een ouder,s jouw kind gediagnosticeerd met ADHD? Dan is dit voor jou. </h2>
+                <h2>Ben je een ouder,is jouw kind gediagnosticeerd met ADHD? Dan is dit voor jou. </h2>
                 <p> Als ouder die op zoek is naar online trainingen om effectieve strategieën te leren voor het omgaan
                     met kinderen die ADD of ADHD hebben,
                     zijn er verschillende opties die je kunt overwegen. Hier zijn enkele suggesties:</p>
@@ -161,6 +170,7 @@
                 </p>
             </div>
         </div>
+        <div id="webshop"></div>
         <div class="bgs-image">
             <div>hello</div>
             <div>hello</div>
@@ -181,8 +191,6 @@
 
         <div class="box-2">
             <div class="item-1">
-
-
                 <h2>Focus Hulpmiddelen:</h2>
 
                 <li>
