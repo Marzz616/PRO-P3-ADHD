@@ -1,0 +1,69 @@
+$color-background: #ce2929;
+$color-background-light: #66a92f;
+$color-text: #333;
+$color-text-light: #000000;
+$color-primary: #000000;
+$color-accent: #000000;
+
+body {
+ font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ color: $color-text;
+ background-color: $color-background;
+}
+
+header {
+ h1 {
+ font-size: 2.5rem;
+ margin-bottom: 1rem;
+ text-align: center;
+ color: $color-primary;
+ }
+
+ img {
+ width: 100%;
+ max-width: 20rem;
+ display: block;
+ margin: 0 auto;
+ }
+}
+
+main {
+    padding: 2rem;
+ max-width: 80rem;
+ margin: 0 auto;
+ section {
+ h2 {
+ font-size: 2rem;
+ margin-top: 2rem;
+ line-height: 1.5;
+ }
+
+ p {
+ font-size: 1.1rem;
+ margin-bottom: 1rem;
+ }
+ }
+}
+
+body {
+ background-image: radial-gradient(circle at 50% 50%, $color-background, $color-background-light);
+}
+
+header {
+ border-bottom: 1px solid $color-accent;
+ padding-bottom: 1rem;
+}
+
+main {
+ section {
+ margin-bottom: 3rem;
+ }
+
+ h2 {
+ color: $color-accent;
+ }
+
+ p {
+ color: $color-text-light;
+ }
+ }
