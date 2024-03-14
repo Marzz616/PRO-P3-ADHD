@@ -4,9 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../assets/css/header_and_footer.css">
+    <link rel="stylesheet" href="../Main/assets/css/global.css">
+  <script src="../Main/assets/javascript/progressBar.js"></script>
     <title>Document</title>
 </head>
 <body>
+
+    <header>
+            <nav class="fixed">
+                <div class="menu-container">
+                    <div class="logo">
+                        <span>Focus</span>Fuse
+                        <p>AD(H)D</p>
+                    </div>
+                    <div class="main-menu row jc-space-between">
+                        <ul>
+                            <li><a href="../index.html">Home</a></li>
+                            <li><a href="../informatie.html">ADHD</a></li>
+                            <li><a href="../ADD.html">ADD</a></li>
+                            <li><a href="../trainning.html">Trainingen</a></li>
+                            <li><a href="../contact.html">Contact</a></li>
+                            <li><a href="../faq.html">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="user-menu">
+                        <ul>
+                            <li><a class="active" href="main_page/resultaten.php">AD(H)D Test</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="progress-bar"></div>
+            </nav>
+        </header>
     <div class="gegevens">
 <form class="persoonsgegevens" method="post" action="">
             <div class="persoon">
