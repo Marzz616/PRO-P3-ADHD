@@ -145,7 +145,6 @@ body {
     flex-direction: column;
     max-width: 100%;
     padding: 0.5rem;
-    margin: auto 0.5rem;
 }
 
 .col .inner,
