@@ -1,19 +1,35 @@
-label>img{
+label {
+    margin-bottom: 1rem;
+}
+
+label>img {
     max-width: 100%;
     height: auto;
     border: 1px solid #000;
     border-radius: 0 50px;
 }
 
-input[type=checkbox]{
+input[type=checkbox] {
     display: none;
 }
 
-.zoom img{
-    transition: all 0.5s ease-in;
+.zoom img .zImg-r {
+    transition: all 0.5s cubic-bezier(0.02, 0.96, 0.58, 1);
     cursor: zoom-in;
+    object-fit: cover;
 }
-input[type=checkbox]:checked~img{
+
+.zoom img .zImg-l {
+    transition: all 0.5s cubic-bezier(-0.02, -0.96, -0.58, -1);
+    cursor: zoom-in;
+    object-fit: cover;
+}
+
+.imgScale {
+    width: 100%;
+}
+
+input[type=checkbox]:checked~img {
     transform: scale(2);
     max-width: 500px;
     margin: 0 auto;
@@ -26,7 +42,6 @@ input[type=checkbox]:checked~img{
     z-index: 1000;
 }
 
-iframe{
+iframe {
     border-radius: 0 50px;
-    border-color: #000;
 }

@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Main/assets/css/stl.css">
     <title>FocusFuse ADHD</title>
 </head>
 
@@ -25,17 +26,17 @@
                     </div>
                     <div class="main-menu row jc-space-between">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="informatie.html">ADHD</a></li>
-                            <li><a href="ADD.html">ADD</a></li>
-                            <li><a href="trainning.html">Trainingen</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="../Main/index.html">Home</a></li>
+                            <li><a href="../Main/informatie.html">ADHD</a></li>
+                            <li><a href="../Main/ADD.html">ADD</a></li>
+                            <li><a href="../Main/trainning.html">Trainingen</a></li>
+                            <li><a href="../Main/contact.html">Contact</a></li>
+                            <li><a href="../Main/faq.html">FAQ</a></li>
                         </ul>
                     </div>
                     <div class="user-menu">
                         <ul>
-                            <li><a class="active" href="main_page/resultaten.php">AD(H)D Test</a></li>
+                            <li><a class="active" href="../Main/main_page/resultaten.php">AD(H)D Test</a></li>
                         </ul>
                     </div>
                 </div>
@@ -56,7 +57,7 @@
             <h2>Wat is ADHD?</h2>
 
             <section class="bubble row jc-space-evenly">
-                <iframe id="filmpje-1" class="col col-4 col-xl-4 col-l-4 col-m-6 col-s-8 col-xs-10" height="250"
+                <iframe id="filmpje-1" class="col col-6 col-xl-5 col-l-6 col-m-6 col-s-8 col-xs-10" height="250"
                     src="https://www.youtube.com/embed/SsZSB0qhctI" frameborder="0"></iframe>
                 <p class="col col-4 col-xl-4 col-l-4 col-m-6 col-s-8 col-xs-10">
                     ADHD staat voor Attention Deficit Hyperactivity Disorder. Vertaald naar het Nederlands betekent dit
@@ -106,9 +107,13 @@
                 </div>
             </section>
             <section id="aanvullende_vereisten" class="bubble row jc-space-evenly">
-                <img id="img-1" class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12"
-                    src="assets/img/info_ADHD/add.jpg" alt="">
-                <div class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12">
+                <div id="img-1" class="zoom media-item col-5 col-xl-5 col-l-5 col-m-8 col-s-10 col-xs-12">
+                    <label>
+                        <input type="checkbox" />
+                        <img class="zImg-l" src="../Main/assets/img/info_ADHD/add.jpg" alt="">
+                    </label>
+                </div>
+                <div class="col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12">
                     <p>
                         Als aanvullende vereisten gelden dat deze symptomen:
                     </p>
@@ -245,8 +250,16 @@
                     </p>
                     <button onclick="myFunction()" id="myBtn">Read more</button>
                 </div>
-                <img id="img-1" class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12"
-                    src="assets/img/info_ADHD/add.jpg" alt="">
+                <div id="img-1" class="zoom media-item col-5 col-xl-5 col-l-5 col-m-8 col-s-10 col-xs-12">
+                    <label>
+                        <input type="checkbox" />
+                        <img class="zImg-r" src="../Main/assets/img/info_ADHD/dms5.jpg" alt="">
+                    </label>
+                    <label>
+                        <input type="checkbox" />
+                        <img class="zImg-r" src="../Main/assets/img/info_ADHD/dsm5-300.jpg" alt="">
+                    </label>
+                </div>
             </section>
             <section id="Medicamenteuze_behandeling_van_ADHD" class="bubble row jc-space-evenly">
                 <div class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12">
@@ -385,8 +398,13 @@
                     </span>
                     <button onclick="myFunction2()" id="myBtn2">Read more</button>
                 </div>
-                <img id="img-1" class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12"
-                    src="assets/img/info_ADHD/The-ADHD-Iceberg-What-It-Looks-Like.png" alt="">
+                <div id="img-1" class="zoom media-item col-5 col-xl-5 col-l-5 col-m-8 col-s-10 col-xs-12">
+                    <label>
+                        <input type="checkbox" />
+                        <img class="zImg-r" src="../Main/assets/img/info_ADHD/The-ADHD-Iceberg-What-It-Looks-Like.png"
+                            alt="">
+                    </label>
+                </div>
             </section>
 
 
@@ -434,11 +452,11 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6 col-12">
                             <ul class="footer-social">
-                                <li><a href="#"><img src="assets/img/footer/facebook2.png" alt=""><i
+                                <li><a href="#"><img src="../Main/assets/img/footer/facebook2.png" alt=""><i
                                             class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><img src="assets/img/footer/instagram2.png" alt=""><i
+                                <li><a href="#"><img src="../Main/assets/img/footer/instagram2.png" alt=""><i
                                             class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><img src="assets/img/footer/youtube2.png" alt=""><i
+                                <li><a href="#"><img src="../Main/assets/img/footer/youtube2.png" alt=""><i
                                             class="fab fa-youtube"></i></a></li>
                             </ul>
                         </div>
