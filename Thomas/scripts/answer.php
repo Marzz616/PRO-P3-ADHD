@@ -139,32 +139,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
       echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
   } else {
       try {
-          // Generate answer using the Python script
-          $answer = generate_answer($question);
-          echo "<div class='echo-text'>Python Script Output: $answer</div>";
+            // Generate answer using the Python script
+            $answer = generate_answer($question);
+            echo "<div class='echo-text'>Python Script Output: $answer</div>";
 
-          // Insert the question and answer into the database
-          $stmt = $conn->prepare("INSERT INTO qa_table (question, answer) VALUES (?, ?)");
-          $stmt->bind_param("ss", $question, $answer);
-          if ($stmt->execute() === TRUE) {
+            // Insert the question and answer into the database
+            $stmt = $conn->prepare("INSERT INTO qa_table (question, answer) VALUES (?, ?)");
+            $stmt->bind_param("ss", $question, $answer);
+            if ($stmt->execute() === TRUE) {
               echo "<div class='echo-text'>Answer added to the database!</div>";
-          } else {
+            } else {
               echo "<div class='echo-text'>Error: " . $conn->error;
+            }
+            $stmt->close();
+          } catch (\Exception $e) {
+            echo "<div class='echo-text'>Error: " . $e->getMessage() . "</div>";
           }
-          $stmt->close();
-      } catch (\Exception $e) {
-          echo "<div class='echo-text'>Error: " . $e->getMessage() . "</div>";
-      }
-  }
-  $conn->close();
-} else {
-  // Display an error message if no question is submitted
-  echo "<div class='echo-text'>Je hebt niks ingevoerd!</div>";
-}
-?>
-  <form action="../faq.html" method="post">
-    <input type="submit" value="Terug naar FAQ Pagina!" class="submit-button">
-  </form>  
+        }
+        $conn->close();
+        } else {
+          // Display an error message if no question is submitted
+          echo "<div class='echo-text'>Je hebt niks ingevoerd!</div>";
+        }
+      ?>
+      <form action="../faq.html" method="post">
+        <input type="submit" value="Terug naar FAQ Pagina!" class="submit-button">
+      </form>  
     </div>
     <footer class="footer">
         <div class="footer-top">

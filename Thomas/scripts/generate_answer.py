@@ -1,7 +1,9 @@
 import os
 import openai
-import sys
-print(sys.path)
+from dotenv import load_dotenv
+print(os.getenv("OPEN_AI_KEY"))
+
+load_dotenv()
 # Function to generate an answer using OpenAI API
 def generate_answer(question):
     print("Generating answer for your question:", question)
@@ -18,7 +20,7 @@ def generate_answer(question):
             {"role": "system", "content": "You are a user asking a question."},
             {"role": "user", "content": question}
         ],
-        max_tokens=50,  # Max number of tokens for the completion
+        max_tokens=100,  # Max number of tokens for the completion
         stop=["\n"]  # Stop generating after one sentence
     )
     return response.choices[0].message['content']

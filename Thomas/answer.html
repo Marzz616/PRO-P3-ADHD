@@ -1,0 +1,123 @@
+<!--Maak eerst een virtualhost aan zodat je kan zien hoe de AI werkt!-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/faq.css">
+  <link rel="stylesheet" href="./css/header_and_footer.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+  <title>FAQ Page</title>
+</head>
+<body>
+    <!--De header-->
+    <header>
+        <nav class="fixed">
+          <div class="menu-container jc-flex-end ">
+            <div class="logo">
+              <span>Focus</span>Fuse AD(H)D
+              <!--<p class="text"></p>-->
+            </div>
+            <div class="main-menu row jc-space-between">
+              <ul>
+                <li><a href="../shuhd/index.html">Home</a></li>
+                <li><a href="../Nimród/informatie.html">Informatie</a></li>
+                <li><a href="../mario/trainning.html">Trainingen</a></li>
+                <li><a href="../Jorge/contact.html">Contact</a></li>
+                <li><a href="../Thomas/faq.html">FAQ</a></li>
+              </ul>
+            </div>
+            <div class="user-menu">
+              <ul>
+                <li><a class="active" href="../Youri/index.php">Login</a></li>
+                <li><a class="active" href="../Youri/index.php">Register</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <!--FAQ Container-->
+        <div class="faq-container jc-center col-6">
+            <div class="ask-your-own-questions col-s-12 col-l-6">
+              <py-script>
+                a = 3
+                b = 9
+                if a > b:
+                  print("Jij bent dom")
+                elif a < b:
+                  print("Jij bent 9 jaar oud")
+                else:
+                  print("Hi how are ya-")
+              </py-script>
+                <form action="scripts/answer.php" method="post">
+                    <h1>Type je vraag hier!</h1>
+                    <input type="text" id="question" name="question" class="question-input" placeholder="Type je vraag hier..."><br>
+                    <input type="submit" value="Submit" class="submit-button">
+                </form>
+            </div>
+        </div>
+    <!--De Footer-->
+    <footer class="footer">
+        <div class="footer-top">
+          <div class="footer-container">
+            <div class="row">
+              <div class="col-sm-4 col-6">
+                <h5>The Team</h5>
+                <ul>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Course</a></li>
+                  <li><a href="#">School</a></li>
+                  <li><a href="#">Members</a></li>
+                  <li><a href="#">Project Corporation</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-4 col-6">
+                <h5>Our Website</h5>
+                <ul>
+                  <li><a href="#">Why we made it</a></li>
+                  <li><a href="#">Info Page</a></li>
+                  <li><a href="#">Faq Page</a></li>
+                  <li><a href="#">Page</a></li>
+                  <li><a href="#">Page</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-4 col-12">
+                <h5>Get In Touch</h5>
+                <ul>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Website problems</a></li>
+                  <li><a href="#">Email us</a></li>
+                  <li><a href="#">Call us</a></li>
+                  <li><a href="#">Sms us</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-container">
+            <div class="row align-items-center">
+              <div class="col-sm-6 col-12">
+                <ul class="footer-social">
+                  <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/facebook2.png" alt=""><i
+                        class="fab fa-facebook-f"></i></a></li>
+                  <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/instagram2.png" alt=""><i
+                        class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/youtube2.png" alt=""><i
+                        class="fab fa-youtube"></i></a></li>
+                </ul>
+              </div>
+              <div class="col-sm-6 col-12">
+                <p class="copyright-text">Copyright © 2024 Team Youri<br>All rights are ours.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+</body>
+    <!--Javascript script-->
+<script src="scripts/faq.js"></script>
+</html>
