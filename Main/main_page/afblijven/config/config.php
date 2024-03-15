@@ -10,7 +10,7 @@ $dbHost = 'localhost';
 $dbName = 'project_p3';
 
 // Naam van de gebruiker
-$dbUser = 'yourideron';
+$dbUser = "rra2309a";
 
 // Wachtwoord van de gebruiker
-$dbPass = 'Empire12!';
+$dbPass = "gOC0oTGAyEBCPIRy";

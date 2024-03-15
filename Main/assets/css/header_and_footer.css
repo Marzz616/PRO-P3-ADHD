@@ -1,3 +1,4 @@
+@charset "UTF-8";
 #progress-bar {
   background-color: #ff8c00; /* Change color as needed */
   height: 5px;
@@ -61,6 +62,12 @@ nav ul li a:hover {
 nav ul li a:hover::before,
 ul li a:hover::after {
   transform: scaleX(1);
+}
+
+.active-tab {
+  border-bottom: 2px solid #ff8c00; /* Példaként kéken emeljük ki az aktív fület */
+  color: #ff8c00;
+  z-index: 4;
 }
 
 nav {

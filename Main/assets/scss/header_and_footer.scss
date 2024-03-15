@@ -63,6 +63,12 @@ ul li a:hover::after {
   transform: scaleX(1);
 }
 
+.active-tab {
+  border-bottom: 2px solid #ff8c00; /* Példaként kéken emeljük ki az aktív fület */
+  color: #ff8c00;
+  z-index: 4;
+}
+
 // nav .user-menu ul > li:first-of-type::after {
 //   content: "|";
 //   margin-top: 0.4rem;
