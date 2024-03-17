@@ -13,13 +13,13 @@ input[type=checkbox] {
     display: none;
 }
 
-.zoom img .zImg-r {
+.zoom img.zImg-r {
     transition: all 0.5s cubic-bezier(0.02, 0.96, 0.58, 1);
     cursor: zoom-in;
     object-fit: cover;
 }
 
-.zoom img .zImg-l {
+.zoom img.zImg-l {
     transition: all 0.5s cubic-bezier(-0.02, -0.96, -0.58, -1);
     cursor: zoom-in;
     object-fit: cover;
