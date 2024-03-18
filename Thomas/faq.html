@@ -41,9 +41,10 @@
         <div class="faq-container jc-center col-6">
             <h1>FAQ</h1>
             <div class="ask-your-own-questions col-s-12 col-l-6">
-                <form action="answer.html" method="post">
-                    <label for="question" class="question-label">Heb je nog meer vragen?</label><br>
-                    <input type="submit" value="Stel ze hier!" class="submit-button">
+              <form action="scripts/answer.php" method="post">
+                <label for="question" class="question-label">Heb je nog meer vragen? Stel ze hieronder!</label><br>
+                <input type="text" id="question" name="question" class="question-input" placeholder="Type je vraag hier..."><br>
+                <input type="submit" value="Submit" class="submit-button">
                 </form>   
             </div>
             <!--Vraag 1-->
@@ -225,5 +226,4 @@
 </body>
     <!--Javascript script-->
 <script src="scripts/faq.js"></script>
-<py-script src="scripts/generate_answer.py"></py-script>
 </html>

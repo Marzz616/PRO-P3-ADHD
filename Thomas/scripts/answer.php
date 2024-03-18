@@ -38,9 +38,58 @@
         <?php
         // Include config and OpenAI API files
         require_once __DIR__ . '/../vendor/autoload.php';
+        use Dotenv\Dotenv;
 
         require_once('../config/config.php');
         require_once('../database/database.php');
+
+        use GuzzleHttp\Client;
+
+        // Function to generate an answer using OpenAI API
+        function generate_answer($question) {
+            // Get the OpenAI API key from environment variables
+            $openaiApiKey = getenv('OPENAI_API_KEY');
+
+            if ($openaiApiKey === false) {
+                throw new Exception("OPENAI_API_KEY environment variable is not set");
+            }
+
+            // Set up the HTTP client
+            $client = new \GuzzleHttp\Client([
+                'base_uri' => 'https://api.openai.com/v1/',
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $openaiApiKey,
+                    'Content-Type' => 'application/json',
+                ]
+            ]);
+
+            // Construct the request body
+            $requestBody = [
+                'model' => 'gpt-3.5-turbo',
+                'messages' => [
+                    ['role' => 'system', 'content' => 'You are a user asking a question.'],
+                    ['role' => 'user', 'content' => $question]
+                ],
+                'max_tokens' => 100,  // Max number of tokens for the completion
+                'stop' => ["\n"]  // Stop generating after one sentence
+            ];
+
+            // Send the request to OpenAI API
+            $response = $client->post('completions', [
+                'json' => $requestBody,
+            ]);
+
+            // Check if the request was successful
+            if ($response->getStatusCode() !== 200) {
+                throw new Exception("OpenAI API request failed");
+            }
+
+            // Decode the response JSON
+            $responseData = json_decode($response->getBody(), true);
+
+            // Extract and return the answer from the response
+            return $responseData['choices'][0]['message']['content'];
+        }
 
         // Controleer of het een POST-verzoek is
         if ($_SERVER["REQUEST_METHOD"] != "POST") {
@@ -48,31 +97,10 @@
             exit;
         }
 
-        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+        $dotenv = Dotenv::createMutable(__DIR__ . '.env');
         $dotenv->load();
 
         $openaiApiKey = $_ENV['OPENAI_API_KEY'];
-
-        function generate_answer($question) {
-          // Replace this with the correct path to your Python script
-          $python_script = "C:\\Users\\meije\\PRO-P3-ADHD\\PRO-P3-ADHD\\Thomas\\scripts\\generate_answer.py";
-      
-          // Construct the command to execute the Python script
-          $python_command = "\"C:/Users/meije/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Python 3.12/Python 3.12 (64-bit).lnk\" $python_script \"$question\" 2>&1";
-      
-          // Execute the Python script and capture output
-          $output = [];
-          $return_var = 0;
-          exec($python_command, $output, $return_var);
-      
-          // Check if Python script execution was successful
-          if ($return_var !== 0) {
-              throw new Exception("Dit is tijdelijke placeholder voor je antwoord op je vraag");
-          }
-      
-          // Return the answer from the Python script
-          return implode("\n", $output);
-      }
 
         // De bestaande vragen in de lijst
         $existing_questions = [
@@ -111,117 +139,119 @@
         // Verbinding maken met de database
         $conn = getDBConnection();
 
-// Controleer of het een POST-verzoek is en of er een vraag is ingediend
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
-  // Connect to the database
-  $conn = getDBConnection();
+        // Controleer of het een POST-verzoek is en of er een vraag is ingediend
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
+            // Connect to the database
+            $conn = getDBConnection();
 
-  // Sanitize the question input
-  $question = addslashes($_POST["question"]);
+            // Sanitize the question input
+            $question = addslashes($_POST["question"]);
 
-  // Check if the question already exists in the database
-  $stmt = $conn->prepare("SELECT * FROM qa_table WHERE question = ?");
-  $stmt->bind_param("s", $question);
-  $stmt->execute();
-  $result = $stmt->get_result();
+            // Check if the question already exists in the database
+            $stmt = $conn->prepare("SELECT * FROM qa_table WHERE question = ?");
+            $stmt->bind_param("s", $question);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-  // Clean the question for comparison
-  $clean_question = preg_replace('/[^a-zA-Z0-9]/', '', $question);
-  $clean_existing_questions = array_map(function ($q) {
-      return preg_replace('/[^a-zA-Z0-9]/', '', $q);
-  }, $existing_questions);
+            // Clean the question for comparison
+            $clean_question = preg_replace('/[^a-zA-Z0-9]/', '', $question);
+            $clean_existing_questions = array_map(function ($q) {
+                return preg_replace('/[^a-zA-Z0-9]/', '', $q);
+            }, $existing_questions);
 
-  $clean_question = strtolower($clean_question);
-  $clean_existing_questions = array_map('strtolower', $clean_existing_questions);
+            $clean_question = strtolower($clean_question);
+            $clean_existing_questions = array_map('strtolower', $clean_existing_questions);
 
-  // If the question already exists, display an error message
-  if (in_array($clean_question, $clean_existing_questions)) {
-      echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
-  } else {
-      try {
-            // Generate answer using the Python script
-            $answer = generate_answer($question);
-            echo "<div class='echo-text'>Python Script Output: $answer</div>";
-
-            // Insert the question and answer into the database
-            $stmt = $conn->prepare("INSERT INTO qa_table (question, answer) VALUES (?, ?)");
-            $stmt->bind_param("ss", $question, $answer);
-            if ($stmt->execute() === TRUE) {
-              echo "<div class='echo-text'>Answer added to the database!</div>";
+            // If the question already exists, display an error message
+            if (in_array($clean_question, $clean_existing_questions)) {
+                echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
+            } else if (!preg_match("/\b(ADHD|ADD)\b/i", $question)) {
+                echo "<div class='echo-text'>Deze vraag gaat niet over ADHD of ADD!</div>";
             } else {
-              echo "<div class='echo-text'>Error: " . $conn->error;
+                try {
+                    // Generate answer using the Python script
+                    $answer = generate_answer($question);
+                    echo "<div class='echo-text'>Python Script Output: $answer</div>";
+
+                    // Insert the question and answer into the database
+                    $stmt = $conn->prepare("INSERT INTO qa_table (question, answer) VALUES (?, ?)");
+                    $stmt->bind_param("ss", $question, $answer);
+                    if ($stmt->execute() === TRUE) {
+                        echo "<div class='echo-text'>Answer added to the database!</div>";
+                    } else {
+                        echo "<div class='echo-text'>Error: " . $conn->error;
+                    }
+                    $stmt->close();
+                } catch (\Exception $e) {
+                    echo "<div class='echo-text'>Error: " . $e->getMessage() . "</div>";
+                }
             }
-            $stmt->close();
-          } catch (\Exception $e) {
-            echo "<div class='echo-text'>Error: " . $e->getMessage() . "</div>";
-          }
-        }
-        $conn->close();
+            $conn->close();
         } else {
-          // Display an error message if no question is submitted
-          echo "<div class='echo-text'>Je hebt niks ingevoerd!</div>";
+            // Display an error message if no question is submitted
+            echo "<div class='echo-text'>Je hebt niks ingevoerd!</div>";
         }
-      ?>
-      <form action="../faq.html" method="post">
-        <input type="submit" value="Terug naar FAQ Pagina!" class="submit-button">
-      </form>  
+        ?>
+        <form action="../faq.html" method="post">
+            <input type="submit" value="Terug naar FAQ Pagina!" class="submit-button">
+        </form>  
     </div>
     <footer class="footer">
         <div class="footer-top">
-          <div class="footer-container">
-            <div class="row">
-              <div class="col-sm-4 col-6">
-                <h5>The Team</h5>
-                <ul>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Course</a></li>
-                  <li><a href="#">School</a></li>
-                  <li><a href="#">Members</a></li>
-                  <li><a href="#">Project Corporation</a></li>
-                </ul>
-              </div>
-              <div class="col-sm-4 col-6">
-                <h5>Our Website</h5>
-                <ul>
-                  <li><a href="#">Why we made it</a></li>
-                  <li><a href="#">Info Page</a></li>
-                  <li><a href="#">Faq Page</a></li>
-                  <li><a href="#">Page</a></li>
-                  <li><a href="#">Page</a></li>
-                </ul>
-              </div>
-              <div class="col-sm-4 col-12">
-                <h5>Get In Touch</h5>
-                <ul>
-                  <li><a href="#">Contact Us</a></li>
-                  <li><a href="#">Website problems</a></li>
-                  <li><a href="#">Email us</a></li>
-                  <li><a href="#">Call us</a></li>
-                  <li><a href="#">Sms us</a></li>
-                </ul>
-              </div>
+            <div class="footer-container">
+                <div class="row">
+                    <div class="col-sm-4 col-6">
+                        <h5>The Team</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Course</a></li>
+                            <li><a href="#">School</a></li>
+                            <li><a href="#">Members</a></li>
+                            <li><a href="#">Project Corporation</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 col-6">
+                        <h5>Our Website</h5>
+                        <ul>
+                            <li><a href="#">Why we made it</a></li>
+                            <li><a href="#">Info Page</a></li>
+                            <li><a href="#">Faq Page</a></li>
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Page</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 col-12">
+                        <h5>Get In Touch</h5>
+                        <ul>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Website problems</a></li>
+                            <li><a href="#">Email us</a></li>
+                            <li><a href="#">Call us</a></li>
+                            <li><a href="#">Sms us</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <div class="footer-bottom">
-          <div class="footer-container">
-            <div class="row align-items-center">
-              <div class="col-sm-6 col-12">
-                <ul class="footer-social">
-                  <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/facebook2.png" alt=""><i
-                        class="fab fa-facebook-f"></i></a></li>
-                  <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/instagram2.png" alt=""><i
-                        class="fab fa-instagram"></i></a></li>
-                  <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/youtube2.png" alt=""><i
-                        class="fab fa-youtube"></i></a></li>
-                </ul>
-              </div>
-              <div class="col-sm-6 col-12">
-                <p class="copyright-text">Copyright © 2024 Team Youri<br>All rights are ours.</p>
-              </div>
+            <div class="footer-container">
+                <div class="row align-items-center">
+                    <div class="col-sm-6 col-12">
+                        <ul class="footer-social">
+                            <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/facebook2.png" alt=""><i
+                                        class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/instagram2.png" alt=""><i
+                                        class="fab fa-instagram"></i></a></li>
+                            <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/youtube2.png" alt=""><i
+                                        class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-12">
+                        <p class="copyright-text">Copyright © 2024 Team Youri<br>All rights are ours.</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </footer>
+    </footer>
 </body>
 </html>
