@@ -1,15 +1,21 @@
 body {
   margin-top: 5rem;
+  display: flex;
 }
 
 .container {
-  width: 70%;
+  width: 60%;
   border-top: 1px solid;
   padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 section div {
   border-bottom: 1px solid;
+  display: flex;
+}
+section div p {
+  width: 60%;
 }
 
 h1 {
