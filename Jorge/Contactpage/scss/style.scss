@@ -1,82 +1,42 @@
-$color-background: #ce2929;
-$color-background-light: #66a92f;
-$color-text: #333;
-$color-text-light: #000000;
-$color-primary: #000000;
-$color-accent: #000000;
-
 body {
- font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
- line-height: 1.5;
- color: $color-text;
- background-color: $color-background;
- padding: 2rem;
- max-width: 80rem;
- margin: 0 auto;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f0f0f0;
+    margin: 1rem;
+	background-color: #c4c3c3;
+	padding: 1rem; 
+    border: 1px solid #ddd; 
+	box-shadow: 1px 1px 2px #796f6f;
 }
 
-header {
- h1 {
- font-size: 2.5rem;
- margin-bottom: 1rem;
- text-align: center;
- color: $color-primary;
- }
-
- img {
- width: 100%;
- max-width: 20rem;
- display: block;
- margin: 0 auto;
- }
+h1 {
+	font-size: 2em;
+	margin: 1rem;
+	color: #333;
 }
 
-main {
- section {
- h2 {
- font-size: 2rem;
- margin-top: 2rem;
- }
-
- p {
- font-size: 1.1rem;
- margin-bottom: 1rem;
- }
- }
+form {
+	margin: 1rem;
+	background-color: #fff;
+	padding: 1rem;
+	border: 1px solid #ddd;
+	box-shadow: 1px 1px 2px #ccc;
 }
 
-footer {
- p {
- font-size: 0.8rem;
- text-align: center;
- margin-top: 3rem;
- }
+label {
+	display: block;
+	margin-top: 1rem;
+	font-size: 1.2em;
+	color: #333333;
 }
 
-body {
- background-image: radial-gradient(circle at 50% 50%, $color-background, $color-background-light);
+input[type="text"], input[type="email"], textarea {
+	width: 100%;
+	padding: 0.5rem;
+	margin-top: 0.5rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
 
-header {
- border-bottom: 1px solid $color-accent;
- padding-bottom: 1rem;
-}
 
-main {
- section {
- margin-bottom: 3rem;
- }
-
- h2 {
- color: $color-accent;
- }
-
- p {
- color: $color-text-light;
- }
- }
-
- footer {
- border-top: 1px solid $color-accent;
- padding-top: 1rem;
-}

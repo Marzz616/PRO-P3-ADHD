@@ -1,63 +1,42 @@
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  margin: 1rem;
+  background-color: #c4c3c3;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 2px #796f6f;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 1rem;
   color: #333;
-  background-color: #ce2929;
-  padding: 2rem;
-  max-width: 80rem;
-  margin: 0 auto;
 }
 
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: #000000;
+form {
+  margin: 1rem;
+  background-color: #fff;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 2px #ccc;
 }
-header img {
-  width: 100%;
-  max-width: 20rem;
+
+label {
   display: block;
-  margin: 0 auto;
+  margin-top: 1rem;
+  font-size: 1.2em;
+  color: #333333;
 }
 
-main section h2 {
-  font-size: 2rem;
-  margin-top: 2rem;
-}
-main section p {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
-
-footer p {
-  font-size: 0.8rem;
-  text-align: center;
-  margin-top: 3rem;
-}
-
-body {
-  background-image: radial-gradient(circle at 50% 50%, #ce2929, #66a92f);
-}
-
-header {
-  border-bottom: 1px solid #000000;
-  padding-bottom: 1rem;
-}
-
-main section {
-  margin-bottom: 3rem;
-}
-main h2 {
-  color: #000000;
-}
-main p {
-  color: #000000;
-}
-
-footer {
-  border-top: 1px solid #000000;
-  padding-top: 1rem;
+input[type=text], input[type=email], textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 /*# sourceMappingURL=style.css.map */
