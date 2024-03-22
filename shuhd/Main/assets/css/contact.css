@@ -1,0 +1,54 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #ce2929;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #000000;
+}
+header img {
+  width: 100%;
+  max-width: 20rem;
+  display: block;
+  margin: 0 auto;
+}
+
+main {
+  padding: 2rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+main section h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+  line-height: 1.5;
+}
+main section p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+body {
+  background-image: radial-gradient(circle at 50% 50%, #ce2929, #66a92f);
+}
+
+header {
+  border-bottom: 1px solid #000000;
+  padding-bottom: 1rem;
+}
+
+main section {
+  margin-bottom: 3rem;
+}
+main h2 {
+  color: #000000;
+}
+main p {
+  color: #000000;
+}
+
+/*# sourceMappingURL=contact.css.map */

@@ -1,54 +1,98 @@
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 4rem;
+  box-shadow: 1px 1px 2px #796f6f;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 1rem;
   color: #333;
-  background-color: #ce2929;
 }
 
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: #000000;
+form {
+  margin: 1rem;
+  background-color: #fff;
+  padding: 1rem 2.5rem;
+  box-shadow: 1px 1px 2px #ccc;
+  border-radius: 0 50px;
+  z-index: 1;
 }
-header img {
-  width: 100%;
-  max-width: 20rem;
+
+label {
   display: block;
-  margin: 0 auto;
+  margin-top: 1rem;
+  font-size: 1.2em;
+  color: #333333;
 }
 
-main {
-  padding: 2rem;
-  max-width: 80rem;
-  margin: 0 auto;
-}
-main section h2 {
-  font-size: 2rem;
-  margin-top: 2rem;
-  line-height: 1.5;
-}
-main section p {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
+input[type=text],
+input[type=email],
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0 15px;
 }
 
-body {
-  background-image: radial-gradient(circle at 50% 50%, #ce2929, #66a92f);
+/* CSS */
+.button-56 {
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  box-shadow: 0 4px 8px rgb(0, 255, 0) !important;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
-header {
-  border-bottom: 1px solid #000000;
-  padding-bottom: 1rem;
+.button-56:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform 0.2s ease-out;
+  z-index: -1;
 }
 
-main section {
-  margin-bottom: 3rem;
+.button-56:hover:after {
+  transform: translate(0, 0);
 }
-main h2 {
-  color: #000000;
+
+.button-56:active {
+  background-color: #ffdeda;
+  outline: 0;
 }
-main p {
-  color: #000000;
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
 }
 
 /*# sourceMappingURL=contact.css.map */

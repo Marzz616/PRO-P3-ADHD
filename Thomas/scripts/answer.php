@@ -36,161 +36,153 @@
       </header>
     <div class="faq-container answers jc-center col-6">
         <?php
-        // Include config and OpenAI API files
-        require_once __DIR__ . '/../vendor/autoload.php';
-        use Dotenv\Dotenv;
+            // Include config and OpenAI API files
+            require_once __DIR__ . '/../vendor/autoload.php';
+            require_once('../config/config.php');
+            require_once('../database/database.php');
 
-        require_once('../config/config.php');
-        require_once('../database/database.php');
+            use GuzzleHttp\Client;
+        
+            // Function to generate an answer using OpenAI API
+            function generate_answer($question) {
+                // Get the OpenAI API key from environment variables
+                $openaiApiKey = OPENAI_API_KEY;
 
-        use GuzzleHttp\Client;
+                if ($openaiApiKey === false) {
+                    throw new Exception("OPENAI_API_KEY environment variable is not set");
+                }
 
-        // Function to generate an answer using OpenAI API
-        function generate_answer($question) {
-            // Get the OpenAI API key from environment variables
-            $openaiApiKey = getenv('OPENAI_API_KEY');
+                // Set up the HTTP client
+                $client = new \GuzzleHttp\Client([
+                    'organization' => 'org-Bjr3Swbzjg1P79Z2KHeorcEY',
+                    'base_uri' => 'https://api.openai.com/v1/',
+                    'headers' => [
+                        'Authorization' => 'Bearer ' . $openaiApiKey,
+                        'Content-Type' => 'application/json',
+                    ],
+                    'curl' => [
+                        CURLOPT_CAINFO => __DIR__ . '\certs\ca-bundle.cert',
+                        CURLOPT_SSL_VERIFYPEER => false,    // Disable SSL certificate verification
+                    ],
+                ]);
 
-            if ($openaiApiKey === false) {
-                throw new Exception("OPENAI_API_KEY environment variable is not set");
+                // Start a new conversation
+                $response = $client->post('chat/completions', [
+                    'json' => [
+                        'model' => 'gpt-3.5-turbo', // Use the appropriate chat model
+                        'messages' => [
+                            [
+                                'role' => 'system',
+                                'content' => 'You are a user asking a question. ' . $question,
+                            ]
+                        ]
+                    ]
+                ]);
+
+                if ($response->getStatusCode() !== 200) {
+                    $errorBody = $response->getBody()->getContents();
+                    throw new \Exception("Error: " . $errorBody);
+                }
+
+                // Retrieve the response from the conversation
+                $conversationData = json_decode($response->getBody(), true);
+                $conversationId = $conversationData['id'];
+                $conversationResponse = $client->get("chat/completions");
+                $conversation = json_decode($conversationResponse->getBody(), true);
+                $answer = $conversation['messages'][0]['text'];
+
+                return $answer;
             }
 
-            // Set up the HTTP client
-            $client = new \GuzzleHttp\Client([
-                'base_uri' => 'https://api.openai.com/v1/',
-                'headers' => [
-                    'Authorization' => 'Bearer ' . $openaiApiKey,
-                    'Content-Type' => 'application/json',
-                ]
-            ]);
-
-            // Construct the request body
-            $requestBody = [
-                'model' => 'gpt-3.5-turbo',
-                'messages' => [
-                    ['role' => 'system', 'content' => 'You are a user asking a question.'],
-                    ['role' => 'user', 'content' => $question]
-                ],
-                'max_tokens' => 100,  // Max number of tokens for the completion
-                'stop' => ["\n"]  // Stop generating after one sentence
+            // De bestaande vragen in de lijst
+            $existing_questions = [
+                "Wat is het verschil tussen ADHD en ADD?",
+                "Wat zijn de belangrijkste symptomen van ADHD en ADD?",
+                "Wanneer wordt ADHD/ADD meestal gediagnosticeerd?",
+                "Hoe kan ik omgaan met ADHD/ADD op het werk?",
+                "Zijn er specifieke sporten die kunnen helpen bij het beheersen van ADHD/ADD symptomen?",
+                "Wat zijn enkele tips voor ouders van kinderen met ADHD/ADD?",
+                "Hoe wordt ADHD/ADD behandeld?",
+                "Welke medicijnen worden vaak voorgeschreven voor ADHD/ADD?",
+                "Hoe beïnvloedt ADHD/ADD het dagelijks leven?",
+                "Zijn er specifieke dieetmaatregelen voor mensen met ADHD/ADD?",
+                "Is ADHD/ADD erfelijk?",
+                "Kunnen mensen met ADHD/ADD succesvol zijn in hun carrière?",
+                "Welke ondersteuning is beschikbaar voor mensen met ADHD/ADD?",
+                "Hoe kan ik mijn concentratie verbeteren?",
+                "Zijn er alternatieve behandelingen voor ADHD/ADD?",
+                "Hoe kan ik mijn kinderen ondersteunen als ze ADHD/ADD hebben?",
+                "Wat zijn enkele mogelijke complicaties van ADHD/ADD?",
+                "Hoe kan ik het beste omgaan met de emotionele uitdagingen van ADHD/ADD?",
+                "Zijn er specifieke slaapproblemen geassocieerd met ADHD/ADD?",
+                "Hoe kan ik als partner van iemand met ADHD/ADD het beste ondersteunen?",
+                "Wat zijn enkele strategieën voor het omgaan met impulsiviteit?",
+                "Zijn er verschillende vormen van ADHD/ADD?",
+                "Kan ADHD/ADD worden veroorzaakt door voeding?",
+                "Welke rol spelen omgevingsfactoren bij ADHD/ADD?",
+                "Hoe kan ik een gezonde levensstijl bevorderen voor iemand met ADHD/ADD?",
+                "Wat zijn enkele veelvoorkomende misvattingen over ADHD/ADD?",
+                "Hoe kan ik mijn kinderen helpen omgaan met de uitdagingen van ADHD/ADD op school?",
+                "Is er een verband tussen ADHD/ADD en slaapstoornissen?",
+                "Welke rol spelen neurotransmitters bij ADHD/ADD?",
+                "Kan het gebruik van beeldschermen de symptomen van ADHD/ADD beïnvloeden?"
             ];
 
-            // Send the request to OpenAI API
-            $response = $client->post('completions', [
-                'json' => $requestBody,
-            ]);
-
-            // Check if the request was successful
-            if ($response->getStatusCode() !== 200) {
-                throw new Exception("OpenAI API request failed");
-            }
-
-            // Decode the response JSON
-            $responseData = json_decode($response->getBody(), true);
-
-            // Extract and return the answer from the response
-            return $responseData['choices'][0]['message']['content'];
-        }
-
-        // Controleer of het een POST-verzoek is
-        if ($_SERVER["REQUEST_METHOD"] != "POST") {
-            header("Location: ../faq.html");
-            exit;
-        }
-
-        $dotenv = Dotenv::createMutable(__DIR__ . '.env');
-        $dotenv->load();
-
-        $openaiApiKey = $_ENV['OPENAI_API_KEY'];
-
-        // De bestaande vragen in de lijst
-        $existing_questions = [
-            "Wat is het verschil tussen ADHD en ADD?",
-            "Wat zijn de belangrijkste symptomen van ADHD en ADD?",
-            "Wanneer wordt ADHD/ADD meestal gediagnosticeerd?",
-            "Hoe kan ik omgaan met ADHD/ADD op het werk?",
-            "Zijn er specifieke sporten die kunnen helpen bij het beheersen van ADHD/ADD symptomen?",
-            "Wat zijn enkele tips voor ouders van kinderen met ADHD/ADD?",
-            "Hoe wordt ADHD/ADD behandeld?",
-            "Welke medicijnen worden vaak voorgeschreven voor ADHD/ADD?",
-            "Hoe beïnvloedt ADHD/ADD het dagelijks leven?",
-            "Zijn er specifieke dieetmaatregelen voor mensen met ADHD/ADD?",
-            "Is ADHD/ADD erfelijk?",
-            "Kunnen mensen met ADHD/ADD succesvol zijn in hun carrière?",
-            "Welke ondersteuning is beschikbaar voor mensen met ADHD/ADD?",
-            "Hoe kan ik mijn concentratie verbeteren?",
-            "Zijn er alternatieve behandelingen voor ADHD/ADD?",
-            "Hoe kan ik mijn kinderen ondersteunen als ze ADHD/ADD hebben?",
-            "Wat zijn enkele mogelijke complicaties van ADHD/ADD?",
-            "Hoe kan ik het beste omgaan met de emotionele uitdagingen van ADHD/ADD?",
-            "Zijn er specifieke slaapproblemen geassocieerd met ADHD/ADD?",
-            "Hoe kan ik als partner van iemand met ADHD/ADD het beste ondersteunen?",
-            "Wat zijn enkele strategieën voor het omgaan met impulsiviteit?",
-            "Zijn er verschillende vormen van ADHD/ADD?",
-            "Kan ADHD/ADD worden veroorzaakt door voeding?",
-            "Welke rol spelen omgevingsfactoren bij ADHD/ADD?",
-            "Hoe kan ik een gezonde levensstijl bevorderen voor iemand met ADHD/ADD?",
-            "Wat zijn enkele veelvoorkomende misvattingen over ADHD/ADD?",
-            "Hoe kan ik mijn kinderen helpen omgaan met de uitdagingen van ADHD/ADD op school?",
-            "Is er een verband tussen ADHD/ADD en slaapstoornissen?",
-            "Welke rol spelen neurotransmitters bij ADHD/ADD?",
-            "Kan het gebruik van beeldschermen de symptomen van ADHD/ADD beïnvloeden?"
-        ];
-
-        // Verbinding maken met de database
-        $conn = getDBConnection();
-
-        // Controleer of het een POST-verzoek is en of er een vraag is ingediend
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
-            // Connect to the database
+            // Verbinding maken met de database
             $conn = getDBConnection();
 
-            // Sanitize the question input
-            $question = addslashes($_POST["question"]);
+            // Controleer of het een POST-verzoek is en of er een vraag is ingediend
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["question"])) {
+                // Connect to the database
+                $conn = getDBConnection();
 
-            // Check if the question already exists in the database
-            $stmt = $conn->prepare("SELECT * FROM qa_table WHERE question = ?");
-            $stmt->bind_param("s", $question);
-            $stmt->execute();
-            $result = $stmt->get_result();
+                // Sanitize the question input
+                $question = addslashes($_POST["question"]);
 
-            // Clean the question for comparison
-            $clean_question = preg_replace('/[^a-zA-Z0-9]/', '', $question);
-            $clean_existing_questions = array_map(function ($q) {
-                return preg_replace('/[^a-zA-Z0-9]/', '', $q);
-            }, $existing_questions);
+                // Check if the question already exists in the database
+                $stmt = $conn->prepare("SELECT * FROM qa_table WHERE question = ?");
+                $stmt->bind_param("s", $question);
+                $stmt->execute();
+                $result = $stmt->get_result();
 
-            $clean_question = strtolower($clean_question);
-            $clean_existing_questions = array_map('strtolower', $clean_existing_questions);
+                // Clean the question for comparison
+                $clean_question = preg_replace('/[^a-zA-Z0-9]/', '', $question);
+                $clean_existing_questions = array_map(function ($q) {
+                    return preg_replace('/[^a-zA-Z0-9]/', '', $q);
+                }, $existing_questions);
 
-            // If the question already exists, display an error message
-            if (in_array($clean_question, $clean_existing_questions)) {
-                echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
-            } else if (!preg_match("/\b(ADHD|ADD)\b/i", $question)) {
-                echo "<div class='echo-text'>Deze vraag gaat niet over ADHD of ADD!</div>";
-            } else {
-                try {
-                    // Generate answer using the Python script
-                    $answer = generate_answer($question);
-                    echo "<div class='echo-text'>Python Script Output: $answer</div>";
+                $clean_question = strtolower($clean_question);
+                $clean_existing_questions = array_map('strtolower', $clean_existing_questions);
 
-                    // Insert the question and answer into the database
-                    $stmt = $conn->prepare("INSERT INTO qa_table (question, answer) VALUES (?, ?)");
-                    $stmt->bind_param("ss", $question, $answer);
-                    if ($stmt->execute() === TRUE) {
-                        echo "<div class='echo-text'>Answer added to the database!</div>";
-                    } else {
-                        echo "<div class='echo-text'>Error: " . $conn->error;
+                // If the question already exists, display an error message
+                if (in_array($clean_question, $clean_existing_questions)) {
+                    echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
+                } else if (!preg_match("/\b(ADHD|ADD)\b/i", $question)) {
+                    echo "<div class='echo-text'>Deze vraag gaat niet over ADHD of ADD!</div>";
+                } else {
+                    try {
+                        // Generate answer using the Python script
+                        $answer = generate_answer($question);
+                        echo "<div class='echo-text'>Python Script Output: $answer</div>";
+
+                        // Insert the question and answer into the database
+                        $stmt = $conn->prepare("INSERT INTO qa_table (question, answer) VALUES (?, ?)");
+                        $stmt->bind_param("ss", $question, $answer);
+                        if ($stmt->execute() === TRUE) {
+                            echo "<div class='echo-text'>Answer added to the database!</div>";
+                        } else {
+                            echo "<div class='echo-text'>Error: " . $conn->error;
+                        }
+                        $stmt->close();
+                    } catch (\Exception $e) {
+                        echo "<div class='echo-text'>Error: " . $e->getMessage() . "</div>";
                     }
-                    $stmt->close();
-                } catch (\Exception $e) {
-                    echo "<div class='echo-text'>Error: " . $e->getMessage() . "</div>";
                 }
+                $conn->close();
+            } else {
+                // Display an error message if no question is submitted
+                echo "<div class='echo-text'>Je hebt niks ingevoerd!</div>";
             }
-            $conn->close();
-        } else {
-            // Display an error message if no question is submitted
-            echo "<div class='echo-text'>Je hebt niks ingevoerd!</div>";
-        }
         ?>
         <form action="../faq.html" method="post">
             <input type="submit" value="Terug naar FAQ Pagina!" class="submit-button">
