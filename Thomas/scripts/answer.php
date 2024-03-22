@@ -40,53 +40,55 @@
             require_once __DIR__ . '/../vendor/autoload.php';
             require_once('../config/config.php');
             require_once('../database/database.php');
-        
+
             use GuzzleHttp\Client;
         
             // Function to generate an answer using OpenAI API
             function generate_answer($question) {
                 // Get the OpenAI API key from environment variables
                 $openaiApiKey = OPENAI_API_KEY;
-        
+
                 if ($openaiApiKey === false) {
                     throw new Exception("OPENAI_API_KEY environment variable is not set");
                 }
-        
+
                 // Set up the HTTP client
                 $client = new \GuzzleHttp\Client([
                     'organization' => 'org-Bjr3Swbzjg1P79Z2KHeorcEY',
-                    'base_uri' => 'https://api.openai.com/v1/files',
+                    'base_uri' => 'https://api.openai.com/v1/',
                     'headers' => [
                         'Authorization' => 'Bearer ' . $openaiApiKey,
                         'Content-Type' => 'application/json',
                     ],
                     'curl' => [
-                        CURLOPT_CAINFO => 'ca-bundle.crt', // Specify the path to your CA certificate bundle
+                        CURLOPT_CAINFO => __DIR__ . '\certs\ca-bundle.cert',
                         CURLOPT_SSL_VERIFYPEER => false,    // Disable SSL certificate verification
                     ],
                 ]);
-                    
+
                 // Start a new conversation
-                $response = $client->post('conversations', [
+                $response = $client->post('chat/completions', [
                     'json' => [
                         'model' => 'gpt-3.5-turbo', // Use the appropriate chat model
+                        'messages' => [
+                            [
+                                'role' => 'system',
+                                'content' => 'You are a user asking a question. ' . $question,
+                            ]
+                        ]
                     ]
                 ]);
-                    
-                // Extract the conversation ID
+
+                if ($response->getStatusCode() !== 200) {
+                    $errorBody = $response->getBody()->getContents();
+                    throw new \Exception("Error: " . $errorBody);
+                }
+
+                // Retrieve the response from the conversation
                 $conversationData = json_decode($response->getBody(), true);
                 $conversationId = $conversationData['id'];
-                    
-                // Send a message to the conversation
-                $response = $client->post("conversations/$conversationId/messages", [
-                    'json' => [
-                        'text' => 'You are a user asking a question. ' . $question,
-                    ]
-                ]);
-                    
-                // Retrieve the response from the conversation
-                $response = $client->get("conversations/$conversationId");
-                $conversation = json_decode($response->getBody(), true);
+                $conversationResponse = $client->get("chat/completions");
+                $conversation = json_decode($conversationResponse->getBody(), true);
                 $answer = $conversation['messages'][0]['text'];
 
                 return $answer;
