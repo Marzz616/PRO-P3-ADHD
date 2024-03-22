@@ -4,7 +4,6 @@ body {
   justify-content: center;
 }
 body form.lijst {
-  display: none;
   border-radius: 10px;
   border: 0.2rem solid black;
   height: 100%;
@@ -69,7 +68,7 @@ input.inleveren {
 }
 
 .persoonsgegevens {
-  display: flex;
+  display: none;
   border: 0.2rem solid black;
   margin-top: 10%;
   padding: 2rem;

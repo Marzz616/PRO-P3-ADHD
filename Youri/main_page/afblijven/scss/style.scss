@@ -6,7 +6,6 @@ body{
         
     //styling voor het het grote blaadje waar alles op staat
     form.lijst{
-        display: none;
         border-radius: 10px;
         border: 0.2rem solid black;
         height: 100%;
@@ -79,7 +78,7 @@ input.inleveren{
     display: flex;
 }
 .persoonsgegevens{
-    display:flex;
+    display:none;
     border: 0.2rem solid black;
     margin-top: 10%;
     padding: 2rem;
