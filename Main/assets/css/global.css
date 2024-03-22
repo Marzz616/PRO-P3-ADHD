@@ -47,7 +47,7 @@ main {
     margin: 0 0 1rem;
     padding: 20px 40px;
     background-color: #a4a4a4;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ! important;
     border-radius: 0 50px;
     z-index: 1;
 }

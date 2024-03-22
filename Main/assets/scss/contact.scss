@@ -15,6 +15,7 @@ form {
   padding: 1rem 2.5rem;
   box-shadow: 1px 1px 2px #ccc;
   border-radius: 0 50px;
+  z-index: 1;
 }
 
 label {
@@ -42,6 +43,8 @@ textarea {
   border-radius: 8px;
   box-sizing: border-box;
   color: #111;
+
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 1) !important;
   cursor: pointer;
   display: flex;
   font-family: Inter, sans-serif;
