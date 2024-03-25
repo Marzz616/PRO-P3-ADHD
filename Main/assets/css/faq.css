@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url("../../../Thomas/img/img1.png") center center/cover no-repeat fixed;
+  background: url("../img/faq/img1.png") center center/cover no-repeat fixed;
   display: flex;
   flex-direction: column;
 }
@@ -13,11 +13,13 @@ img.background-image {
 .ask-your-own-questions {
   margin-top: 40px;
 }
+
 .ask-your-own-questions .question-label {
   font-size: 1.1rem;
   color: #333;
   margin-bottom: 10px;
 }
+
 .ask-your-own-questions .question-input {
   width: 100%;
   padding: 10px;
@@ -26,13 +28,16 @@ img.background-image {
   border-radius: 5px;
   margin-bottom: 10px;
 }
+
 .ask-your-own-questions .question-input:focus {
   outline: none;
   border-color: dodgerblue;
 }
+
 .ask-your-own-questions .question-input::placeholder {
   color: #999;
 }
+
 .ask-your-own-questions .submit-button {
   padding: 10px 20px;
   background-color: dodgerblue;
@@ -41,6 +46,7 @@ img.background-image {
   border-radius: 5px;
   cursor: pointer;
 }
+
 .ask-your-own-questions .submit-button:hover {
   background-color: rgba(0, 123, 255, 0.5058823529);
 }
@@ -66,15 +72,18 @@ img.background-image {
   background-color: white;
   cursor: pointer;
 }
+
 .faq-question:hover {
   background-color: #000000;
   color: white;
 }
+
 .faq-question.active {
   background-color: #000000;
   color: white;
 }
-.faq-question.active + .faq-answer {
+
+.faq-question.active+.faq-answer {
   display: block;
 }
 
