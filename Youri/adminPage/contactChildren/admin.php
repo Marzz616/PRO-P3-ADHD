@@ -116,6 +116,18 @@ foreach ($result2 as $formObject) {
                 <?php echo $contactRows; ?>
             </tbody>
         </table>
+        <form method="post" action="deleteRow.php">
+
+        <label for="Name">Name: </label>
+        <input type="text" name="Name" id="Name">
+
+        <label for="Email">Email: </label>
+        <input type="text" name="Email" id="Email">
+
+        <input type="hidden" name="type" value="Contact">
+
+        <input type="submit" value="Verwijder">
+    </form>
         <button class="knopVoorFormInfo">Form info</button>
     </div>
     
@@ -134,6 +146,18 @@ foreach ($result2 as $formObject) {
                 <?php echo $formRows; ?>
             </tbody>
         </table>
+        <form method="post" action="deleteRow.php">
+
+        <label for="Name">Name: </label>
+        <input type="text" name="Name" id="Name">
+
+        <label for="Email">Email: </label>
+        <input type="text" name="Email" id="Email">
+
+        <input type="hidden" name="type" value="Form">
+
+        <input type="submit" value="Verwijder">
+    </form>
         <button class="knopVoorContactInfo">Contact info</button>
     </div>
 
