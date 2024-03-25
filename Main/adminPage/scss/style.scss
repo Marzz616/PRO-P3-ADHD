@@ -1,0 +1,31 @@
+body{
+    main{
+        margin-top: 15vh;
+        font-family: Verdana;
+        width: 80%;
+        margin-left: 10%;
+        div{
+            margin-bottom: 10vh;
+        }
+    }
+}
+
+.tabel-1-display{
+    display: inline;
+}
+.tabel-2-display{
+    display: none;
+}
+table, td, th {  
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 15px;
+  }
