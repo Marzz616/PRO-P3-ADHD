@@ -1,39 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antwoord!</title>
-    <link rel="stylesheet" href="../css/header_and_footer.css">
-    <link rel="stylesheet" href="../css/faq.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/faq.css">
+  <link rel="stylesheet" href="../css/header_and_footer.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+  <title>FAQ Page</title>
 </head>
+
 <body>
-    <!-- Header -->
+  <!--De header-->
+  <home>
+
     <header>
-        <nav class="fixed">
-          <div class="menu-container jc-flex-end ">
-            <div class="logo">
-              <span>Focus</span>Fuse AD(H)D
-              <!--   <p class="text"></p>-->
-            </div>
-            <div class="main-menu row jc-space-between">
-              <ul>
-                <li><a href="../shuhd/index.html">Home</a></li>
-                <li><a href="../Nimród/informatie.html">Informatie</a></li>
-                <li><a href="../mario/trainning.html">Trainingen</a></li>
-                <li><a href="../Jorge/contact.html">Contact</a></li>
-                <li><a href="../Thomas/archives/faq.html">FAQ</a></li>
-              </ul>
-            </div>
-            <div class="user-menu">
-              <ul>
-                <li><a class="active" href="../Youri/index.php">Login</a></li>
-                <li><a class="active" href="../Youri/index.php">Register</a></li>
-              </ul>
-            </div>
+      <nav class="fixed">
+        <div class="menu-container">
+          <div class="logo">
+            <span>Focus</span>Fuse
+            <p>AD(H)D</p>
           </div>
-        </nav>
-      </header>
+          <div class="main-menu row jc-space-between">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="informatie.html">ADHD</a></li>
+              <li><a href="ADD.html">ADD</a></li>
+              <li><a href="trainning.html">Trainingen</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="aboutUs.html">About Us</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="user-menu">
+            <ul>
+              <li><a class="active" href="main_page/resultaten.php">AD(H)D Test</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="progress-bar"></div>
+      </nav>
+    </header>
     <div class="faq-container answers jc-center col-6">
         <?php
         // Inclusie van configuratie- en databasebestanden
@@ -109,7 +118,7 @@
                 $stmt = $conn->prepare("INSERT INTO qa_table (question) VALUES (?)");
                 $stmt->bind_param("s", $question);
                 if ($stmt->execute() === TRUE) {
-                    echo "<div class='echo-text'>Dankjewel voor een vraag stellen! We bewaren hem voor jou en we kijken ernaar.</div>";
+                    echo "<div class='echo-text'>Dankjewel voor een vraag stellen! We bewaren hem voor jou en we kijken er naar.</div>";
                 } else {
                     echo "<div class='echo-text'>Er is een fout opgetreden bij het toevoegen van de vraag aan de database.</div>";
                 }
@@ -127,61 +136,60 @@
         </form>  
     </div>
     <footer class="footer">
-        <div class="footer-top">
-            <div class="footer-container">
-                <div class="row">
-                    <div class="col-sm-4 col-6">
-                        <h5>The Team</h5>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Course</a></li>
-                            <li><a href="#">School</a></li>
-                            <li><a href="#">Members</a></li>
-                            <li><a href="#">Project Corporation</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-6">
-                        <h5>Our Website</h5>
-                        <ul>
-                            <li><a href="#">Why we made it</a></li>
-                            <li><a href="#">Info Page</a></li>
-                            <li><a href="#">Faq Page</a></li>
-                            <li><a href="#">Page</a></li>
-                            <li><a href="#">Page</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-12">
-                        <h5>Get In Touch</h5>
-                        <ul>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Website problems</a></li>
-                            <li><a href="#">Email us</a></li>
-                            <li><a href="#">Call us</a></li>
-                            <li><a href="#">Sms us</a></li>
-                        </ul>
-                    </div>
-                </div>
+      <div class="footer-top">
+        <div class="footer-container jc-center row">
+          <div class="col-6">
+            <div class="bubble-2">
+              <h5>The Team</h5>
+              <ul>
+                <li><a href="aboutUs.html">About
+                    Us</a></li>
+                <li><a href="contact.html">Contact
+                    Us</a></li>
+                <li><a href="#">Email us</a></li>
+                <li><a href="#">Call/Sms us</a></li>
+              </ul>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-container">
-                <div class="row align-items-center">
-                    <div class="col-sm-6 col-12">
-                        <ul class="footer-social">
-                            <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/facebook2.png" alt=""><i
-                                        class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/instagram2.png" alt=""><i
-                                        class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><img src="../Nimród/Sprint 2/assets/img/footer/youtube2.png" alt=""><i
-                                        class="fab fa-youtube"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-12">
-                        <p class="copyright-text">Copyright © 2024 Team Youri<br>All rights are ours.</p>
-                    </div>
-                </div>
+          </div>
+          <div class="col-6">
+            <div class="bubble-2">
+              <h5>Our Website</h5>
+              <ul>
+                <li><a href="informatie.html">ADHD
+                    Page</a></li>
+                <li><a href="ADD.html">ADD
+                    Page</a></li>
+                <li><a href="trainning.html">Trainingen</a>
+                </li>
+                <li><a href="faq.html">Faq
+                    Page</a></li>
+              </ul>
             </div>
+
+          </div>
         </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-container">
+          <div class="row align-items-center">
+            <div class="col-sm-6 col-12">
+              <ul class="footer-social">
+                <li><a href="https://www.facebook.com/"><img src="../../Main/assets/img/footer/facebook2.png" alt=""><i
+                      class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.instagram.com/?hl=en"><img src="../../Main/assets/img/footer/instagram2.png" alt=""><i
+                      class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/?app"><img src="../../Main/assets/img/footer/youtube2.png" alt=""><i
+                      class="fab fa-youtube"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-sm-6 col-12">
+              <p class="copyright-text">Copyright © 2024 FocusFuse AD(H)D<br>All rights are ours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
+    <script src="activeTab.js"></script>
+    <script src="progressBar.js"></script>
 </body>
 </html>
