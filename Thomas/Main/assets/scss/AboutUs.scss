@@ -1,0 +1,31 @@
+body {
+  margin-top: 5rem;
+  display: flex;
+}
+
+.container {
+  width: 60%;
+  //border-top: 1px solid;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+section div {
+  //border-bottom: 1px solid;
+  display: flex;
+
+  p {
+    width: 60%;
+  }
+
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+  h4 {
+    margin-top: 0.5rem;
+  }
+}
+
+h1 {
+  font-size: 60px;
+}
