@@ -165,7 +165,6 @@ foreach ($result2 as $formObject) {
     
 <main>
 
-    <a href="../index.php">Nieuw Record</a>
     <script src="../assets/javascript/knop-admin.js"></script>
 </body>
 </html>
