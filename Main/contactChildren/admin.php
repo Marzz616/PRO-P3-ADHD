@@ -85,13 +85,13 @@ foreach ($result2 as $formObject) {
                 </div>
                 <div class="main-menu row jc-space-between">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="informatie.html">ADHD</a></li>
-                        <li><a href="ADD.html">ADD</a></li>
-                        <li><a href="trainning.html">Trainingen</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="aboutUs.html">About Us</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../informatie.html">ADHD</a></li>
+                        <li><a href="../ADD.html">ADD</a></li>
+                        <li><a href="../trainning.html">Trainingen</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="../aboutUs.html">About Us</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="user-menu">
