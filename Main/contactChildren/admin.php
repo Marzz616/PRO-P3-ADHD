@@ -71,9 +71,9 @@ foreach ($result2 as $formObject) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="css-kan-weg/global.css">
-    <link rel="stylesheet" href="css-kan-weg/header_and_footer.css">
+    <link rel="stylesheet" href="../assets/css/adminPage.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/header_and_footer.css">
     <title>Weergave personen</title>
 </head>
 <body>
@@ -166,6 +166,6 @@ foreach ($result2 as $formObject) {
 <main>
 
     <a href="../index.php">Nieuw Record</a>
-    <script src="../js/knop-admin.js"></script>
+    <script src="../assets/javascript/knop-admin.js"></script>
 </body>
 </html>
