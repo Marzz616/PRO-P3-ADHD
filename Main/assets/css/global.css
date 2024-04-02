@@ -28,7 +28,6 @@ main {
     background-color: #a4a4a4;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 0 50px;
-    z-index: 1;
 }
 
 .bubble-2 {
@@ -38,7 +37,6 @@ main {
     background-color: #a4a4a4;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 0 50px;
-    z-index: 1;
 }
 
 .bubble-forms {
@@ -49,7 +47,6 @@ main {
     background-color: #a4a4a4;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ! important;
     border-radius: 0 50px;
-    z-index: 1;
 }
 
 .container {

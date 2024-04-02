@@ -1,47 +1,5 @@
-#banner {
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-#banner .content {
-  width: 80%;
-  background-color: hsla(0, 0%, 0%, 0.867);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  color: #fff;
-}
-#banner.jc-center div.content {
-  text-align: center;
-  align-items: center;
-}
-#banner.jc-flex-start div.content {
-  text-align: left;
-  align-items: flex-start;
-}
-#banner.jc-flex-end div.content {
-  text-align: right;
-  align-items: flex-end;
-}
-
-#banner {
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}
 #banner img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-#banner div.content {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  z-index: 2;
-  border-radius: 0 50px;
+  width: 50%;
 }
 
 div label img {
@@ -75,25 +33,6 @@ div label img.no100Width {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-}
-
-.button-56:after {
-  background-color: #111;
-  border-radius: 8px;
-  content: "";
-  display: block;
-  height: 48px;
-  left: 0;
-  width: 100%;
-  position: absolute;
-  top: -2px;
-  transform: translate(8px, 8px);
-  transition: transform 0.2s ease-out;
-  z-index: -1;
-}
-
-.button-56:hover:after {
-  transform: translate(0, 0);
 }
 
 .button-56:active {

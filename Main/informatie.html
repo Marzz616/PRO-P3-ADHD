@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/informatie.css">
     <link rel="stylesheet" href="assets/css/header_and_footer.css">
     <link rel="stylesheet" href="assets/css/global.css">
@@ -44,21 +44,24 @@
                 <div id="progress-bar"></div>
             </nav>
         </header>
-
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#aanvullende_vereisten">Aanvullende vereisten</a>
-            <a href="#Afbakening_en_criteria">Afbakening en criteria</a>
-            <a href="#Medicamenteuze_behandeling_van_ADHD">Medicamenteuze behandeling van ADHD</a>
-        </div>
-        <span class="side_menu_open" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-
-        <main class="container col ai-center">
+        <section id="banner" class="jc-center">
+            <img src="assets/img/info_ADHD/5.webp"
+                alt="Banner image: A garage with a few cars a man and neon lights." />
+            <!-- <div class="content">
+                <h1 class="">Ontdek praktische strategieën, deskundige begeleiding en persoonlijke ondersteuning op maat
+                    van jouw reis. Laten we samen de potentie binnen elke uitdaging ontsluiten.</h1>
+                <p class="">Sluit je aan en ga mee op een pad van begrip, empowerment en groei. Welkom bij een
+                    gemeenschap waar ondersteuning grenzeloos is en mogelijkheden eindeloos zijn.</p>
+                <button>Read more</button>
+            </div> -->
+        </section>
+        <section class="container col ai-center">
             <h1>Wat is AD(H)D </h1>
 
-            <section class="bubble row jc-space-evenly">
+            <div class="bubble row jc-space-evenly">
                 <iframe id="filmpje-1" class="col col-6 col-xl-5 col-l-6 col-m-6 col-s-8 col-xs-10" height="250"
-                    src="https://www.youtube.com/embed/SsZSB0qhctI" frameborder="0"></iframe>
+                    src="https://www.youtube.com/embed/SsZSB0qhctI" frameborder="0">
+                </iframe>
                 <p class="col col-4 col-xl-4 col-l-4 col-m-6 col-s-8 col-xs-10">
                     ADHD staat voor Attention Deficit Hyperactivity Disorder. Vertaald naar het Nederlands betekent dit
                     aandachtstekort met hyperactiviteit.
@@ -67,9 +70,9 @@
                     vol hoofd’, en zoeken graag uit waar dat hoofd dan zo vol mee zit.
                     Wel eens van gevolgschade gehoord bijvoorbeeld? Bekijk dit filmpje eens:
                 </p>
-            </section>
+            </div>
 
-            <section class="bubble row jc-space-evenly">
+            <div class="bubble row jc-space-evenly">
                 <p>
                     Als je meer medisch kijkt dan is ADHD (Attention Deficit Hyperactivity Disorder) een
                     aandachtsstoornis
@@ -105,9 +108,9 @@
                         <li>Te snel beslissingen nemen</li>
                     </ul>
                 </div>
-            </section>
-            <section id="aanvullende_vereisten" class="bubble row jc-space-evenly">
-                <div id="img-1" class="zoom media-item col-5 col-xl-5 col-l-5 col-m-8 col-s-10 col-xs-12">
+            </div>
+            <div class="bubble row jc-space-evenly">
+                <div class="zoom col-5 col-xl-5 col-l-5 col-m-8 col-s-10 col-xs-12">
                     <label>
                         <input type="checkbox" />
                         <img class="zImg-l" src="assets/img/info_ADHD/add.jpg" alt="">
@@ -131,9 +134,9 @@
                         veranderen.
                     </p>
                 </div>
-            </section>
+            </div>
 
-            <section id="Afbakening_en_criteria" class="bubble row jc-space-evenly">
+            <div class="bubble row jc-space-evenly">
 
                 <div class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12">
                     <h4>Afbakening en criteria:</h4>
@@ -250,7 +253,7 @@
                     </p>
                     <button onclick="myFunction()" id="myBtn">Read more</button>
                 </div>
-                <div id="img-1" class="zoom media-item col-5 col-xl-5 col-l-5 col-m-8 col-s-10 col-xs-12">
+                <div id="img-1" class="zoom col-5 col-xl-5 col-l-5 col-m-8 col-s-10 col-xs-12">
                     <label>
                         <input type="checkbox" />
                         <img class="zImg-l" src="assets/img/info_ADHD/dms5.jpg" alt="">
@@ -260,8 +263,8 @@
                         <img class="zImg-l" src="assets/img/info_ADHD/dsm5-300.jpg" alt="">
                     </label>
                 </div>
-            </section>
-            <section id="Medicamenteuze_behandeling_van_ADHD" class="bubble row jc-space-evenly">
+            </div>
+            <div class="bubble row jc-space-evenly">
                 <div class="col col-6 col-xl-6 col-l-6 col-m-8 col-s-10 col-xs-12">
                     <h4>Medicamenteuze behandeling van ADHD</h4>
                     <p>Medicatie kan worden ingezet in overleg met ouders en kind/jongere, afhankelijk van de leeftijd,
@@ -398,16 +401,16 @@
                     </span>
                     <button onclick="myFunction2()" id="myBtn2">Read more</button>
                 </div>
-                <div id="img-1" class="zoom media-item col-5 col-xl-5 col-l-5 col-m-8 col-s-10 col-xs-12">
+                <div id="img-1" class="zoom col-5 col-xl-5 col-l-5 col-m-8 col-s-10 col-xs-12">
                     <label>
                         <input type="checkbox" />
                         <img class="zImg-l" src="assets/img/info_ADHD/The-ADHD-Iceberg-What-It-Looks-Like.png" alt="">
                     </label>
                 </div>
-            </section>
+            </div>
 
 
-        </main>
+        </section>
 
         <footer class="footer">
             <div class="footer-top">
@@ -448,13 +451,15 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6 col-12">
                             <ul class="footer-social">
-                                <li><a href="https://www.facebook.com/"><img src="assets/img/footer/facebook2.png"
-                                            alt=""><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="https://www.instagram.com/?hl=en"><img
+                                <li><a href="https://www.facebook.com/" target="_blank"><img
+                                            src="assets/img/footer/facebook2.png" alt=""><i
+                                            class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="https://www.instagram.com/?hl=en" target="_blank"><img
                                             src="assets/img/footer/instagram2.png" alt=""><i
                                             class="fab fa-instagram"></i></a></li>
-                                <li><a href="https://www.youtube.com/?app"><img src="assets/img/footer/youtube2.png"
-                                            alt=""><i class="fab fa-youtube"></i></a></li>
+                                <li><a href="https://www.youtube.com/?app" target="_blank"><img
+                                            src="assets/img/footer/youtube2.png" alt=""><i
+                                            class="fab fa-youtube"></i></a></li>
                             </ul>
                         </div>
                         <div class="col-sm-6 col-12">

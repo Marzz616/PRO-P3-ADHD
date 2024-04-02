@@ -35,7 +35,7 @@
                     </div>
                     <div class="user-menu">
                         <ul>
-                            <li><a class="active" href="resultaten.php">AD(H)D Test</a></li>
+                            <li><a href="resultaten.php">AD(H)D Test</a></li>
                         </ul>
                     </div>
                 </div>

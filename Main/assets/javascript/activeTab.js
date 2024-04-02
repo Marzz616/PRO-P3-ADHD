@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Determining all tab elements
     var tabs = document.querySelectorAll('.main-menu a');
+    var tabs = document.querySelectorAll('.user-menu a');
 
     //Checking if all tabs match the URL
     tabs.forEach(function(tab) {
