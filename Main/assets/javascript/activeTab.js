@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var currentUrl = window.location.href;
 
     // Determining all tab elements
-    var tabs = document.querySelectorAll('.main-menu a');
-    var tabs = document.querySelectorAll('.user-menu a');
+    var tabs = document.querySelectorAll('.main-menu a ,.user-menu a');
 
     //Checking if all tabs match the URL
     tabs.forEach(function(tab) {
