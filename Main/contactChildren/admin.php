@@ -96,7 +96,7 @@ foreach ($result2 as $formObject) {
                 </div>
                 <div class="user-menu">
                     <ul>
-                        <li><a class="active" href="main_page/resultaten.php">AD(H)D Test</a></li>
+                        <li><a class="active" href="../main_page/resultaten.php">AD(H)D Test</a></li>
                     </ul>
                 </div>
             </div>
