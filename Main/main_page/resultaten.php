@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="../assets/css/header_and_footer.css">
-    <link rel="stylesheet" href="../Main/assets/css/global.css">
-  <script src="../Main/assets/javascript/progressBar.js"></script>
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+  <script src="../assets/javascript/progressBar.js"></script>
+  <script src="../assets/javascript/activeTab.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -25,12 +29,13 @@
                             <li><a href="../ADD.html">ADD</a></li>
                             <li><a href="../trainning.html">Trainingen</a></li>
                             <li><a href="../contact.html">Contact</a></li>
+                            <li><a href="../aboutUs.html">About Us</a></li>
                             <li><a href="../faq.html">FAQ</a></li>
                         </ul>
                     </div>
                     <div class="user-menu">
                         <ul>
-                            <li><a class="active" href="main_page/resultaten.php">AD(H)D Test</a></li>
+                            <li><a class="active" href="resultaten.php">AD(H)D Test</a></li>
                         </ul>
                     </div>
                 </div>
