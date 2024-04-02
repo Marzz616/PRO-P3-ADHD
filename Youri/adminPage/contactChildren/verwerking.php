@@ -8,11 +8,11 @@
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
                 // Controleer of alle velden zijn ingevuld
-                if (!empty($_POST['Naam']) && !empty($_POST['Email'])) {
+                if (!empty($_POST['name']) && !empty($_POST['email'])) {
                     
                     
-                    if ($_POST['Naam'] == "Youri" && $_POST['Email'] == "Admin@admin.com") {
-                        header("Location: admin.php");
+                    if ($_POST['name'] == "Youri" && $_POST['email'] == "Admin@admin.com") {
+                        header("Location: ../admin.php");
                         exit;
                     }                                     
                     $dsn = "mysql:host=$dbHost; dbname=$dbName; charset=UTF8";
@@ -23,15 +23,15 @@
                     $sql = "INSERT INTO contact_info(Name, Email, Message) VALUES (:Name, :Email, :Message)";
                     $statement = $pdo->prepare($sql);
         
-                    $statement->bindValue(':Name', $_POST['Naam'], PDO::PARAM_STR);
-                    $statement->bindValue(':Email', $_POST['Email'], PDO::PARAM_STR);
-                    $statement->bindValue(':Message', $_POST['Message'], PDO::PARAM_STR);
+                    $statement->bindValue(':Name', $_POST['name'], PDO::PARAM_STR);
+                    $statement->bindValue(':Email', $_POST['email'], PDO::PARAM_STR);
+                    $statement->bindValue(':Message', $_POST['message'], PDO::PARAM_STR);
                     
         
                     $statement->execute();
         
                     echo "Uw gegevens zijn opgeslagen ";
-                    echo "<a href='../index.php'>Klik hier om terug te gaan</a>";
+                    echo "<a href='../contact.html'>Klik hier om terug te gaan</a>";
                     
         
                 } else {
