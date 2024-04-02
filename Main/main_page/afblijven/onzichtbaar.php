@@ -32,7 +32,7 @@
                     $statement->execute();
         
                     echo "Uw gegevens zijn opgeslagen ";
-                    echo "<a href='../index.php'>Klik hier om terug te gaan</a>";
+                    echo "<a href='../resultaten.php'>Klik hier om terug te gaan</a>";
                     
         
                 } else {

@@ -1,0 +1,29 @@
+body {
+  margin-top: 5rem;
+  display: flex;
+}
+
+.container {
+  width: 60%;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+section div {
+  display: flex;
+}
+section div p {
+  width: 60%;
+}
+section div h3 {
+  margin-bottom: 0.5rem;
+}
+section div h4 {
+  margin-top: 0.5rem;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+/*# sourceMappingURL=AboutUs.css.map */

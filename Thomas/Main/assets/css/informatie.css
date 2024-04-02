@@ -1,0 +1,22 @@
+body {
+    margin-top: 4rem;
+}
+
+#more,
+#more2 {
+    display: none;
+}
+
+#myBtn,
+#myBtn2 {
+    background-color: #f79616;
+    width: 7.5rem;
+    height: 1.5rem;
+    border-radius: 0 50px;
+    border: solid;
+    padding: 0;
+}
+
+.fotos {
+    text-align: center;
+}

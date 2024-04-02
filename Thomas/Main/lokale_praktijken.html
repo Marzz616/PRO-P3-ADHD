@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="assets/javascript/Search.js"></script>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/maps.css">
+  <link rel="stylesheet" href="assets/css/header_and_footer.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+  <script src="assets/javascript/progressBar.js"></script>
+
+  <title>Apotheek zoeker</title>
+</head>
+
+<body>
+  <home>
+
+    <header>
+      <nav class="fixed">
+        <div class="menu-container">
+          <div class="logo">
+            <span>Focus</span>Fuse
+            <p>AD(H)D</p>
+          </div>
+          <div class="main-menu row jc-space-between">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="informatie.html">ADHD</a></li>
+              <li><a href="ADD.html">ADD</a></li>
+              <li><a href="trainning.html">Trainingen</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="aboutUs.html">About Us</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="user-menu">
+            <ul>
+              <li><a class="active" href="adminPage/contactChildren/admin.php">AD(H)D Test</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="progress-bar"></div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1><img src="assets/img/location.png" alt=""> Apotheek zoeker <img src="assets/img/location.png" alt=""></h1>
+      <div id="zoekbalk">
+        <input type="text" id="locationInput" placeholder="Woonplaats of postcode...">
+        <button id="zoeken" onclick="searchPharmacies()">zoeken</button>
+      </div>
+      <div id="pharmacyList"></div>
+
+    </div>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-container jc-center row">
+          <div class="col-6">
+            <div class="bubble-2">
+              <h5>The Team</h5>
+              <ul>
+                <li><a href="aboutUs.html">About
+                    Us</a></li>
+                <li><a href="contact.html">Contact
+                    Us</a></li>
+                <li><a href="contact.html">Email us</a></li>
+                <li><a href="contact.html">Call/Sms us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="bubble-2">
+              <h5>Our Website</h5>
+              <ul>
+                <li><a href="informatie.html">ADHD
+                    Page</a></li>
+                <li><a href="ADD.html">ADD
+                    Page</a></li>
+                <li><a href="trainning.html">Trainingen</a>
+                </li>
+                <li><a href="faq.html">Faq
+                    Page</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-container">
+          <div class="row align-items-center">
+            <div class="col-sm-6 col-12">
+              <ul class="footer-social">
+                <li><a href="https://www.facebook.com/"><img src="assets/img/footer/facebook2.png" alt=""><i
+                      class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.instagram.com/?hl=en"><img src="assets/img/footer/instagram2.png" alt=""><i
+                      class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/?app"><img src="assets/img/footer/youtube2.png" alt=""><i
+                      class="fab fa-youtube"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-sm-6 col-12">
+              <p class="copyright-text">Copyright © 2024 FocusFuse AD(H)D<br>All rights are ours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/javascript/activeTab.js"></script>
+    <script src="assets/javascript/progressBar.js"></script>
+</body>
+
+</html>

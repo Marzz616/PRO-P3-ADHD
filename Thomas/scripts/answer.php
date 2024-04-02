@@ -15,7 +15,7 @@
 <body>
   <!--De header-->
   <home>
-
+    
     <header>
       <nav class="fixed">
         <div class="menu-container">
@@ -109,6 +109,7 @@
             $clean_question = strtolower($clean_question);
             $clean_existing_questions = array_map('strtolower', $clean_existing_questions);
 
+            // Controleren of de vraag al bestaat en of deze over ADHD/ADD gaat
             if (in_array($clean_question, $clean_existing_questions)) {
                 echo "<div class='echo-text'>Deze vraag bestaat al!</div>";
             } else if (!preg_match("/\b(ADHD|ADD)\b/i", $question)) {
