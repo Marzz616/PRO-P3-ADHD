@@ -92,6 +92,7 @@ foreach ($result2 as $formObject) {
     <link rel="stylesheet" href="../assets/css/header_and_footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
     <title>Weergave personen</title>
 </head>
 <body>
