@@ -74,6 +74,8 @@ foreach ($result2 as $formObject) {
     <link rel="stylesheet" href="../assets/css/adminPage.css">
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../assets/css/header_and_footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Weergave personen</title>
 </head>
 <body>
