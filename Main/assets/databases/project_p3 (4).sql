@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Gegenereerd op: 02 apr 2024 om 18:44
+-- Gegenereerd op: 03 apr 2024 om 14:32
 -- Serverversie: 8.0.31
 -- PHP-versie: 8.0.26
 
@@ -56,24 +56,26 @@ CREATE TABLE IF NOT EXISTS `project_p3` (
   `id` tinyint NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) NOT NULL,
   `Email` varchar(200) NOT NULL,
-  `S` smallint NOT NULL,
-  `N` smallint NOT NULL,
-  `Z` smallint NOT NULL,
+  `vraag 1` varchar(2) NOT NULL,
+  `vraag 2` varchar(2) NOT NULL,
+  `vraag 3` varchar(2) NOT NULL,
+  `vraag 4` varchar(2) NOT NULL,
+  `vraag 5` varchar(2) NOT NULL,
+  `vraag 6` varchar(2) NOT NULL,
+  `vraag 7` varchar(2) NOT NULL,
+  `vraag 8` varchar(2) NOT NULL,
+  `vraag 9` varchar(2) NOT NULL,
+  `vraag 10` varchar(2) NOT NULL,
+  `totale punten` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `project_p3`
 --
 
-INSERT INTO `project_p3` (`id`, `Name`, `Email`, `S`, `N`, `Z`) VALUES
-(1, 'test03', 'test3@tester.com', 3, 4, 3),
-(2, 'test03', 'test3@tester.com', 3, 4, 3),
-(3, 'test04', 'test4@tester.com', 6, 3, 1),
-(4, 'test04', 'test4@tester.com', 6, 3, 1),
-(5, 'test04', 'test4@tester.com', 6, 4, 0),
-(8, 'test 5', 'test5@tester.com', 3, 6, 1),
-(9, 'test 5', 'test5@tester.com', 0, 0, 0);
+INSERT INTO `project_p3` (`id`, `Name`, `Email`, `vraag 1`, `vraag 2`, `vraag 3`, `vraag 4`, `vraag 5`, `vraag 6`, `vraag 7`, `vraag 8`, `vraag 9`, `vraag 10`, `totale punten`) VALUES
+(19, 'newTest3', 'newTest3@tester.com', 'S', 'N', 'Z', 'N', 'S', 'N', 'Z', 'N', 'S', 'N', 11);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
