@@ -63,7 +63,6 @@
             dbname=$dbName;
             charset=UTF8";
 if (!empty($_POST['Naam']) && !empty($_POST['Email'])){
-    $punten = 0;
     
         $pdo = new PDO($dsn, $dbUser, $dbPass);
 
@@ -71,9 +70,17 @@ if (!empty($_POST['Naam']) && !empty($_POST['Email'])){
 
         $sql = "SELECT  Name
                         ,Email
-                        ,S
-                        ,N
-                        ,Z
+                        ,`vraag 1`
+                        ,`vraag 2`
+                        ,`vraag 3`
+                        ,`vraag 4`
+                        ,`vraag 5`
+                        ,`vraag 6`
+                        ,`vraag 7`
+                        ,`vraag 8`
+                        ,`vraag 9`
+                        ,`vraag 10`
+                        ,`totale punten`
                 from project_p3
                 WHERE Name = :Name AND Email = :Email";
 
@@ -88,22 +95,19 @@ if (!empty($_POST['Naam']) && !empty($_POST['Email'])){
         if ($result) {
             echo "Name: " . $result['Name'] . "<br>";
             echo "Email: " . $result['Email'] . "<br>";
-            echo "Aantal statements sterk mee eens: " . $result['S'] . "<br>";
-            echo "Aantal statements mee eens: " . $result['N'] . "<br>";
-            echo "Aantal statements niet mee eens: " . $result['Z'] . "<br>";
 
-            $punten += (2 * $result['S']);
-            $punten += $result['N'];
-            
-            echo "<h2>Hier is uw resultaat:</h2>";
-
-            if($punten >= 10)
-            {
-                echo "Uw score is hoog genoeg dat een afspraak bij uw huisarts voor een medische bewezen test aan te raden is. <br>";
+            echo "<h2>Eindresultaat</h2>";
+            echo "Uw uiteindelijk score: " . $result['totale punten'] . " van de 20" . "<br>";
+            if($result['totale punten'] >= 14){
+                echo"Uw Score duidt aan dat u ADHD heeft<br>";
+            }else if($result['totale punten'] > 9){
+                echo"Uw score duidt aan dat u een mogelijk ADHD heeft. Voor een uitgebreidere test kan u Uw dichtsbijzijnde huisarts/apotheek vinden door <a href='../lokale_praktijken'>HIER</a> te klikken<br>";
             }else{
-                echo "Uw score is niet hoog genoeg om door ons aangeraden te krijgen ofdat u een afspraak met de huisarts moet maken.<br>
-                Mocht u toch denken dat u een medische test wilt neem dan contact op met de dichstbijzijnde huisarts<br>";
+                echo"Uw score duidt aan dat u geen ADHD heeft<br>";
             }
+            
+            
+            
         } else {
             echo "Geen resultaten gevonden voor de opgegeven naam en e-mail.";
         }

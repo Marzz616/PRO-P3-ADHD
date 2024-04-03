@@ -2,7 +2,7 @@ body main {
   margin-top: 15vh;
   font-family: Verdana;
   width: 80%;
-  margin-left: 10%;
+  margin-left: 4%;
 }
 body main div {
   margin-bottom: 10vh;
@@ -23,7 +23,7 @@ table, td, th {
 
 table {
   border-collapse: collapse;
-  width: 100%;
+  max-width: 100%;
 }
 
 th, td {

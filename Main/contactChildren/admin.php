@@ -19,10 +19,18 @@ $contactInfo = "SELECT Name
         FROM  contact_info";
 
 $formInfo = "SELECT Name
-                ,Email
-                ,S
-                ,N
-                ,Z
+                    ,Email
+                    ,`vraag 1`
+                    ,`vraag 2`
+                    ,`vraag 3`
+                    ,`vraag 4`
+                    ,`vraag 5`
+                    ,`vraag 6`
+                    ,`vraag 7`
+                    ,`vraag 8`
+                    ,`vraag 9`
+                    ,`vraag 10`
+                    ,`totale punten`
         FROM project_p3";
 
 
@@ -56,12 +64,20 @@ foreach ($result as $persoonObject) {
 
 foreach ($result2 as $formObject) {
     $formRows .= "<tr>
-                        <td>$formObject->Name</td>
-                        <td>$formObject->Email</td>
-                        <td>$formObject->S</td>
-                        <td>$formObject->N</td>
-                        <td>$formObject->Z</td>               
-                   </tr>";
+    <td>{$formObject->Name}</td>
+    <td>{$formObject->Email}</td>
+    <td>{$formObject->{'vraag 1'}}</td>
+    <td>{$formObject->{'vraag 2'}}</td>
+    <td>{$formObject->{'vraag 3'}}</td> 
+    <td>{$formObject->{'vraag 4'}}</td> 
+    <td>{$formObject->{'vraag 5'}}</td>               
+    <td>{$formObject->{'vraag 6'}}</td>               
+    <td>{$formObject->{'vraag 7'}}</td>               
+    <td>{$formObject->{'vraag 8'}}</td>               
+    <td>{$formObject->{'vraag 9'}}</td>               
+    <td>{$formObject->{'vraag 10'}}</td>
+    <td>{$formObject->{'totale punten'}}</td>                                           
+</tr>";
 }
 ?>
 
@@ -140,9 +156,18 @@ foreach ($result2 as $formObject) {
             <thead>
                 <th>Naam</th>
                 <th>Email</th>
-                <th>Sterk mee eens</th>
-                <th>Mee eens</th>
-                <th>Zwak mee eens</th>
+                <th>vraag 1</th>
+                <th>vraag 2</th>
+                <th>vraag 3</th>
+                <th>vraag 4</th>
+                <th>vraag 5</th>
+                <th>vraag 6</th>
+                <th>vraag 7</th>
+                <th>vraag 8</th>
+                <th>vraag 9</th>
+                <th>vraag 10</th>
+                <th>totale score</th>
+
             </thead>
             <tbody>
                 <?php echo $formRows; ?>
