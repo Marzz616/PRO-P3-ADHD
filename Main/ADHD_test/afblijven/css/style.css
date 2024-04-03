@@ -7,6 +7,7 @@ body {
 body form.lijst {
   margin-top: 10%;
   margin-left: 10%;
+  margin-bottom: 10%;
   display: flex;
   border-radius: 10px;
   border: 0.2rem solid black;
@@ -97,8 +98,7 @@ input.inleveren {
   width: 20%;
   height: 2rem;
   font-size: 1.5rem;
-  /* margin-top: 2rem; */
-  margin: 2rem 40%;
+  margin-top: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */
