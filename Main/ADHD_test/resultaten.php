@@ -99,7 +99,7 @@ if (!empty($_POST['Naam']) && !empty($_POST['Email'])){
             echo "<h2>Eindresultaat</h2>";
             echo "Uw uiteindelijk score: " . $result['totale punten'] . " van de 20" . "<br>";
             if($result['totale punten'] >= 14){
-                echo"Uw Score duidt aan dat u ADHD heeft<br>";
+                echo"Uw Score duidt aan dat u ADHD heeft.<br> Voor tips en hulpmiddelen ga naar onze <a href='../trainingen.html'>Trainingen</a> pagina.";
             }else if($result['totale punten'] > 9){
                 echo"Uw score duidt aan dat u een mogelijk ADHD heeft. Voor een uitgebreidere test kan u Uw dichtsbijzijnde huisarts/apotheek vinden door <a href='../lokale_praktijken'>HIER</a> te klikken<br>";
             }else{
